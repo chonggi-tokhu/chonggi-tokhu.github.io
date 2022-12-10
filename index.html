@@ -32,12 +32,31 @@
         <div>
             <div>
                 <div>
-                    <header>
+                    <header class="myheader" id="myheader">
                         <p style="color:white;">texts that you can see only when you turn dark-mode on</p>
                         <h1>web</h1>
                         <h3><a href="http://colourgrey.r-e.kr/" class="colourgold">개인블</a></h3>
                         <h5><a href="https://baekhokp.tistory.com/81" class="coloursilver">티블</a></h5>
+                        <p class="turntheme6" onclick="mythemeww()">겨울로</p>
                     </header>
+                    <script>
+                        function mythemeww() {
+                            document.getElementById("myheader").classList.toggle("winter");
+                        }
+                        window.onclick = function (event) {
+                                        var htag = document.getElementsByClassName("myheader");
+                                        if (!target.matches(".turntheme6")) {
+                                            var darktheme4 = document.getElementsByClassName("myheader");
+                                            var i;
+                                            for (i = 0; i < darktheme4.length; i++) {
+                                                var darkthemexxx4 = darktheme4[i];
+                                                if (darkthemexxx4.classList.contains("winter")) {
+                                                    darkthemexxx4.classList.remove("winter");
+                                                }
+                                            }
+                                        }
+                                    }
+                    </script>
                     <nav>
                         <ul>
                             <li><a href="https://chonggi-tokhu.github.io">home</a></li>
