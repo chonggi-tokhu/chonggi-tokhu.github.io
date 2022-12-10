@@ -32,19 +32,19 @@
         <div>
             <div>
                 <div>
-                    <header id="myheader">
+                    <header id="myheader" class="myheader">
                         <p style="color:white;">texts that you can see only when you turn dark-mode on</p>
                         <h1>web</h1>
                         <h3><a href="http://colourgrey.r-e.kr/" class="colourgold">개인블</a></h3>
                         <h5><a href="https://baekhokp.tistory.com/81" class="coloursilver">티블</a></h5>
-                        <p class="turntheme6">테마를 바꿔요</p>
+                        <p class="turntheme6" onclick="mythemeww()">테마를 바꿔요</p>
                     </header>
                     <script>
                         function mythemeww() {
                             document.getElementById("myheader").classList.toggle("winter");
                         }
                         window.onclick = function (event) {
-                                        var htag = document.getElementsByClassName("mokcha456");
+                                        var htag = document.getElementsByClassName("myheader");
                                         if (!target.matches(".turntheme6")) {
                                             var darktheme4 = document.getElementsByClassName("myheader");
                                             var i;
