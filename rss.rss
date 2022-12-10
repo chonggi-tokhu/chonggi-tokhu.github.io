@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>ch'onggi tŏkhu</title>
+        <link>https://chonggi-tokhu.github.io/</link>
+        <item>
+            <title>Get Visual Studio</title>
+            <link>http://www.visual-studio.com</link>
+            <description>
+                &lt;hr&gt;&lt;/hr&gt;
+            </description>          
+        </item>
+        <item>
+            <title>Get Windows 7</title>
+            <link>http://www.windows7.com</link>
+            <description>
+                Enter Text Here
+            </description>          
+        </item>
+    </channel>
+</rss>
