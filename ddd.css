@@ -1,0 +1,8 @@
+@font-face {
+    font-family: myfont70;
+    src: url('./SteelplateTextura.ttf');
+}
+
+div {
+    font-family: myfont70;
+}
