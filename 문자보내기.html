@@ -15,15 +15,20 @@
 <body>
     <script>
         var kkojyo1= document.createElement("p");
-        var kkojyo2 = document.createAttribute("");
+        var kkojyo2 = document.createAttribute("href");
         var kkojyo3 = document.createAttribute("style");
-        kkojyo2.value = "https://baekhokp.tistory.com/81";
+        
         kkojyo3.value = "background-image:linear-gradient(blue,green,red)";
-        kkojyo1.setAttributeNode(kkojyo2);
+        
         kkojyo1.setAttributeNode(kkojyo3);
         kkojyo1.innerText = "눌러보세요";
         var kkojy00 = document.getElementById("hahahah45");
         var text= "01071288746";
+        kkojyo2.value = "sms:01071288746?body="+(kkojy00);
+        function smsfunction() {
+            var smsa = document.getElementById("hasms4")
+            smsa.setAttributeNode(kkojyo2);
+        }
     </script>
     <div>
         <div>
@@ -32,7 +37,7 @@
             </div>
         </div>
         <div>
-            <a href="sms:(text) + '?body=' + (kkojy00);">문자로문의하기</a>
+            <a onclick="smsfunction()" id="hasms4">문자로문의하기</a>
         </div>
         <div>
             <form action="" name="sihom04" onsubmit="suhak90()">
