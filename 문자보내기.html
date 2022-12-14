@@ -22,9 +22,9 @@
         
         kkojyo1.setAttributeNode(kkojyo3);
         kkojyo1.innerText = "눌러보세요";
-        var kkojy00 = document.getElementById("hahahah45");
+        var kkojy00 = document.getElementById("hahahah45").innerHTML;
         var text= "01071288746";
-        kkojyo2.value = "sms:01071288746?body="+(kkojy00);
+        kkojyo2.value = 'sms:01071288746?body=' + (kkojy00);
         function smsfunction() {
             var smsa = document.getElementById("hasms4")
             smsa.setAttributeNode(kkojyo2);
