@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5499297/skin/style.css?_version_=1671438865">
+    <style>
+        .dark {
+            background: #204157;
+            color: #ddbdbd;
+        }
+
+        .mokcha456 {
+
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .switch {
+            height: 83px;
+            width: 234px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -51px;
+            margin-left: -117px;
+            -moz-border-radius: 40px;
+            -webkit-border-radius: 40px;
+            border-radius: 40px;
+            background-color: #d1d1d1;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFD1D1D1', endColorstr='#FFFEFBF7');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2QxZDFkMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZlZmJmNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+            background-size: 100%;
+            background-image: -moz-linear-gradient(top, #d1d1d1 0%, #fefbf7 100%);
+            background-image: -webkit-linear-gradient(top, #d1d1d1 0%, #fefbf7 100%);
+            background-image: linear-gradient(to bottom, #d1d1d1 0%, #fefbf7 100%);
+        }
+
+        .switch:after {
+            height: 70px;
+            width: 220px;
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            content: '';
+            z-index: 2;
+            -moz-border-radius: 40px;
+            -webkit-border-radius: 40px;
+            border-radius: 40px;
+            background-color: #a5a5a5;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFA5A5A5', endColorstr='#FFE8D7BE');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2E1YTVhNSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U4ZDdiZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+            background-size: 100%;
+            background-image: -moz-linear-gradient(top, #a5a5a5 0%, #e8d7be 100%);
+            background-image: -webkit-linear-gradient(top, #a5a5a5 0%, #e8d7be 100%);
+            background-image: linear-gradient(to bottom, #a5a5a5 0%, #e8d7be 100%);
+        }
+
+        .checkbox {
+            height: 60px;
+            width: 210px;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 10000;
+            -moz-border-radius: 35px;
+            -webkit-border-radius: 35px;
+            border-radius: 35px;
+            -moz-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+            -webkit-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+            box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+            background-color: #e7f4a0;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF28A00', endColorstr='#FFD86517');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyOGEwMCIvPjxzdG9wIG9mZnNldD0iNjclIiBzdG9wLWNvbG9yPSIjZTY1MzAwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZDg2NTE3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+            background-size: 100%;
+            background-image: linear-gradient(#f2fa90, #f8ff6b, #d8ff07);
+            background-image: linear-gradient(to top, #f2fa90, #f8ff6b, #d8ff07 100%);
+            background-image: linear-gradient(to bottom, #f2fa90, #f8ff6b, #d8ff07 100%);
+        }
+
+        .checkbox:after {
+            height: 60px;
+            width: 117px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            z-index: 9999;
+            -moz-border-radius: 35px 0 0 35px;
+            -webkit-border-radius: 35px;
+            border-radius: 35px 0 0 35px;
+            -moz-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+            -webkit-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+            box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+            background-color: #718d99;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFB1DD00', endColorstr='#FF84AD00');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2IxZGQwMCIvPjxzdG9wIG9mZnNldD0iNjclIiBzdG9wLWNvbG9yPSIjN2VhZjAwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjODRhZDAwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+            background-size: 100%;
+            background-image: -moz-linear-gradient(to top, #718d99 0%, #718d83 67%, #848890 100%);
+            background-image: -webkit-linear-gradient(to top, #718d99 0%, #718d83 67%, #848890 100%);
+            background-image: linear-gradient(to bottom, #718d99 0%, #718d83 67%, #848890 100%);
+        }
+
+        .control {
+            height: 73px;
+            width: 138px;
+            outline: 0;
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            z-index: 10001;
+            appearance: none;
+            -moz-border-radius: 36.5px;
+            -webkit-border-radius: 36.5px;
+            border-radius: 36.5px;
+            -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+            -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+            background-color: #efefef;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEFEFEF', endColorstr='#FFBCB9B8');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIzMiUiIHN0b3AtY29sb3I9IiNlZmVmZWYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiY2I5YjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+            background-size: 100%;
+            background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(32%, #efefef), color-stop(100%, #bcb9b8));
+            background-image: -moz-linear-gradient(top, #efefef 32%, #bcb9b8 100%);
+            background-image: -webkit-linear-gradient(top, #efefef 32%, #bcb9b8 100%);
+            background-image: linear-gradient(to bottom, #efefef 32%, #bcb9b8 100%);
+            -moz-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .control:checked {
+            left: 91px;
+        }
+
+        .control:after {
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            content: '';
+            z-index: 10001;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            background-color: #c2c0be;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFC2C0BE', endColorstr='#FFD7D7D7');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2MyYzBiZSIvPjxzdG9wIG9mZnNldD0iNzIlIiBzdG9wLWNvbG9yPSIjZDdkN2Q3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+            background-size: 100%;
+            background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c2c0be), color-stop(72%, #d7d7d7));
+            background-image: -moz-linear-gradient(top, #c2c0be 0%, #d7d7d7 72%);
+            background-image: -webkit-linear-gradient(top, #c2c0be 0%, #d7d7d7 72%);
+            background-image: linear-gradient(to bottom, #c2c0be 0%, #d7d7d7 72%);
+        }
+
+        .btnul1 li {
+            float: left;
+        }
+
+        .btnul1 li button {
+            margin: auto;
+            padding: 0 1.5em;
+            height: 12px;
+            width: 50px;
+            float: left;
+
+            box-shadow: 0.1em 0 0 #2726267f inset,
+                -0.1em 0 0 #27262600 inset,
+                0 0.1em 0 #afa490 inset,
+                0 -0.1em 0 #ffffff3f,
+                0 0.2em 0.5em #0000007f,
+                0 -0.1em 0 #926086 inset,
+                -0.1em -0.2em 0 #ffffff7f inset,
+                0.2em 0 0 #ffffff7f inset;
+            opacity: 0.65;
+            transition: opacity 0.2s ease-in-out;
+            border: 1px solid #888;
+
+        }
+
+        .btnul1 li button:focus {
+
+            opacity: 1;
+            height: 12px;
+            width: 50px;
+            box-shadow: 0.1em 0 0 #2626af inset,
+                -0.1em 0 0 #272626 inset,
+                0 0.1em 0 #847a62 inset,
+                0 -0.1em 0 #ffffff3f,
+                0 0.1em 0 #ffffff7f,
+                0 -0.1em 0 #722257 inset,
+                -0.1em -0.2em 0 #ffffff7f inset,
+                0.2em 0 0 #ffff7f inset;
+        }
+
+        .btnul1 li:first-child button {
+            border-radius: 14px 0 0 14px;
+        }
+
+        .btnul1 li:last-child button {
+            border-radius: 0 14px 14px 0;
+        }
+        li {
+            list-style: none;
+        }
+
+    </style>
+</head>
+
+<body id="body734" class="body734">
+    <div>
+        <script>
+            var musimusi = document.getElementById("myclickhoi").innerHTML;
+            var musimusi7 = Number(musimusi);
+            function clickfunction8() {
+                alert("are you mad human?")
+                alert("get lost!")
+                for (n = 0; n < 360; n++ ) {
+                    alert("remain" + (360 - n) + "time\(s\)")
+                }
+                alert("0")
+            }
+        </script>
+        <div>
+            <ul class="btnul1">
+                <li style="height:8px;" role="button"><button class="chromesilver">speed up</button></li>
+                <li style="height:8px;" role="button"><button class="chromesilver"></button></li>
+                <li><button style="border-radius: 66%;">radio</button></li>
+                <li style="height:8px;" role="button"><button class="chromesilver">a</button></li>
+                <li style="height:8px;" role="button"><button class="chromesilver">b</button></li>
+                <li><button style="border-radius: 66%;">functions</button></li>
+                <li style="height:8px;" role="button"><button class="chromesilver">c</button></li>
+                <li style="height:8px;" role="button"><button class="chromesilver">d</button></li>
+                <li style="height:8px;" role="button"><button class="chromesilver"></button></li>
+                <li style="height:8px;" role="button"><button class="chromesilver">speed down</button></li>
+                <br>
+                <li style="height:8px;" role="button"><button class="chromesilver">e</button></li>
+                <li style="height:8px;" role="button"><button class="chromesilver" onclick="clickfunction8()">f</button></li>
+
+
+            </ul>
+        </div>
+        <div>
+            <p id="myclickhoi">ee</p>
+        </div>
+        <div>
+            <button style="border-radius: 66%;"></button>
+        </div>
+        <div>
+            <div>
+                <div style="position: relative;right: 120px;top: 140px;border-radius: 81%;height: 50px;">
+                    <p class="yagwang9" onclick="darkmode99(event)">
+                    <div class="switch" onclick="darkmode99(event)">
+                        <input type="checkbox" id="control" class="control">
+                        <label for="control" class="checkbox"></label>
+                    </div>
+                    <script>
+                        function darkmode99(event) {
+                            var btag = document.getElementById("body734");
+                            btag.classList.toggle("dark");
+                        }
+                        window.onclick = function (event) {
+                            var btag = document.getElementById("body734");
+                            if (!target.matches(".checkbox")) {
+                                var darktheme = document.getElementById("body734");
+                                var i;
+                                for (i = 0; i < darktheme.length; i++) {
+                                    var darkthemexxx = darktheme[i];
+                                    if (darkthemexxx.classList.contains("dark")) {
+                                        darkthemexxx.classList.remove("dark");
+                                    }
+                                }
+                            }
+                        }
+                    </script>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
