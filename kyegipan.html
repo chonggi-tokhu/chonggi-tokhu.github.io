@@ -8,6 +8,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5499297/skin/style.css?_version_=1671438865">
     <style>
+        .jellybtn {
+            background-image: radial-gradient(ellipse at top, #FF1A41, #B3001F);
+            transition: animation 1.2s ease-in-out;
+        }
+        @keyframes myan7{
+            from {transform: scaleX(1.0),scaleY(1.0),skewX(0);}
+            to {transform: scaleX(1.08),scaleY(0.91),skewX(-2.5);}
+        }
         .dark {
             background: #204157;
             color: #99bdbd;
@@ -219,11 +227,12 @@
         li {
             list-style: none;
         }
-
+        
     </style>
 </head>
 
 <body id="body734" class="body734">
+    
     <div>
         <script>
             var musimusi = document.getElementById("myclickhoi").innerHTML;
@@ -235,6 +244,10 @@
                     alert("remain" + (360 - n) + "time\(s\)")
                 }
                 alert("0")
+            }
+            function myjelly1() {
+                var jellybtn1 = document.getElementById("firstjelly");
+                jellybtn1.style.animation = "1.2s myan7 1";
             }
         </script>
         <div>
@@ -255,6 +268,7 @@
 
             </ul>
         </div>
+        <button type="button" class="jellybtn" id="firstjelly">하나 드실래요</button>
         <div>
             <li><button style="border-radius: 66%;">radio</button></li>
             <li><button style="border-radius: 66%;">functions</button></li>
