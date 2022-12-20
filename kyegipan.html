@@ -8,6 +8,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5499297/skin/style.css?_version_=1671438865">
     <style>
+	.anj {
+	    transform: scaleX: 1.08, scaleY: 0.92, skewX: -2.5;
+	}
         .jellybtn {
             background-image: radial-gradient(ellipse at top, #FF1A41, #B3001F);
             transition: transform 1s ease-in-out;
@@ -255,30 +258,20 @@
                 var jellybtn1 = document.getElementById("firstjelly");
                 jellybtn1.style.transform: = "scaleX(1.08),scaleY(0.91),skewX(-2.5)";
             }
-            (function(){
-	const button = document.querySelector("#firstjelly");
-	const isAnimationOk = window.target.matches('#firstjelly');
-	const buttonTl = gsap.timeline();
-	gsap.set(button, {
-		transformOrigin: "50% 50%"
-	});
-
-	buttonTl.to(button, {
-		scaleY: .91,
-		scaleX: 1.06,
-    skewX: -2.5,
-		repeat: 1,
-		yoyo: true,
-		duration: .5,
-		ease: "Bounce.easeIn"
-	});
-	buttonTl.pause();
-
-	button.addEventListener("click", function (e) {
-		buttonTl.play(0.3);
-	});
-}());
-
+            window.onclick = function (event) {
+                            if (!target.matches("#firstjelly")) {
+                                var anj = document.getElementById("firstjelly");
+                                var i;
+                                for (i = 0; i < anj.length; i++) {
+                                    var darkthemexxx4 = anj[i];
+                                    if (darkthemexxx4.classList.contains("an7")) {
+                                        darkthemexxx4.classList.remove("an7");
+                                    } else {
+				    	darkthemexxx4.classList.toggle("an7");
+				    }
+                                }
+                            }
+                        }
 
         </script>
         <div>
