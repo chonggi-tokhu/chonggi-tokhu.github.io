@@ -10,7 +10,7 @@
     <style>
         .jellybtn {
             background-image: radial-gradient(to bottom, #FF1A41, #B3001F);
-              
+            transition: transform 1s ease-in-out;
             border: none;
             border-radius: 3em;
             color: #fbb;
@@ -20,10 +20,6 @@
             font-size: 1.25rem;
             padding: 1em 3em;
             position: relative;
-        }
-        @keyframes myan7{
-            from {transform: scaleX(1.0),scaleY(1.0),skewX(0);}
-            to {transform: scaleX(1.08),scaleY(0.91),skewX(-2.5);}
         }
         .dark {
             background: #204157;
@@ -256,7 +252,7 @@
             }
             function myjelly1() {
                 var jellybtn1 = document.getElementById("firstjelly");
-                jellybtn1.style.animation = "1.2s myan7 1";
+                jellybtn1.style.transform: = "scaleX(1.08),scaleY(0.91),skewX(-2.5)";
             }
         </script>
         <div>
