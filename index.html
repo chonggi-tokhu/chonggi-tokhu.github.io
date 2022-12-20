@@ -233,6 +233,35 @@
 
 <body>
     <div id="body734">
+        <div class="progress">
+  <p></p>
+</div>
+        <script>
+            const progressTag = document.querySelector('.progress')
+const progressText = document.querySelector('p')
+const bodyTag = document.querySelector('body')
+
+document.addEventListener('scroll', () => {
+  const pixels = window.pageYOffset
+  const pageHeight = bodyTag.getBoundingClientRect().height
+  const totalHeight = pageHeight - window.innerHeight
+  const percentage = pixels / totalHeight
+  
+  progressTag.style.width = `${100 * percentage}%`
+  
+  if (pixels > 0) {
+    progressText.innerHTML = (100 * percentage) + '%'
+  } 
+  
+  else {
+    progressText.innerHTML = ''
+  }
+})
+
+
+
+
+        </script>
         <div>
             <a href="./문자보내기.html">웹문자</a>
             <a href="./musikin.html">지식in</a>
