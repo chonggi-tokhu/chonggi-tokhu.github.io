@@ -254,7 +254,6 @@
 </div>
         <script>
             const progressTag = document.querySelector('.progress')
-const progressText = document.querySelector('p')
 const bodyTag = document.querySelector('body')
 
 document.addEventListener('scroll', () => {
@@ -264,14 +263,8 @@ document.addEventListener('scroll', () => {
   const percentage = pixels / totalHeight
   
   progressTag.style.width = `${100 * percentage}%`
+    progressTag.innerHTML = (100 * percentage) + '%'
   
-  if (pixels > 0) {
-    progressText.innerHTML = (100 * percentage) + '%'
-  } 
-  
-  else {
-    progressText.innerHTML = ''
-  }
 })
 
 
