@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5499297/skin/style.css?_version_=1671438865">
     <style>
         .jellybtn {
-            background-image: radial-gradient(to bottom, #FF1A41, #B3001F);
+            background-image: radial-gradient(ellipse at top, #FF1A41, #B3001F);
             transition: transform 1s ease-in-out;
             border: none;
             border-radius: 3em;
@@ -21,6 +21,7 @@
             padding: 1em 3em;
             position: relative;
         }
+        .jellybtn:
         .dark {
             background: #204157;
             color: #99bdbd;
@@ -254,6 +255,31 @@
                 var jellybtn1 = document.getElementById("firstjelly");
                 jellybtn1.style.transform: = "scaleX(1.08),scaleY(0.91),skewX(-2.5)";
             }
+            (function(){
+	const button = document.querySelector(".button");
+	const isAnimationOk = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+	const buttonTl = gsap.timeline();
+	gsap.set(button, {
+		transformOrigin: "50% 50%"
+	});
+
+	buttonTl.to(button, {
+		scaleY: .91,
+		scaleX: 1.06,
+    skewX: -2.5,
+		repeat: 1,
+		yoyo: true,
+		duration: .5,
+		ease: "Bounce.easeIn"
+	});
+	buttonTl.pause();
+
+	button.addEventListener("click", function (e) {
+		buttonTl.play(0.3);
+	});
+}());
+
+
         </script>
         <div>
             <ul class="btnul1">
