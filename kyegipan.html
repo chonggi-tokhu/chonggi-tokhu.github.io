@@ -257,7 +257,7 @@
             }
             (function(){
 	const button = document.querySelector("#firstjelly");
-	const isAnimationOk = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+	const isAnimationOk = window.target.matches('#firstjelly');
 	const buttonTl = gsap.timeline();
 	gsap.set(button, {
 		transformOrigin: "50% 50%"
