@@ -8,29 +8,45 @@
     <title>kyegipan</title>
     <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5499297/skin/style.css">
     <style>
-        .jellybtn {
+        #firstjelly {
+            width: 400px;
+            height: 300px;
+        }
+        #firstjelly button {
+            opacity: 0.94;
+            transition: width 0.1s ease-in-out;
+            border: none;
+            border-radius: 3em;
+            position: relative;
+            left: 20px;
+            top: 300px;
+            width: 120px;
+            height: 40px;
+            background: none;
             background-image: radial-gradient(ellipse at top, #FF1A41, #B3001F);
-            transition: transform 1s ease-in-out;
             border: none;
             border-radius: 3em;
             color: #fbb;
-            cursor: pointer;
             box-shadow: 0 1em 2.5em 0.35em rgba(17, 17, 17, 0.25), 0 0.25em 0.5em rgba(179, 0, 31, 0.65), 0 0.1em 0.35em rgba(255, 26, 65, 0.85), inset -0.025em 0.3em 0.4em rgba(255, 255, 255, 0.68), inset 0 0.05em 0.05em rgba(255, 255, 255, 0.95);
-            font: inherit;
-            font-size: 1.25rem;
-            padding: 1em 3em;
-            position: relative;
         }
-	.wjb1 {
-	    transform: sclaeX(1.08),scaleY(0.92),skewX(-2.5);
-	}
+
+        #firstjelly button:hover {
+            width: 125px;
+            height: 35px;
+            left: 10px;
+            top: 310px;
+        }
+        
+
         .dark {
             background: #204157;
             color: #99bdbd;
         }
+
         .dark button {
             color: #99bdbd;
         }
+
         .mokcha456 {
 
             display: none;
@@ -232,51 +248,48 @@
         .btnul1 li:last-child button {
             border-radius: 0 14px 14px 0;
         }
+
         li {
             list-style: none;
         }
-        
     </style>
 </head>
 
 <body id="body734" class="body734">
-    
+
     <div>
         <script>
             function clickfunction8() {
                 alert("are you mad human?")
                 alert("get lost!")
-                for (n = 0; n < 360; n++ ) {
+                for (n = 0; n < 360; n++) {
                     alert("remain" + (360 - n) + "time\(s\)")
                 }
                 alert("0")
             }
-            function myjelly1() {
-                var jellybtn1 = document.getElementById("firstjelly");
-                jellybtn1.classList.toggle("wjb1")
-		jellybtn1.classList.remove("wjb1");
-		jellybtn1.style.transitionDelay = "1.2s";
-            }
+            
 
         </script>
         <div>
             <ul class="btnul1">
                 <li style="height:8px;" role="button"><button class="chromesilver">speed up</button></li>
                 <li style="height:8px;" role="button"><button class="chromesilver"></button></li>
-		<li style="height:8px;" role="button"><button class="chromesilver"><a href="./index.html">home (a)</a></button></li>
+                <li style="height:8px;" role="button"><button class="chromesilver"><a href="./index.html">home
+                            (a)</a></button></li>
                 <li style="height:8px;" role="button"><button class="chromesilver">b</button></li>
-                
+
                 <li style="height:8px;" role="button"><button class="chromesilver">c</button></li>
                 <li style="height:8px;" role="button"><button class="chromesilver">d</button></li>
                 <li style="height:8px;" role="button"><button class="chromesilver"></button></li>
                 <li style="height:8px;" role="button"><button class="chromesilver">speed down</button></li>
                 <li style="height:8px;" role="button"><button class="chromesilver">e</button></li>
-                <li style="height:8px;" role="button"><button class="chromesilver" onclick="clickfunction8()">f</button></li>
+                <li style="height:8px;" role="button"><button class="chromesilver" onclick="clickfunction8()">f</button>
+                </li>
 
 
             </ul>
         </div>
-        <button type="button" class="jellybtn" id="firstjelly" onclick="myjelly1()">하나 드실래요</button>
+        <br>
         <div>
             <li><button style="border-radius: 66%;">radio</button></li>
             <li><button style="border-radius: 66%;">functions</button></li>
@@ -286,6 +299,11 @@
             <button style="border-radius: 66%;"></button>
         </div>
         <div>
+        <br>
+        <br>
+        <br>
+        <div><p></p></div><div id="firstjelly"><button>하나 드실래요</button></div>
+        
             <div>
                 <div style="position: relative;right: 120px;top: 140px;border-radius: 81%;height: 50px;">
                     <p class="yagwang9" onclick="darkmode99(event)">
