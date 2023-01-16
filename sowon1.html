@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <style>
+  #sowongul1ff {
+      position:absolute;
+      top:200px;
+      right:200px;
+      z-index:8;
+  }
+  #sowontexta1 {
+      z-index:0;
+      position:absolute;
+      top:200px;
+      right:200px;
+      visibility:hidden;
+  }
+  #sowontexta1::placeholder {
+      display:block;
+      visibility:visible;
+  }
+  .sowonbtn444 {
+      background:-o-radial-gradient(#eee,#ff026e,pink,#444);
+      background:-moz-radial-gradient(#eee,#ff026e,pink,#444);
+      background:-ms-radial-gradient(#eee,#ff026e,pink,#444);
+      background:-webkit-radial-gradient(#eee,#ff026e,pink,#444);
+      background:radial-gradient(#eee,#ff026e,pink,#444);
+      color:#fff;
+  }
+  .sowonbtn444:hover {
+      background:linear-gradient(23deg,lightgreen,lightpink,lightblue);
+      background:-o-linear-gradient(23deg,lightgreen,lightpink,lightblue);
+      background:-webkit-linear-gradient(23deg,lightgreen,lightpink,lightblue);
+      background:-moz-linear-gradient(23deg,lightgreen,lightpink,lightblue);
+      background:-ms-linear-gradient(23deg,lightgreen,lightpink,lightblue);
+  }
+</style>
+  </head>
+  <body>
+    <a href="./index.html">home</a>
+<script>
+  function mytas1function() {
+      var sowonneyong1 = document.getElementById("sowongul1ff").innerHTML;
+      document.getElementById("sowontexta1").value = sowonneyong1;
+  }
+    function sowonbilgif1() {
+      var sowonneyong1 = document.getElementById("sowongul1ff").innerHTML;
+        alert((sowonneyong1));
+        alert("응낚시");
+        for (var abc=0;abc<180;abc++) {
+            alert((180-abc)+"번 남음");
+        }
+        alert("0번 남음");
+    }
+</script>
+<div>
+  <div>
+    <div contenteditable="true" id="sowongul1ff" onkeyup="mytas1function()"></div>
+    <textarea placeholder="원하는 소원을 입력하세요" id="sowontexta1" name="sowontexta1"></textarea>
+    <button class="sowonbtn444" onclick="sowonbilgif1()">소원 빌기</button>
+  </div>
+</div>
+  </body>
+</html>
