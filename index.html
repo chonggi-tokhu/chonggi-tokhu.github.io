@@ -11,6 +11,20 @@
     <title>portfolio of chonggitokhu</title>
     <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5499297/skin/style.css">
     <style>
+	.bookpage0 {
+            display: none;
+        }
+        .shownpage0 {
+            position: absolute;
+            top: 60px;
+            left: 35px;
+            z-index: 2px;
+            box-shadow: 2px 2px 2px 1.5px var(--darkbluishgrey);
+            display: inline-block;
+            width: 60%;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
         ::-webkit-scrollbar {
 	width: 14px;
 }
@@ -880,6 +894,56 @@ document.addEventListener('scroll', () => {
                 </div>
             </div>
         </div>
+	<div>
+        <div>
+            <script>
+                function movetofunction10(event) {
+                    var pagetomoveto0 = document.forms["myform9"]["movetonpage0"].value;
+                    
+                    document.getElementById("bookpage0" + (pagetomoveto0)[0]).classList.toggle("shownpage0");
+                    event.preventDefault();
+                }
+
+                window.onclick = function (event) {
+                    if (event.target.matches('.page4btn')) {
+                        var dropdowns451 = document.getElementsByClassName("bookpage0");
+                        var dropdowns45 = dropdowns451;
+                        var i;
+                        for (i = 0; i < dropdowns45.length; i++) {
+                            var openDropdown45 = dropdowns45[i];
+                            if (openDropdown45.classList.contains('shownpage0')) {
+                                openDropdown45.classList.remove('shownpage0');
+                            }
+                        }
+                    }
+                }
+                function nextfunction1(currentp0, next0) {
+                    document.getElementById(currentp0).classList.replace("shownpage0","bookpage0");
+                    document.getElementById(next0).classList.toggle("shownpage0");
+                    window.href = ("#" + (next0));
+                }
+                function prevfunction1(prevp0, currentp1) {
+                    document.getElementById(prevp0).classList.toggle("shownpage0");
+                    document.getElementById(currentp1).classList.replace("shownpage0", "bookpage0")
+                }
+                function bclosefunction0(currentp2) {
+                    document.getElementById(currentp2).classList.replace("shownpage0","bookpage0")
+                }
+            </script>
+            <form name="myform9" onsubmit="return movetofunction10(event)">
+                <input type="text" name="movetonpage0" value>
+                <button type="submit" class="page4btn">페이지 이동</button>
+            </form>
+            <button></button>
+            
+            
+            <div>
+                <div class="bookpage0" id="bookpage01"><p>1페이지입니다.<br>내용없음</p><button onclick="bclosefunction0('bookpage01')">책 덮기</button>--<button onclick="nextfunction1('bookpage01', 'bookpage02')">다음</button></div>
+                <div class="bookpage0" id="bookpage02">2페이지입니다<br><button onclick="prevfunction1('bookpage01', 'bookpage02')">이전</button><span>--</span><button onclick="nextfunction1('bookpage02', 'bookpage03')">다음</button></div>
+                <div class="bookpage0" id="bookpage03"> 3페이지입니다<br><button onclick="prevfunction1('bookpage02', 'bookpage03')">이전</button>--<button onclick="bclosefunction0('bookpage03')">책 덮기</button></div>
+            </div>
+        </div>
+    </div>
     </div>
 </body>
 
