@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.aaarts1 {
+    font-size: 6px;
+    transition: 4s ease-in-out;
+    position: absolute;
+    left: 180px;
+}
+@keyframes myanie89{
+    from{background-image: url();}
+    50%{background-image: linear-gradient(#222,#9a9,#454,#909);display: none;}
+    to{background-image: url();display: block;}
+}
