@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5925927/skin/style.css">
     <link rel="stylesheet" href="./asciiartanieman.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <style>
+    <style> 
         #submitarea90 {
             position: absolute;
             top: 596px;
