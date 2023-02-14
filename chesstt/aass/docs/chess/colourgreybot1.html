@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://urobot2011.github.io/SaveMartin/MartyBotL4/ -->
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>colourgrey-marty bot L4</title>
+  <link href="/docs/colourgrey-styles-1.0/css/colourgrey-styles-1.0.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="/docs/chess/chessboardxxx/css/chessboard-1.0.0.css">
+  <link rel="stylesheet" href="/docs/chess/chessboardxxx/css/chessboard-1.0.0.min.css">
+  <script src="/docs/chess/chessboardxxx/js/chess.js"></script>
+  <script src="/docs/chess/chessboardxxx/js/chess1.js"></script>
+  <script src="/docs/chess/chessboardxxx/js/jquery-3.4.1.min.js"></script>
+  <script src="/docs/chess/chessboardxxx/js/chessboard-1.0.0.min.js"></script>
+  <script src="/docs/chess/martycopy1_files/chess.js"></script>
+  <script src="/docs/chess/martycopy1_files/chessboard-1.0.0.min.js"></script>
+  <script src="/docs/chess/martycopy1_files/jquery-3.4.1.min.js"></script>
+  <script src="/docs/chess/martycopy1_files/bootstrap.min.js"></script>
+  <script src="/docs/chess/martycopy1_files/popper.min.js"></script>
+  <link rel="stylesheet" href="/docs/chess/martycopy1_files/bootstrap.min.css">
+  <link rel="stylesheet" href="/docs/chess/martycopy1_files/chessboard-1.0.0.min.css">
+  <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5499297/skin/style.css">
+  <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5925927/skin/style.css">
+  <style>
+    .footer {
+      background: var(--lightgrey);
+    }
+    .footer p.license {
+      text-align: center;
+      width:100%;
+    }
+
+    #MartySay.dark {
+      background: #204739;
+    }
+    .switch {
+      height: 83px;
+      width: 234px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -51px;
+      margin-left: -117px;
+      -moz-border-radius: 40px;
+      -webkit-border-radius: 40px;
+      border-radius: 40px;
+      background-color: #d1d1d1;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFD1D1D1', endColorstr='#FFFEFBF7');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2QxZDFkMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZlZmJmNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+      background-size: 100%;
+      background-image: -moz-linear-gradient(top, #d1d1d1 0%, #fefbf7 100%);
+      background-image: -webkit-linear-gradient(top, #d1d1d1 0%, #fefbf7 100%);
+      background-image: linear-gradient(to bottom, #d1d1d1 0%, #fefbf7 100%);
+    }
+
+    .switch:after {
+      height: 70px;
+      width: 220px;
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      content: '';
+      z-index: 2;
+      -moz-border-radius: 40px;
+      -webkit-border-radius: 40px;
+      border-radius: 40px;
+      background-color: #a5a5a5;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFA5A5A5', endColorstr='#FFE8D7BE');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2E1YTVhNSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U4ZDdiZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+      background-size: 100%;
+      background-image: -moz-linear-gradient(top, #a5a5a5 0%, #e8d7be 100%);
+      background-image: -webkit-linear-gradient(top, #a5a5a5 0%, #e8d7be 100%);
+      background-image: linear-gradient(to bottom, #a5a5a5 0%, #e8d7be 100%);
+    }
+
+    .checkbox {
+      height: 60px;
+      width: 210px;
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 10000;
+      -moz-border-radius: 35px;
+      -webkit-border-radius: 35px;
+      border-radius: 35px;
+      -moz-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+      -webkit-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+      box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+      background-color: #e7f4a0;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF28A00', endColorstr='#FFD86517');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyOGEwMCIvPjxzdG9wIG9mZnNldD0iNjclIiBzdG9wLWNvbG9yPSIjZTY1MzAwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZDg2NTE3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+      background-size: 100%;
+      background-image: linear-gradient(#f2fa90, #f8ff6b, #d8ff07);
+      background-image: linear-gradient(to top, #f2fa90, #f8ff6b, #d8ff07 100%);
+      background-image: linear-gradient(to bottom, #f2fa90, #f8ff6b, #d8ff07 100%);
+
+    }
+
+    .checkbox:after {
+      transition: background 0.4s ease;
+      height: 60px;
+      width: 117px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      z-index: 9999;
+      -moz-border-radius: 35px 0 0 35px;
+      -webkit-border-radius: 35px;
+      border-radius: 35px 0 0 35px;
+      -moz-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+      -webkit-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+      box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+      background-color: #718d99;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFB1DD00', endColorstr='#FF84AD00');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2IxZGQwMCIvPjxzdG9wIG9mZnNldD0iNjclIiBzdG9wLWNvbG9yPSIjN2VhZjAwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjODRhZDAwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+      background-size: 100%;
+      background: linear-gradient(to top, #718d99 0%, #718d83 67%, #848890 100%);
+      background-image: -webkit-linear-gradient(to top, #718d99 0%, #718d83 67%, #848890 100%);
+      background: linear-gradient(to bottom, #718d99 0%, #718d83 67%, #848890 100%);
+      animation: switchan6 1s infinite;
+    }
+
+    .control {
+      height: 73px;
+      width: 138px;
+      outline: 0;
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      z-index: 10001;
+      appearance: none;
+      -moz-border-radius: 36.5px;
+      -webkit-border-radius: 36.5px;
+      border-radius: 36.5px;
+      -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+      -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+      background-color: #efefef;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEFEFEF', endColorstr='#FFBCB9B8');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIzMiUiIHN0b3AtY29sb3I9IiNlZmVmZWYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiY2I5YjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+      background-size: 100%;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(32%, #efefef), color-stop(100%, #bcb9b8));
+      background-image: -moz-linear-gradient(top, #efefef 32%, #bcb9b8 100%);
+      background-image: -webkit-linear-gradient(top, #efefef 32%, #bcb9b8 100%);
+      background-image: linear-gradient(to bottom, #efefef 32%, #bcb9b8 100%);
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .control:checked {
+      left: 91px;
+    }
+
+    .control:after {
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      content: '';
+      z-index: 10001;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      background-color: #c2c0be;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFC2C0BE', endColorstr='#FFD7D7D7');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2MyYzBiZSIvPjxzdG9wIG9mZnNldD0iNzIlIiBzdG9wLWNvbG9yPSIjZDdkN2Q3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+      background-size: 100%;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c2c0be), color-stop(72%, #d7d7d7));
+      background-image: -moz-linear-gradient(top, #c2c0be 0%, #d7d7d7 72%);
+      background-image: -webkit-linear-gradient(top, #c2c0be 0%, #d7d7d7 72%);
+      background-image: linear-gradient(to bottom, #c2c0be 0%, #d7d7d7 72%);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="body734" style="width: 100%;height: 2000px;">
+    <h1>colou<span onclick="this.style.color='blue';">rgrey-b</span>ot L4</h1>
+    <div class="mb-3">
+      <select id="boardthemeselect">
+        <option value="default" selected>default board theme</option>
+        <option value="classic">board theme:classic</option>
+        <option value="chocolate">board theme:chocolate</option>
+        <option value="bnw">board theme:black and white</option>
+        <option value="green">board theme in colour:green</option>
+        <option value="purple">board theme in colour:purple</option>
+        <option value="blue">board theme in colour:blue</option>
+        <option value="brown">board theme in colour:brown</option>
+        <option value="orange">board theme in colour:orange</option>
+        <option value="marble">board theme in texture:marble</option>
+        <option value="goldsilver">board theme in texture:gold and silver</option>
+        <option value="walnut">board theme in texture:walnut</option>
+        <option value="wood">board theme in texture:wood</option>
+        <option value="neowood">board theme in texture:neo-wood</option>
+        <option value="ivory">board theme in texture:ivory and ebony wood</option>
+      </select>
+      <button type="button" class="btn btn-primary" onclick="colourchangeff1()" id="colourchange1">change board
+        theme</button>
+    </div>
+    <div id="myBoard" style="width: 400px">
+    </div>
+    
+    <div class="card">
+      <div class="card-body" id="MartySay">
+        <div id="MartySay1"></div>
+        <small class="license">license:developer:colourgrey-urubot2011chess공동개발,<br>오픈 소스(출처 명시 필수)<br>(디자인-colourgrey,봇
+          인공지능-urobot2011chess)</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="wn" class="form-label">백 이름</label>
+      <input type="text" class="form-control" id="wn" placeholder="사용할 별명">
+    </div>
+    <div class="mb-3">
+      <select class="form-select" aria-label="봇의 색" id="martycolor">
+        <option selected value="b">봇의 색상(기본 흑)</option>
+        <option value="w">백</option>
+        <option value="b">흑</option>
+
+      </select>
+    </div>
+    <div class="mb-3">
+      <h3>your chess skill level</h3>
+      <select id="userlevel">
+        <option value="grandmaster">그랜드마스터</option>
+        <option value="advance" selected>고수</option>
+        <option value="middle">중수</option>
+        <option value="hasu">하수</option>
+        <option value="pyongsin">체스 병신</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <button type="button" class="btn btn-primary" id="start">start</button>
+    </div>
+
+    <label>FEN:</label>
+    <div id="fen"></div>
+    <label>PGN:</label>
+    <div id="pgn"></div>
+    <script src="./martycopy1_files/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"></script>
+    <script>
+      function darkmode99(event) {
+        var btag = document.getElementById("body734");
+        var dtag1 = document.getElementById("MartySay");
+        btag.classList.toggle("dark");
+        dtag1.classList.toggle("dark");
+      }
+      window.onclick = function (event) {
+        var btag = document.getElementById("body734");
+        var dtag1 = document.getElementById("MartySay");
+        if (!target.matches(".checkbox")) {
+          var darktheme = document.getElementById("body734");
+          var i;
+          for (i = 0; i < darktheme.length; i++) {
+            var darkthemexxx = darktheme[i];
+            if (darkthemexxx.classList.contains("dark")) {
+              darkthemexxx.classList.remove("dark");
+            }
+          }
+          for (i = 0; i < dtag1.length; i++) {
+            var darkthemexxx2 = dtag1[i];
+            if (darkthemexxx2.classList.contains("dark")) {
+              darkthemexxx2.classList.remove("dark");
+            }
+          }
+        }
+      }
+      var board;
+      var game = new Chess();
+      var $start = $('#start');
+      var $fen = $('#fen');
+      var $pgn = $('#pgn');
+      var $wn = $('#wn');
+      var $martycolor = $('#martycolor');
+      var martycolor = "b";
+
+      var $colourchangebtn = $("#colourchange1");
+
+      $colourchangebtn.click(function () {
+        var selectmenu = document.getElementById("boardthemeselect").value;
+        var blcsquare1 = document.querySelectorAll(".black-3c85d");
+        var whtsquare1 = document.querySelectorAll(".white-1e1d7");
+        for (i = 0; i < whtsquare1.length; i++) {
+          var whtsquare = whtsquare1[i];
+          if (selectmenu == "default") {
+            whtsquare.style.background = "#f0d9b5";
+            whtsquare.style.color = "#b58863";
+          }
+          if (selectmenu == "classic") {
+            whtsquare.style.background = "#e9e0ef";
+            whtsquare.style.color = "#060510";
+          }
+          if (selectmenu == "chocolate") {
+            whtsquare.style.background = "#f0d9b5";
+            whtsquare.style.color = "chocolate";
+          }
+          if (selectmenu == "bnw") {
+            whtsquare.style.background = "#f8f8f8";
+            whtsquare.style.color = "#000";
+          }
+          if (selectmenu == "green") {
+            whtsquare.style.background = "#f0d9f5";
+            whtsquare.style.color = "indigo";
+          }
+          if (selectmenu == "purple") {
+            whtsquare.style.background = "#f0d9f5";
+            whtsquare.style.color = "purple";
+          }
+          if (selectmenu == "blue") {
+            whtsquare.style.background = "#f0d9b5";
+            whtsquare.style.color = "blue";
+          }
+          if (selectmenu == "brown") {
+            whtsquare.style.background = "#f0d9ff";
+            whtsquare.style.color = "brown";
+          }
+          if (selectmenu == "orange") {
+            whtsquare.style.background = "#d0d9ff";
+            whtsquare.style.color = "orange";
+          }
+          if (selectmenu == "marble") {
+            whtsquare.style.background = "";
+            whtsquare.style.backgroundImage = "url(./img/chessboardtheme/fromchesscom/marble_whitesq.png)";
+          }
+          if (selectmenu == "goldsilver") {
+            whtsquare.style.background = "var(--silver)";
+          }
+          if (selectmenu == "ivory") {
+            whtsquare.style.background = "";
+            whtsquare.style.backgroundImage = "url(https://media.istockphoto.com/id/1412328901/photo/old-concrete-wall-texture-background-close-up-retro-plain-beige-color-cement-material-surface.jpg?b=1&s=170667a&w=0&k=20&c=_Yd94mVWR9O6JN1PKX41Zr9Fgm2cU3L0GtmKXXs2sFI=)";
+          }
+          if (selectmenu == "walnut") {
+            whtsquare.style.background = "";
+            whtsquare.style.backgroundImage ="url(./img/chessboardtheme/fromchesscom/walnut_whtsq.png)"
+          }
+        }
+        for (i = 0; i < blcsquare1.length; i++) {
+          var blcsquare = blcsquare1[i];
+          if (selectmenu == "default") {
+            blcsquare.style.background = "#b58863";
+            blcsquare.style.color = "#f0d9b5";
+          }
+          if (selectmenu == "classic") {
+            blcsquare.style.background = "radial-gradient(#888,#101527)";
+            blcsquare.style.color = "#e9e0ef";
+          }
+          if (selectmenu == "chocolate") {
+            blcsquare.style.background = "chocolate";
+            blcsquare.style.color = "#f0d9b5";
+          }
+          if (selectmenu == "bnw") {
+            blcsquare.style.background = "radial-gradient(#eee,#020202,#020202)";
+            blcsquare.style.color = "#fff";
+          }
+          if (selectmenu == "green") {
+            blcsquare.style.background = "green";
+            blcsquare.style.color = "#f0d9f5";
+          }
+          if (selectmenu == "purple") {
+            whtsquare.style.background = "#f0d9f5";
+            whtsquare.style.color = "purple";
+            blcsquare.style.background = "purple";
+            blcsquare.style.color = "#f0d9f5";
+          }
+          if (selectmenu == "blue") {
+            blcsquare.style.background = "blue";
+            blcsquare.style.color = "#f0d9b5";
+          }
+          if (selectmenu == "brown") {
+            blcsquare.style.background = "brown";
+            blcsquare.style.color = "#f0d9ff";
+          }
+          if (selectmenu == "orange") {
+            blcsquare.style.background = "orange";
+            blcsquare.style.color = "#d0d9ff";
+          }
+          if (selectmenu == "marble") {
+            blcsquare.style.background = "";
+            blcsquare.style.backgroundImage = "url(./img/chessboardtheme/fromchesscom/marble_blacksq.png)"
+          }
+          if (selectmenu == "goldsilver") {
+            blcsquare.style.background = "var(--gold)";
+          }
+          if (selectmenu == "ivory") {
+            blcsquare.style.background = "";
+            blcsquare.style.backgroundImage = "url(https://media.istockphoto.com/id/1355204884/photo/rustic-plywood-texture-background.jpg?b=1&s=170667a&w=0&k=20&c=YT3HKmr1sSpRwFhnJCUN-AlMFU5GmGQDIlwuHOqAbKc=)";
+          }
+          if (selectmenu == "walnut") {
+            blcsquare.style.background = "";
+            blcsquare.style.backgroundImage = "url(./img/chessboardtheme/fromchesscom/walnut_blsq.png)";
+          }
+        }
+        if (selectmenu == "default") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "#b58863";
+          blcsquare.style.background = "#b58863";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "classic") {
+          whtsquare.style.background = "#e9e0ef";
+          whtsquare.style.color = "#060510";
+          blcsquare.style.background = "#060510";
+          blcsquare.style.color = "#e9e0ef";
+        }
+        if (selectmenu == "chocolate") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "chocolate";
+          blcsquare.style.background = "chocolate";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "bnw") {
+          whtsquare.style.background = "#f8f8f8";
+          whtsquare.style.color = "#000";
+          blcsquare.style.background = "#020202";
+          blcsquare.style.color = "#fff";
+        }
+        if (selectmenu == "green") {
+          whtsquare.style.background = "#f0d9f5";
+          whtsquare.style.color = "indigo";
+          blcsquare.style.background = "green";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "purple") {
+          whtsquare.style.background = "#f0d9f5";
+          whtsquare.style.color = "purple";
+          blcsquare.style.background = "purple";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "blue") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "blue";
+          blcsquare.style.background = "blue";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "brown") {
+          whtsquare.style.background = "#f0d9ff";
+          whtsquare.style.color = "brown";
+          blcsquare.style.background = "brown";
+          blcsquare.style.color = "#f0d9ff";
+        }
+        if (selectmenu == "orange") {
+          whtsquare.style.background = "#d0d9ff";
+          whtsquare.style.color = "orange";
+          blcsquare.style.background = "orange";
+          blcsquare.style.color = "#d0d9ff";
+        }
+      })
+      window.onload = function () {
+        mythemefunction();
+      }
+      function mythemefunction() {
+        var selectmenu = document.getElementById("boardthemeselect").value;
+        var blcsquare1 = document.querySelectorAll(".black-3c85d");
+        var whtsquare1 = document.querySelectorAll(".white-1e1d7");
+        for (i = 0; i < whtsquare1.length; i++) {
+          var whtsquare = whtsquare1[i];
+          if (selectmenu == "default") {
+            whtsquare.style.background = "#f0d9b5";
+            whtsquare.style.color = "#b58863";
+          }
+          if (selectmenu == "classic") {
+            whtsquare.style.background = "#e9e0ef";
+            whtsquare.style.color = "#161520";
+          }
+          if (selectmenu == "chocolate") {
+            whtsquare.style.background = "#f0d9b5";
+            whtsquare.style.color = "chocolate";
+          }
+          if (selectmenu == "bnw") {
+            whtsquare.style.background = "#f8f8f8";
+            whtsquare.style.color = "#000";
+          }
+          if (selectmenu == "green") {
+            whtsquare.style.background = "#f0d9f5";
+            whtsquare.style.color = "indigo";
+          }
+          if (selectmenu == "purple") {
+            whtsquare.style.background = "#f0d9f5";
+            whtsquare.style.color = "purple";
+          }
+          if (selectmenu == "blue") {
+            whtsquare.style.background = "#f0d9b5";
+            whtsquare.style.color = "blue";
+          }
+          if (selectmenu == "brown") {
+            whtsquare.style.background = "#f0d9ff";
+            whtsquare.style.color = "brown";
+          }
+          if (selectmenu == "orange") {
+            whtsquare.style.background = "#d0d9ff";
+            whtsquare.style.color = "orange";
+          }
+        }
+        for (i = 0; i < blcsquare1.length; i++) {
+          var blcsquare = blcsquare1[i];
+          if (selectmenu == "default") {
+            blcsquare.style.background = "#b58863";
+            blcsquare.style.color = "#f0d9b5";
+          }
+          if (selectmenu == "classic") {
+            blcsquare.style.background = "#060510";
+            blcsquare.style.color = "#e9e0ef";
+          }
+          if (selectmenu == "chocolate") {
+            blcsquare.style.background = "chocolate";
+            blcsquare.style.color = "#f0d9b5";
+          }
+          if (selectmenu == "bnw") {
+            blcsquare.style.background = "#020202";
+            blcsquare.style.color = "#fff";
+          }
+          if (selectmenu == "green") {
+            blcsquare.style.background = "green";
+            blcsquare.style.color = "#f0d9f5";
+          }
+          if (selectmenu == "purple") {
+            whtsquare.style.background = "#f0d9f5";
+            whtsquare.style.color = "purple";
+            blcsquare.style.background = "purple";
+            blcsquare.style.color = "#f0d9f5";
+          }
+          if (selectmenu == "blue") {
+            blcsquare.style.background = "blue";
+            blcsquare.style.color = "#f0d9b5";
+          }
+          if (selectmenu == "brown") {
+            blcsquare.style.background = "brown";
+            blcsquare.style.color = "#f0d9ff";
+          }
+          if (selectmenu == "orange") {
+            blcsquare.style.background = "orange";
+            blcsquare.style.color = "#d0d9ff";
+          }
+        }
+        if (selectmenu == "default") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "#b58863";
+          blcsquare.style.background = "#b58863";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "classic") {
+          whtsquare.style.background = "#e9e0ef";
+          whtsquare.style.color = "#060510";
+          blcsquare.style.background = "#060510";
+          blcsquare.style.color = "#e9e0ef";
+        }
+        if (selectmenu == "chocolate") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "chocolate";
+          blcsquare.style.background = "chocolate";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "bnw") {
+          whtsquare.style.background = "#f8f8f8";
+          whtsquare.style.color = "#000";
+          blcsquare.style.background = "#020202";
+          blcsquare.style.color = "#fff";
+        }
+        if (selectmenu == "green") {
+          whtsquare.style.background = "#f0d9f5";
+          whtsquare.style.color = "indigo";
+          blcsquare.style.background = "green";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "purple") {
+          whtsquare.style.background = "#f0d9f5";
+          whtsquare.style.color = "purple";
+          blcsquare.style.background = "purple";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "blue") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "blue";
+          blcsquare.style.background = "blue";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "brown") {
+          whtsquare.style.background = "#f0d9ff";
+          whtsquare.style.color = "brown";
+          blcsquare.style.background = "brown";
+          blcsquare.style.color = "#f0d9ff";
+        }
+        if (selectmenu == "orange") {
+          whtsquare.style.background = "#d0d9ff";
+          whtsquare.style.color = "orange";
+          blcsquare.style.background = "orange";
+          blcsquare.style.color = "#d0d9ff";
+        }
+      }
+
+      function colourchangeff1() {
+        var selectmenu = document.getElementById("boardthemeselect").value;
+        var blcsquare1 = document.querySelectorAll(".black-3c85d");
+        var whtsquare1 = document.querySelectorAll(".white-1e1d7");
+        for (var i; i < whtsquare1.length; i++) {
+          var whtsquare = whtsquare1[i];
+        }
+        for (var i; i < blcsquare1.length; i++) {
+          var blcsquare = blcsquare1[i]
+        }
+        if (selectmenu == "default") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "#b58863";
+          blcsquare.style.background = "#b58863";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "classic") {
+          whtsquare.style.background = "#e9e0ef";
+          whtsquare.style.color = "#101527";
+          blcsquare.style.background = "radial-gradient(#888,#888,#101527)";
+          blcsquare.style.color = "#e9e0ef";
+        }
+        if (selectmenu == "chocolate") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "chocolate";
+          blcsquare.style.background = "chocolate";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "bnw") {
+          whtsquare.style.background = "#f8f8f8";
+          whtsquare.style.color = "#000";
+          blcsquare.style.background = "#020202";
+          blcsquare.style.color = "#fff";
+        }
+        if (selectmenu == "green") {
+          whtsquare.style.background = "#f0d9f5";
+          whtsquare.style.color = "indigo";
+          blcsquare.style.background = "green";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "purple") {
+          whtsquare.style.background = "#f0d9f5";
+          whtsquare.style.color = "purple";
+          blcsquare.style.background = "purple";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "blue") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "blue";
+          blcsquare.style.background = "blue";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "brown") {
+          whtsquare.style.background = "#f0d9ff";
+          whtsquare.style.color = "brown";
+          blcsquare.style.background = "brown";
+          blcsquare.style.color = "#f0d9ff";
+        }
+        if (selectmenu == "orange") {
+          whtsquare.style.background = "#d0d9ff";
+          whtsquare.style.color = "orange";
+          blcsquare.style.background = "orange";
+          blcsquare.style.color = "#d0d9ff";
+        }
+
+      }
+
+
+      var start_bool = 0;
+
+      var chassvals = [1, 4, 2, 3, 8, 5];
+      //  chassvals = [p, r, n, b, q, k];
+
+      var openingData = [
+        ["rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "d4"],
+        ["rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", "d5"],
+        ["rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", "e5"],
+        ["rnbqkbnr/pppppppp/8/8/8/5P2/PPPPP1PP/RNBQKBNR b KQkq - 0 1", "e6"],//바보 메이트
+        ["rnbqkbnr/pppp1ppp/4p3/8/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq g3 0 2", "Qh4#"],//바보 메이트
+      ];
+
+      function checkOpeningData(fen) {
+        var opening;
+        function checkOpeningData_some(element) {
+          if (element[0] == fen) {
+            opening = element[1];
+            return true;
+          }
+        }
+        if (openingData.some(checkOpeningData_some)) {
+          return opening;
+        }
+        return false;
+      }
+
+      $martycolor.change(function () {
+        martycolor = $(this).val();
+      });
+
+      function MartySay(say) {
+        var $MartySay = $('#MartySay1');
+        $MartySay.html(say);
+      }
+
+      MartySay('Hello? I am ColourGrey-Bot.<br>i am from chess.com. my codes are from urobot2011chess.');
+
+      $start.click(function () {
+        start_bool = 1;
+        game.load("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+        board.position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+        board.orientation('white');
+        $fen.html("");
+        $pgn.html("");
+        if (martycolor == "b") {
+          game.header('White', $wn.val());
+          game.header('Black', 'MartyBot L4');
+        } else if (martycolor == "w") {
+          game.header('Black', $wn.val());
+          game.header('White', 'MartyBot L4');
+        }
+        if (martycolor == "w") {
+          board.position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+          board.orientation('black');
+          window.setTimeout(makeMove, 250);
+        }
+        updateStatus();
+      });
+
+      function onDragStart(source, piece, position, orientation) {
+        if (game.game_over()) return false;
+        if (piece.search(/^{martycolor}/) !== -1) return false;
+      }
+
+      function minimaxCote(depth, game, isMaximisingPlayer) {
+        var newGameMoves = game.moves();
+        var bestMove = -9999;
+        var bestMoveFound;
+
+        var opening = checkOpeningData(game.fen());
+        if (opening != false) {
+          for (var i = 0; i < newGameMoves.length; i++) {
+            if (newGameMoves[i] == opening) {
+              return opening;
+            }
+          }
+        }
+
+        for (var i = 0; i < newGameMoves.length; i++) {
+          var newGameMove = newGameMoves[i]
+          game.move(newGameMove);
+          var value = minimax(depth - 1, game, -10000, 10000, !isMaximisingPlayer);
+          game.undo();
+          if (value >= bestMove) {
+            bestMove = value;
+            bestMoveFound = newGameMove;
+          }
+        }
+        return bestMoveFound;
+      }
+
+      function minimax(depth, game, alpha, beta, isMaximisingPlayer) {
+        positionCount++;
+        if (depth === 0) {
+          return -evaluateBoard(game.board());
+        }
+
+        var newGameMoves = game.moves();
+
+        if (isMaximisingPlayer) {
+          var bestMove = -9999;
+          for (var i = 0; i < newGameMoves.length; i++) {
+            game.move(newGameMoves[i]);
+            bestMove = Math.max(bestMove, minimax(depth - 1, game, alpha, beta, !isMaximisingPlayer));
+            game.undo();
+            alpha = Math.max(alpha, bestMove);
+            if (beta <= alpha) {
+              return bestMove;
+            }
+          }
+          return bestMove;
+        } else {
+          var bestMove = 9999;
+          for (var i = 0; i < newGameMoves.length; i++) {
+            game.move(newGameMoves[i]);
+            bestMove = Math.min(bestMove, minimax(depth - 1, game, alpha, beta, !isMaximisingPlayer));
+            game.undo();
+            beta = Math.min(beta, bestMove);
+            if (beta <= alpha) {
+              return bestMove;
+            }
+          }
+          return bestMove;
+        }
+      }
+
+      function evaluateBoard(board) {
+        var totalEvaluation = 0;
+        for (var i = 0; i < 8; i++) {
+          for (var j = 0; j < 8; j++) {
+            totalEvaluation = totalEvaluation + getPieceValue(board[i][j], i, j);
+          }
+        }
+        return totalEvaluation;
+      }
+
+      var pawnEvalWhite =
+        [
+          [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+          [5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0],
+          [1.0, 1.0, 2.0, 3.0, 3.0, 2.0, 1.0, 1.0],
+          [0.5, 0.5, 1.0, 2.5, 2.5, 1.0, 0.5, 0.5],
+          [0.0, 0.0, 0.0, 2.0, 2.0, 0.0, 0.0, 0.0],
+          [0.5, -0.5, -1.0, 0.0, 0.0, -1.0, -0.5, 0.5],
+          [0.5, 1.0, 1.0, -2.0, -2.0, 1.0, 1.0, 0.5],
+          [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        ];
+
+      var pawnEvalBlack = pawnEvalWhite.slice().reverse();
+
+      var knightEval =
+        [
+          [-5.0, -4.0, -3.0, -3.0, -3.0, -3.0, -4.0, -5.0],
+          [-4.0, -2.0, 0.0, 0.0, 0.0, 0.0, -2.0, -4.0],
+          [-3.0, 0.0, 1.0, 1.5, 1.5, 1.0, 0.0, -3.0],
+          [-3.0, 0.5, 1.5, 2.0, 2.0, 1.5, 0.5, -3.0],
+          [-3.0, 0.0, 1.5, 2.0, 2.0, 1.5, 0.0, -3.0],
+          [-3.0, 0.5, 1.0, 1.5, 1.5, 1.0, 0.5, -3.0],
+          [-4.0, -2.0, 0.0, 0.5, 0.5, 0.0, -2.0, -4.0],
+          [-5.0, -4.0, -3.0, -3.0, -3.0, -3.0, -4.0, -5.0]
+        ];
+
+      var bishopEvalWhite = [
+        [-2.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0],
+        [-1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0],
+        [-1.0, 0.0, 0.5, 1.0, 1.0, 0.5, 0.0, -1.0],
+        [-1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, -1.0],
+        [-1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, -1.0],
+        [-1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0],
+        [-1.0, 0.5, 0.0, 0.0, 0.0, 0.0, 0.5, -1.0],
+        [-2.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0]
+      ];
+
+      var bishopEvalBlack = bishopEvalWhite.slice().reverse();
+
+      var rookEvalWhite = [
+        [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        [0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5],
+        [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+        [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+        [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+        [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+        [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+        [0.0, 0.0, 0.0, 0.5, 0.5, 0.0, 0.0, 0.0]
+      ];
+
+      var rookEvalBlack = rookEvalWhite.slice().reverse();
+
+      var evalQueen = [
+        [-2.0, -1.0, -1.0, -0.5, -0.5, -1.0, -1.0, -2.0],
+        [-1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0],
+        [-1.0, 0.0, 0.5, 0.5, 0.5, 0.5, 0.0, -1.0],
+        [-0.5, 0.0, 0.5, 0.5, 0.5, 0.5, 0.0, -0.5],
+        [0.0, 0.0, 0.5, 0.5, 0.5, 0.5, 0.0, -0.5],
+        [-1.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.0, -1.0],
+        [-1.0, 0.0, 0.5, 0.0, 0.0, 0.0, 0.0, -1.0],
+        [-2.0, -1.0, -1.0, -0.5, -0.5, -1.0, -1.0, -2.0]
+      ];
+
+      var kingEvalWhite = [
+
+        [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
+        [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
+        [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
+        [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
+        [-2.0, -3.0, -3.0, -4.0, -4.0, -3.0, -3.0, -2.0],
+        [-1.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -1.0],
+        [2.0, 2.0, 0.0, 0.0, 0.0, 0.0, 2.0, 2.0],
+        [2.0, 3.0, 1.0, 0.0, 0.0, 1.0, 3.0, 2.0]
+      ];
+
+      var kingEvalBlack = kingEvalWhite.slice().reverse();
+
+      function getPieceValue(piece, x, y) {
+        if (piece === null) {
+          return 0;
+        }
+        function getAbsoluteValue(piece, isWhite, x, y) {
+          if (piece.type === 'p') {
+            return 10 + (isWhite ? pawnEvalWhite[y][x] : pawnEvalBlack[y][x]);
+          } else if (piece.type === 'r') {
+            return 50 + (isWhite ? rookEvalWhite[y][x] : rookEvalBlack[y][x]);
+          } else if (piece.type === 'n') {
+            return 30 + knightEval[y][x];
+          } else if (piece.type === 'b') {
+            return 30 + (isWhite ? bishopEvalWhite[y][x] : bishopEvalBlack[y][x]);
+          } else if (piece.type === 'q') {
+            return 90 + evalQueen[y][x];
+          } else if (piece.type === 'k') {
+            return 900 + (isWhite ? kingEvalWhite[y][x] : kingEvalBlack[y][x]);
+          }
+          throw "Unknown piece type: " + piece.type;
+        }
+        var absoluteValue = getAbsoluteValue(piece, piece.color === 'w', x, y);
+        return piece.color === 'w' ? absoluteValue : -absoluteValue;
+      }
+
+      var positionCount;
+      function getBestMove(game) {
+        positionCount = 0;
+        var depth = parseInt(3);
+        var bestMove = minimaxCote(depth, game, true);
+        return bestMove;
+      }
+
+      function makeMove() {
+        updateStatus();
+        //MartySay('Hmm....');
+        var possibleMoves = game.moves();
+
+        if (possibleMoves.length === 0) return;
+
+        var possibleMoves = game.moves();
+
+        if (game.game_over() === true ||
+          game.in_draw() === true ||
+          possibleMoves.length === 0) return;
+        var bestMove = getBestMove(game);
+        game.move(bestMove);
+        board.position(game.fen());
+
+        updateStatus();
+      }
+
+
+      function updateStatus() {
+        if (start_bool == 0) {
+          if (martycolor == "b") {
+            game.header('White', $wn.val());
+            game.header('Black', 'MartyBot L4');
+          } else if (martycolor == "w") {
+            game.header('Black', $wn.val());
+            game.header('White', 'MartyBot L4');
+          }
+        }
+        var moveColor = 'White';
+        if (game.turn() === 'b') {
+          moveColor = 'Black';
+        }
+        if (game.in_checkmate()) {
+          status = 'Game over, ' + moveColor + ' is in checkmate.';
+          if (martycolor == game.turn()) {
+            MartySay('I lost. Would you like another round?');
+          } else {
+            MartySay('oh, you lost.');
+          }
+        } else if (game.in_draw()) {
+          status = 'Game over, drawn position';
+          MartySay('Oh, it`s a draw. Would you like another round?');
+        } else {
+          status = moveColor + ' to move';
+          if (game.in_check()) {
+            status += ', ' + moveColor + ' is in check';
+            if (martycolor == game.turn()) {
+              MartySay('Hmm, I`ve been checked.');
+            } else {
+              MartySay('You`ve been checked. i like check!');
+            }
+          }
+        }
+        $fen.html(game.fen());
+        $pgn.html(game.pgn());
+      }
+
+      function onDrop(source, target) {
+        var move = game.move({
+          from: source,
+          to: target,
+          promotion: 'q'
+        });
+
+        if (move === null) return 'snapback';
+        window.setTimeout(makeMove, 250);
+      }
+
+
+      function onSnapEnd() {
+        board.position(game.fen());
+      }
+
+      function pieceTheme(piece) {
+        if (piece.search(/w/) !== -1) {
+          return './chessboardxxx/img/chesspieces/wikipedia/' + piece + '.png';
+        }
+        return './chessboardxxx/img/chesspieces/wikipedia/' + piece + '.png';
+      }
+
+      var config = {
+        pieceTheme: pieceTheme,
+        draggable: true,
+        position: 'start',
+        onDragStart: onDragStart,
+        onDrop: onDrop,
+        onSnapEnd: onSnapEnd
+      };
+      board = Chessboard('myBoard', config);
+    </script>
+    <div>
+      <div style="position: fixed;right: 120px;bottom: 40px;border-radius: 81%;height: 50px;">
+        <p class="yagwang9" onclick="darkmode99(event)">
+        <div class="switch" onclick="darkmode99(event)">
+          <input type="checkbox" id="control" class="control">
+          <label for="control" class="checkbox"></label>
+        </div>
+        <script>
+
+        </script>
+        </p>
+      </div>
+    </div>
+    <div class="footer">
+      <p class="license">sources of images:chess.com,pixabay</p>
+      <p class="license">javascript chess board powered by <a href="http://www.chessboardjs.com/">chessboardjs</a></p>
+    </div>
+    <img src="./martycopy1_files/wP.png" id="b6a5-1ff7-4510-421c-edf5-73b9-43be-8002" alt="" class="piece-417db"
+      data-piece="wP" style="width: 49px; height: 49px; display: none;">
+
+  </div>
+
+
+</body>
+
+</html>

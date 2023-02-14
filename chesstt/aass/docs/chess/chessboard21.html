@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>chess board</title>
+  <script src="./chessboardxxx/js/chess1.js"></script>
+  <!--<base href="../">-->
+  <base href=".">
+  <link rel="stylesheet" href="./chessboardxxx/css/chessboard-1.0.0.min.css">
+  <link rel="stylesheet" href="/docs/colourgrey-styles-1.0/css/colourgrey-styles-1.0.css">
+  <link rel="stylesheet" href="./chessboardxxx/css/chessboard-1.0.0.css"
+    integrity="sha384-q94+BZtLrkL1/ohfjR8c6L+A6qzNH9R2hBLwyoAfu3i/WCvQjzL2RQJ3uNHDISdU" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div id="myBoard" style="width: 400px">
+  </div>
+  <label>Status:</label>
+  <div id="status">White to move</div>
+  <label>FEN:</label>
+  <div id="fen">rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1</div>
+  <label>PGN:</label>
+  <div id="pgn"></div>
+  <div>
+    <input type="text" id="username1">
+    <select name="mycolourselect" id="colourselect">
+      <option value="w" selected>봇의 색상(기본값-흑)</option>
+      <option value="b" onclick="mycolourfunction1()">흑</option>
+      <option value="w" onclick="mycolourfunction1()">백</option>
+    </select>
+    <p><br></p>
+    <button type="button" id="challangestart" class="btn btn-primary">start!</button>
+  </div>
+  <select id="boardthemeselect">
+    <option value="default" selected>default board theme</option>
+    <option value="classic">board theme:classic</option>
+    <option value="chocolate">board theme:chocolate</option>
+    <option value="bnw">board theme:black and white</option>
+    <option value="green">board theme in colour:green</option>
+    <option value="purple">board theme in colour:purple</option>
+    <option value="blue">board theme in colour:blue</option>
+    <option value="brown">board theme in colour:brown</option>
+    <option value="orange">board theme in colour:orange</option>
+    <option value="marble">board theme in texture:marble</option>
+    <option value="goldsilver">board theme in texture:gold and silver</option>
+    <option value="walnut">board theme in texture:walnut</option>
+    <option value="wood">board theme in texture:wood</option>
+    <option value="neowood">board theme in texture:neo-wood</option>
+    <option value="ivory">board theme in texture:ivory</option>
+  </select>
+  <button type="button" class="btn btn-primary" onclick="colourchangeff1()" id="colourchange1">change board
+    theme</button>
+  <div class="card">
+    <div class="card-body">
+      <MartySay></MartySay>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="wn" class="form-label">백 이름</label>
+    <input type="text" class="form-control" id="wn" placeholder="이름(아이디)">
+    <!--<label for="bn" class="form-label">흑 이름</label>
+  <input type="text" class="form-control" id="bn" placeholder="name@example.com">-->
+  </div>
+  <div class="mb-3">
+    <label for="martycolor" class="form-label">봇의 색</label>
+    <select class="form-select" aria-label="봇의 색" id="martycolor">
+      <option selected value="b">흑</option>
+      <option value="w">백</option>
+    </select>
+  </div>
+  <!--- End Example HTML -------------------------------------------------------->
+
+  <script src="./chessboardxxx/js/jquery-3.4.1.min.js"></script>
+  <script src="./chessboardxxx/js/chess.js"></script>
+  <script src="./chessboardxxx/js/chessboard-1.0.0.min.js"
+    integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD"
+    crossorigin="anonymous"></script>
+  <script src="./chessboardxxx/js/chessboard-1.0.0.js"
+    integrity="sha384-s3XgLpvmHyscVpijnseAmye819Ee3yaGa8NxstkJVyA6nuDFjt59u1QvuEl/mecz"
+    crossorigin="anonymous"></script>
+  <script>
+    var board;
+    var game = new Chess();
+    var $start = $('#start');
+    var $fen = $('#fen');
+    var $pgn = $('#pgn');
+    var $wn = $('#wn');
+    var $martycolor = $('#martycolor');
+    var martycolor = "b";
+    var start_bool = 0;
+    var $boardthemecolour = $("#boardthemeselect");
+
+
+
+    var $colourchangebtn = $("#colourchange1");
+
+    $colourchangebtn.click(function () {
+      var selectmenu = document.getElementById("boardthemeselect").value;
+      var blcsquare1 = document.querySelectorAll(".black-3c85d");
+      var whtsquare1 = document.querySelectorAll(".white-1e1d7");
+      for (i = 0; i < whtsquare1.length; i++) {
+        var whtsquare = whtsquare1[i];
+        if (selectmenu == "default") {
+          whtsquare.style.backgroundColor = "#f0d9b5";
+          whtsquare.style.color = "#b58863";
+        }
+        if (selectmenu == "classic") {
+          whtsquare.style.backgroundColor = "#e9e0ef";
+          whtsquare.style.color = "#060510";
+        }
+        if (selectmenu == "chocolate") {
+          whtsquare.style.backgroundColor = "#f0d9b5";
+          whtsquare.style.color = "chocolate";
+        }
+        if (selectmenu == "bnw") {
+          whtsquare.style.backgroundColor = "#f8f8f8";
+          whtsquare.style.color = "#000";
+        }
+        if (selectmenu == "green") {
+          whtsquare.style.backgroundColor = "#f0d9f5";
+          whtsquare.style.color = "indigo";
+        }
+        if (selectmenu == "purple") {
+          whtsquare.style.backgroundColor = "#f0d9f5";
+          whtsquare.style.color = "purple";
+        }
+        if (selectmenu == "blue") {
+          whtsquare.style.backgroundColor = "#f0d9b5";
+          whtsquare.style.color = "blue";
+        }
+        if (selectmenu == "brown") {
+          whtsquare.style.backgroundColor = "#f0d9ff";
+          whtsquare.style.color = "brown";
+        }
+        if (selectmenu == "orange") {
+          whtsquare.style.backgroundColor = "#d0d9ff";
+          whtsquare.style.color = "orange";
+        }
+      }
+      for (i = 0; i < blcsquare1.length; i++) {
+        var blcsquare = blcsquare1[i];
+        if (selectmenu == "default") {
+          blcsquare.style.backgroundColor = "#b58863";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "classic") {
+          blcsquare.style.backgroundColor = "#060510";
+          blcsquare.style.color = "#e9e0ef";
+        }
+        if (selectmenu == "chocolate") {
+          blcsquare.style.backgroundColor = "chocolate";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "bnw") {
+          blcsquare.style.backgroundColor = "#020202";
+          blcsquare.style.color = "#fff";
+        }
+        if (selectmenu == "green") {
+          blcsquare.style.backgroundColor = "green";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "purple") {
+          whtsquare.style.backgroundColor = "#f0d9f5";
+          whtsquare.style.color = "purple";
+          blcsquare.style.backgroundColor = "purple";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "blue") {
+          blcsquare.style.backgroundColor = "blue";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "brown") {
+          blcsquare.style.backgroundColor = "brown";
+          blcsquare.style.color = "#f0d9ff";
+        }
+        if (selectmenu == "orange") {
+          blcsquare.style.backgroundColor = "orange";
+          blcsquare.style.color = "#d0d9ff";
+        }
+      }
+      if (selectmenu == "default") {
+        whtsquare.style.backgroundColor = "#f0d9b5";
+        whtsquare.style.color = "#b58863";
+        blcsquare.style.backgroundColor = "#b58863";
+        blcsquare.style.color = "#f0d9b5";
+      }
+      if (selectmenu == "classic") {
+        whtsquare.style.backgroundColor = "#e9e0ef";
+        whtsquare.style.color = "#060510";
+        blcsquare.style.backgroundColor = "#060510";
+        blcsquare.style.color = "#e9e0ef";
+      }
+      if (selectmenu == "chocolate") {
+        whtsquare.style.backgroundColor = "#f0d9b5";
+        whtsquare.style.color = "chocolate";
+        blcsquare.style.backgroundColor = "chocolate";
+        blcsquare.style.color = "#f0d9b5";
+      }
+      if (selectmenu == "bnw") {
+        whtsquare.style.backgroundColor = "#f8f8f8";
+        whtsquare.style.color = "#000";
+        blcsquare.style.backgroundColor = "#020202";
+        blcsquare.style.color = "#fff";
+      }
+      if (selectmenu == "green") {
+        whtsquare.style.backgroundColor = "#f0d9f5";
+        whtsquare.style.color = "indigo";
+        blcsquare.style.backgroundColor = "green";
+        blcsquare.style.color = "#f0d9f5";
+      }
+      if (selectmenu == "purple") {
+        whtsquare.style.backgroundColor = "#f0d9f5";
+        whtsquare.style.color = "purple";
+        blcsquare.style.backgroundColor = "purple";
+        blcsquare.style.color = "#f0d9f5";
+      }
+      if (selectmenu == "blue") {
+        whtsquare.style.backgroundColor = "#f0d9b5";
+        whtsquare.style.color = "blue";
+        blcsquare.style.backgroundColor = "blue";
+        blcsquare.style.color = "#f0d9b5";
+      }
+      if (selectmenu == "brown") {
+        whtsquare.style.backgroundColor = "#f0d9ff";
+        whtsquare.style.color = "brown";
+        blcsquare.style.backgroundColor = "brown";
+        blcsquare.style.color = "#f0d9ff";
+      }
+      if (selectmenu == "orange") {
+        whtsquare.style.backgroundColor = "#d0d9ff";
+        whtsquare.style.color = "orange";
+        blcsquare.style.backgroundColor = "orange";
+        blcsquare.style.color = "#d0d9ff";
+      }
+    })
+    window.onload = function () {
+      mythemefunction();
+    }
+    function mythemefunction() {
+      var selectmenu = document.getElementById("boardthemeselect").value;
+      var blcsquare1 = document.querySelectorAll(".black-3c85d");
+      var whtsquare1 = document.querySelectorAll(".white-1e1d7");
+      for (i = 0; i < whtsquare1.length; i++) {
+        var whtsquare = whtsquare1[i];
+        if (selectmenu == "default") {
+          whtsquare.style.backgroundColor = "#f0d9b5";
+          whtsquare.style.color = "#b58863";
+        }
+        if (selectmenu == "classic") {
+          whtsquare.style.backgroundColor = "#e9e0ef";
+          whtsquare.style.color = "#161520";
+        }
+        if (selectmenu == "chocolate") {
+          whtsquare.style.backgroundColor = "#f0d9b5";
+          whtsquare.style.color = "chocolate";
+        }
+        if (selectmenu == "bnw") {
+          whtsquare.style.backgroundColor = "#f8f8f8";
+          whtsquare.style.color = "#000";
+        }
+        if (selectmenu == "green") {
+          whtsquare.style.backgroundColor = "#f0d9f5";
+          whtsquare.style.color = "indigo";
+        }
+        if (selectmenu == "purple") {
+          whtsquare.style.backgroundColor = "#f0d9f5";
+          whtsquare.style.color = "purple";
+        }
+        if (selectmenu == "blue") {
+          whtsquare.style.backgroundColor = "#f0d9b5";
+          whtsquare.style.color = "blue";
+        }
+        if (selectmenu == "brown") {
+          whtsquare.style.backgroundColor = "#f0d9ff";
+          whtsquare.style.color = "brown";
+        }
+        if (selectmenu == "orange") {
+          whtsquare.style.backgroundColor = "#d0d9ff";
+          whtsquare.style.color = "orange";
+        }
+      }
+      for (i = 0; i < blcsquare1.length; i++) {
+        var blcsquare = blcsquare1[i];
+        if (selectmenu == "default") {
+          blcsquare.style.backgroundColor = "#b58863";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "classic") {
+          blcsquare.style.backgroundColor = "#060510";
+          blcsquare.style.color = "#e9e0ef";
+        }
+        if (selectmenu == "chocolate") {
+          blcsquare.style.backgroundColor = "chocolate";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "bnw") {
+          blcsquare.style.backgroundColor = "#020202";
+          blcsquare.style.color = "#fff";
+        }
+        if (selectmenu == "green") {
+          blcsquare.style.backgroundColor = "green";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "purple") {
+          whtsquare.style.backgroundColor = "#f0d9f5";
+          whtsquare.style.color = "purple";
+          blcsquare.style.backgroundColor = "purple";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "blue") {
+          blcsquare.style.backgroundColor = "blue";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "brown") {
+          blcsquare.style.backgroundColor = "brown";
+          blcsquare.style.color = "#f0d9ff";
+        }
+        if (selectmenu == "orange") {
+          blcsquare.style.backgroundColor = "orange";
+          blcsquare.style.color = "#d0d9ff";
+        }
+      }
+      if (selectmenu == "default") {
+        whtsquare.style.backgroundColor = "#f0d9b5";
+        whtsquare.style.color = "#b58863";
+        blcsquare.style.backgroundColor = "#b58863";
+        blcsquare.style.color = "#f0d9b5";
+      }
+      if (selectmenu == "classic") {
+        whtsquare.style.backgroundColor = "#e9e0ef";
+        whtsquare.style.color = "#060510";
+        blcsquare.style.backgroundColor = "#060510";
+        blcsquare.style.color = "#e9e0ef";
+      }
+      if (selectmenu == "chocolate") {
+        whtsquare.style.backgroundColor = "#f0d9b5";
+        whtsquare.style.color = "chocolate";
+        blcsquare.style.backgroundColor = "chocolate";
+        blcsquare.style.color = "#f0d9b5";
+      }
+      if (selectmenu == "bnw") {
+        whtsquare.style.backgroundColor = "#f8f8f8";
+        whtsquare.style.color = "#000";
+        blcsquare.style.backgroundColor = "#020202";
+        blcsquare.style.color = "#fff";
+      }
+      if (selectmenu == "green") {
+        whtsquare.style.backgroundColor = "#f0d9f5";
+        whtsquare.style.color = "indigo";
+        blcsquare.style.backgroundColor = "green";
+        blcsquare.style.color = "#f0d9f5";
+      }
+      if (selectmenu == "purple") {
+        whtsquare.style.backgroundColor = "#f0d9f5";
+        whtsquare.style.color = "purple";
+        blcsquare.style.backgroundColor = "purple";
+        blcsquare.style.color = "#f0d9f5";
+      }
+      if (selectmenu == "blue") {
+        whtsquare.style.backgroundColor = "#f0d9b5";
+        whtsquare.style.color = "blue";
+        blcsquare.style.backgroundColor = "blue";
+        blcsquare.style.color = "#f0d9b5";
+      }
+      if (selectmenu == "brown") {
+        whtsquare.style.backgroundColor = "#f0d9ff";
+        whtsquare.style.color = "brown";
+        blcsquare.style.backgroundColor = "brown";
+        blcsquare.style.color = "#f0d9ff";
+      }
+      if (selectmenu == "orange") {
+        whtsquare.style.backgroundColor = "#d0d9ff";
+        whtsquare.style.color = "orange";
+        blcsquare.style.backgroundColor = "orange";
+        blcsquare.style.color = "#d0d9ff";
+      }
+    }
+
+    function colourchangeff1() {
+      var selectmenu = document.getElementById("boardthemeselect").value;
+      var blcsquare1 = document.querySelectorAll(".black-3c85d");
+      var whtsquare1 = document.querySelectorAll(".white-1e1d7");
+      for (var i; i < whtsquare1.length; i++) {
+        var whtsquare = whtsquare1[i];
+      }
+      for (var i; i < blcsquare1.length; i++) {
+        var blcsquare = blcsquare1[i]
+      }
+      if (selectmenu == "default") {
+        whtsquare.style.backgroundColor = "#f0d9b5";
+        whtsquare.style.color = "#b58863";
+        blcsquare.style.backgroundColor = "#b58863";
+        blcsquare.style.color = "#f0d9b5";
+      }
+      if (selectmenu == "classic") {
+        whtsquare.style.backgroundColor = "#e9e0ef";
+        whtsquare.style.color = "#060510";
+        blcsquare.style.backgroundColor = "#060510";
+        blcsquare.style.color = "#e9e0ef";
+      }
+      if (selectmenu == "chocolate") {
+        whtsquare.style.backgroundColor = "#f0d9b5";
+        whtsquare.style.color = "chocolate";
+        blcsquare.style.backgroundColor = "chocolate";
+        blcsquare.style.color = "#f0d9b5";
+      }
+      if (selectmenu == "bnw") {
+        whtsquare.style.backgroundColor = "#f8f8f8";
+        whtsquare.style.color = "#000";
+        blcsquare.style.backgroundColor = "#020202";
+        blcsquare.style.color = "#fff";
+      }
+      if (selectmenu == "green") {
+        whtsquare.style.backgroundColor = "#f0d9f5";
+        whtsquare.style.color = "indigo";
+        blcsquare.style.backgroundColor = "green";
+        blcsquare.style.color = "#f0d9f5";
+      }
+      if (selectmenu == "purple") {
+        whtsquare.style.backgroundColor = "#f0d9f5";
+        whtsquare.style.color = "purple";
+        blcsquare.style.backgroundColor = "purple";
+        blcsquare.style.color = "#f0d9f5";
+      }
+      if (selectmenu == "blue") {
+        whtsquare.style.backgroundColor = "#f0d9b5";
+        whtsquare.style.color = "blue";
+        blcsquare.style.backgroundColor = "blue";
+        blcsquare.style.color = "#f0d9b5";
+      }
+      if (selectmenu == "brown") {
+        whtsquare.style.backgroundColor = "#f0d9ff";
+        whtsquare.style.color = "brown";
+        blcsquare.style.backgroundColor = "brown";
+        blcsquare.style.color = "#f0d9ff";
+      }
+      if (selectmenu == "orange") {
+        whtsquare.style.backgroundColor = "#d0d9ff";
+        whtsquare.style.color = "orange";
+        blcsquare.style.backgroundColor = "orange";
+        blcsquare.style.color = "#d0d9ff";
+      }
+
+    }
+
+
+
+    var chassvals = [1, 4, 2, 3, 8, 5];
+    //  chassvals = [p, r, n, b, q, k];
+
+    var openingData = [
+      ["rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "d4"],
+      ["rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", "d5"],
+      ["rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", "e5"],
+      ["rnbqkbnr/pppppppp/8/8/8/5P2/PPPPP1PP/RNBQKBNR b KQkq - 0 1", "e6"],//바보 메이트
+      ["rnbqkbnr/pppp1ppp/4p3/8/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq g3 0 2", "Qh4#"],//바보 메이트
+    ];
+
+    function checkOpeningData(fen) {
+      var opening;
+      function checkOpeningData_some(element) {
+        if (element[0] == fen) {
+          opening = element[1];
+          return true;
+        }
+      }
+      if (openingData.some(checkOpeningData_some)) {
+        return opening;
+      }
+      return false;
+    }
+
+    $martycolor.change(function () {
+      martycolor = $(this).val();
+    });
+
+    function MartySay(say) {
+      var $MartySay = $('MartySay');
+      $MartySay.html(say);
+    }
+
+    MartySay('Hello? I am Marty. Would you like to play with me?');
+
+    $start.click(function () {
+      start_bool = 1;
+      game.load("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+      board.position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+      board.orientation('white');
+      $fen.html("");
+      $pgn.html("");
+      if (martycolor == "b") {
+        game.header('White', $wn.val());
+        game.header('Black', 'MartyBot L4');
+      } else if (martycolor == "w") {
+        game.header('Black', $wn.val());
+        game.header('White', 'MartyBot L4');
+      }
+      if (martycolor == "w") {
+        board.position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+        board.orientation('black');
+        window.setTimeout(makeMove, 250);
+      }
+      updateStatus();
+    });
+
+    function onDragStart(source, piece, position, orientation) {
+      if (game.game_over()) return false;
+      if (piece.search(/^{martycolor}/) !== -1) return false;
+    }
+
+    function minimaxCote(depth, game, isMaximisingPlayer) {
+      var newGameMoves = game.moves();
+      var bestMove = -9999;
+      var bestMoveFound;
+
+      var opening = checkOpeningData(game.fen());
+      if (opening != false) {
+        for (var i = 0; i < newGameMoves.length; i++) {
+          if (newGameMoves[i] == opening) {
+            return opening;
+          }
+        }
+      }
+
+      for (var i = 0; i < newGameMoves.length; i++) {
+        var newGameMove = newGameMoves[i]
+        game.move(newGameMove);
+        var value = minimax(depth - 1, game, -10000, 10000, !isMaximisingPlayer);
+        game.undo();
+        if (value >= bestMove) {
+          bestMove = value;
+          bestMoveFound = newGameMove;
+        }
+      }
+      return bestMoveFound;
+    }
+
+    function minimax(depth, game, alpha, beta, isMaximisingPlayer) {
+      positionCount++;
+      if (depth === 0) {
+        return -evaluateBoard(game.board());
+      }
+
+      var newGameMoves = game.moves();
+
+      if (isMaximisingPlayer) {
+        var bestMove = -9999;
+        for (var i = 0; i < newGameMoves.length; i++) {
+          game.move(newGameMoves[i]);
+          bestMove = Math.max(bestMove, minimax(depth - 1, game, alpha, beta, !isMaximisingPlayer));
+          game.undo();
+          alpha = Math.max(alpha, bestMove);
+          if (beta <= alpha) {
+            return bestMove;
+          }
+        }
+        return bestMove;
+      } else {
+        var bestMove = 9999;
+        for (var i = 0; i < newGameMoves.length; i++) {
+          game.move(newGameMoves[i]);
+          bestMove = Math.min(bestMove, minimax(depth - 1, game, alpha, beta, !isMaximisingPlayer));
+          game.undo();
+          beta = Math.min(beta, bestMove);
+          if (beta <= alpha) {
+            return bestMove;
+          }
+        }
+        return bestMove;
+      }
+    }
+
+    function evaluateBoard(board) {
+      var totalEvaluation = 0;
+      for (var i = 0; i < 8; i++) {
+        for (var j = 0; j < 8; j++) {
+          totalEvaluation = totalEvaluation + getPieceValue(board[i][j], i, j);
+        }
+      }
+      return totalEvaluation;
+    }
+
+    var pawnEvalWhite =
+      [
+        [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        [5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0],
+        [1.0, 1.0, 2.0, 3.0, 3.0, 2.0, 1.0, 1.0],
+        [0.5, 0.5, 1.0, 2.5, 2.5, 1.0, 0.5, 0.5],
+        [0.0, 0.0, 0.0, 2.0, 2.0, 0.0, 0.0, 0.0],
+        [0.5, -0.5, -1.0, 0.0, 0.0, -1.0, -0.5, 0.5],
+        [0.5, 1.0, 1.0, -2.0, -2.0, 1.0, 1.0, 0.5],
+        [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+      ];
+
+    var pawnEvalBlack = pawnEvalWhite.slice().reverse();
+
+    var knightEval =
+      [
+        [-5.0, -4.0, -3.0, -3.0, -3.0, -3.0, -4.0, -5.0],
+        [-4.0, -2.0, 0.0, 0.0, 0.0, 0.0, -2.0, -4.0],
+        [-3.0, 0.0, 1.0, 1.5, 1.5, 1.0, 0.0, -3.0],
+        [-3.0, 0.5, 1.5, 2.0, 2.0, 1.5, 0.5, -3.0],
+        [-3.0, 0.0, 1.5, 2.0, 2.0, 1.5, 0.0, -3.0],
+        [-3.0, 0.5, 1.0, 1.5, 1.5, 1.0, 0.5, -3.0],
+        [-4.0, -2.0, 0.0, 0.5, 0.5, 0.0, -2.0, -4.0],
+        [-5.0, -4.0, -3.0, -3.0, -3.0, -3.0, -4.0, -5.0]
+      ];
+
+    var bishopEvalWhite = [
+      [-2.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0],
+      [-1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0],
+      [-1.0, 0.0, 0.5, 1.0, 1.0, 0.5, 0.0, -1.0],
+      [-1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, -1.0],
+      [-1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, -1.0],
+      [-1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0],
+      [-1.0, 0.5, 0.0, 0.0, 0.0, 0.0, 0.5, -1.0],
+      [-2.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0]
+    ];
+
+    var bishopEvalBlack = bishopEvalWhite.slice().reverse();
+
+    var rookEvalWhite = [
+      [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      [0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5],
+      [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+      [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+      [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+      [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+      [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+      [0.0, 0.0, 0.0, 0.5, 0.5, 0.0, 0.0, 0.0]
+    ];
+
+    var rookEvalBlack = rookEvalWhite.slice().reverse();
+
+    var evalQueen = [
+      [-2.0, -1.0, -1.0, -0.5, -0.5, -1.0, -1.0, -2.0],
+      [-1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0],
+      [-1.0, 0.0, 0.5, 0.5, 0.5, 0.5, 0.0, -1.0],
+      [-0.5, 0.0, 0.5, 0.5, 0.5, 0.5, 0.0, -0.5],
+      [0.0, 0.0, 0.5, 0.5, 0.5, 0.5, 0.0, -0.5],
+      [-1.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.0, -1.0],
+      [-1.0, 0.0, 0.5, 0.0, 0.0, 0.0, 0.0, -1.0],
+      [-2.0, -1.0, -1.0, -0.5, -0.5, -1.0, -1.0, -2.0]
+    ];
+
+    var kingEvalWhite = [
+
+      [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
+      [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
+      [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
+      [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
+      [-2.0, -3.0, -3.0, -4.0, -4.0, -3.0, -3.0, -2.0],
+      [-1.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -1.0],
+      [2.0, 2.0, 0.0, 0.0, 0.0, 0.0, 2.0, 2.0],
+      [2.0, 3.0, 1.0, 0.0, 0.0, 1.0, 3.0, 2.0]
+    ];
+
+    var kingEvalBlack = kingEvalWhite.slice().reverse();
+
+    function getPieceValue(piece, x, y) {
+      if (piece === null) {
+        return 0;
+      }
+      function getAbsoluteValue(piece, isWhite, x, y) {
+        if (piece.type === 'p') {
+          return 10 + (isWhite ? pawnEvalWhite[y][x] : pawnEvalBlack[y][x]);
+        } else if (piece.type === 'r') {
+          return 50 + (isWhite ? rookEvalWhite[y][x] : rookEvalBlack[y][x]);
+        } else if (piece.type === 'n') {
+          return 30 + knightEval[y][x];
+        } else if (piece.type === 'b') {
+          return 30 + (isWhite ? bishopEvalWhite[y][x] : bishopEvalBlack[y][x]);
+        } else if (piece.type === 'q') {
+          return 90 + evalQueen[y][x];
+        } else if (piece.type === 'k') {
+          return 900 + (isWhite ? kingEvalWhite[y][x] : kingEvalBlack[y][x]);
+        }
+        throw "Unknown piece type: " + piece.type;
+      }
+      var absoluteValue = getAbsoluteValue(piece, piece.color === 'w', x, y);
+      return piece.color === 'w' ? absoluteValue : -absoluteValue;
+    }
+
+    var positionCount;
+    function getBestMove(game) {
+      positionCount = 0;
+      var depth = parseInt(7);
+      var bestMove = minimaxCote(depth, game, true);
+      return bestMove;
+    }
+
+    function makeMove() {
+      updateStatus();
+      //MartySay('Hmm....');
+      var possibleMoves = game.moves();
+
+      if (possibleMoves.length === 0) return;
+
+      var possibleMoves = game.moves();
+
+      if (game.game_over() === true ||
+        game.in_draw() === true ||
+        possibleMoves.length === 0) return;
+      var bestMove = getBestMove(game);
+      game.move(bestMove);
+      board.position(game.fen());
+
+      updateStatus();
+    }
+
+
+    function updateStatus() {
+      if (start_bool == 0) {
+        if (martycolor == "b") {
+          game.header('White', $wn.val());
+          game.header('Black', 'MartyBot L4');
+        } else if (martycolor == "w") {
+          game.header('Black', $wn.val());
+          game.header('White', 'MartyBot L4');
+        }
+      }
+      var moveColor = 'White';
+      if (game.turn() === 'b') {
+        moveColor = 'Black';
+      }
+      if (game.in_checkmate()) {
+        status = 'Game over, ' + moveColor + ' is in checkmate.';
+        if (martycolor == game.turn()) {
+          MartySay('Whoops, I lost. Would you like another round?');
+        } else {
+          MartySay('Oops, you lost.');
+        }
+      } else if (game.in_draw()) {
+        status = 'Game over, drawn position';
+        MartySay('Oh, it`s a draw. Would you like another round?');
+      } else {
+        status = moveColor + ' to move';
+        if (game.in_check()) {
+          status += ', ' + moveColor + ' is in check';
+          if (martycolor == game.turn()) {
+            MartySay('Hmm, I`ve been checked.');
+          } else {
+            MartySay('You`ve been checked. i like check!');
+          }
+        }
+      }
+      $fen.html(game.fen());
+      $pgn.html(game.pgn());
+    }
+
+    function onDrop(source, target) {
+      var move = game.move({
+        from: source,
+        to: target,
+        promotion: 'q'
+      });
+
+      if (move === null) return 'snapback';
+      window.setTimeout(makeMove, 250);
+    }
+
+
+    function onSnapEnd() {
+      board.position(game.fen());
+    }
+
+    function pieceTheme(piece) {
+      if (piece.search(/w/) !== -1) {
+        return 'https://urobot2011.github.io/SaveMartin/MartyBot/chessboardjs/img/chesspieces/wikipedia/' + piece + '.png';
+      }
+      return 'https://urobot2011.github.io/SaveMartin/MartyBot/chessboardjs/img/chesspieces/wikipedia/' + piece + '.png';
+    }
+
+    var config = {
+      pieceTheme: pieceTheme,
+      draggable: true,
+      position: 'start',
+      onDragStart: onDragStart,
+      onDrop: onDrop,
+      onSnapEnd: onSnapEnd
+    };
+    board = Chessboard('myBoard', config);
+  </script>
+
+
+</body>
+
+</html>
