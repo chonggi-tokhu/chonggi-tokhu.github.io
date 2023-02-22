@@ -27,8 +27,6 @@ color 4f
 echo 파괴가 끝났습니다. 이제 이 컴퓨터를 고물상에 파셔도 괜찮습니다.
 timeout 6
 
-taskkill /f /im explorer.exe
-
 echo 희망고문인 동시에 팩트입니다.
 echo 당신이 컴퓨터를 고칠수 있는 마지막 기회입니다. 
 echo 다음 창에 비번을 입력하세요 비번은 0000입니다
