@@ -192,6 +192,21 @@
       background-image: -webkit-linear-gradient(top, #c2c0be 0%, #d7d7d7 72%);
       background-image: linear-gradient(to bottom, #c2c0be 0%, #d7d7d7 72%);
     }
+        #movecommand1 {
+      background: var(--dark);
+      color: #ecf;
+    }
+    #movecommand1 input {
+      background: var(--dark);
+      color: #ecf;
+    }
+    @media only screen and (max-width: 600px) {
+      .hehehe1 {
+        height: 385px;
+        width: 400px;
+        overflow: scroll;
+      }
+    }
   </style>
 </head>
 
@@ -230,8 +245,22 @@
         <option value="colourgrey-style-pieces">custom(colourgrey)</option>
       </select>
       <h5><b style="color: #ff0060;text-decoration: underline wavy;">주의:컬러그레이봇과 경기 중에는 <br> 기물테마(piece theme)를 바꾸지 마세요.<br>지금까지 뒀던 포지션이 초기화됩니다.</b></h5>
-    </div>
-    <div id="myBoard" style="width: 400px">
+    <div class="boardinner123">
+      
+      <div>
+        <div class="hehehe1">
+          <div id="myBoard" style="width: 400px"></div>
+        </div>
+      </div>
+      <div>
+        <div id="movecommand1">
+          <div id="movecommand2">
+            your new move...
+          </div>
+          <input type="text" id="inputmovecommand1" placeholder="당신이 둘 수를 기보표기법대로 입력하세요" onkeydown="movecommandmove1(event)">
+        </div>
+      </div>
+      
     </div>
 
     <div class="card">
@@ -308,7 +337,21 @@
           }
         }
       }
+      function movecommandmove1(event) {
+        var keyevent1 = event.key;
+        var movecommands12 = document.getElementById("inputmovecommand1");
+        if (keyevent1 == "Enter") {
+          game.move(movecommands12.value);
+          window.setTimeout(makeMove, 250);
+          updateStatus();
+          board.position(game.fen());
+          var $colsolehmove1 = $("#movecommand2");
+          $colsolehmove1.html("이번 게임의 pgn입니다. <br> 아래 입력창에 당신의 move를 입력하세요" + game.pgn());
+        }
+      }
+
       var board;
+      var $movecommands1 = $("#inputmovecommand1");
       var game = new Chess();
       var $start = $('#start');
       var $fen = $('#fen');
