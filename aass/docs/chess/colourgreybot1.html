@@ -311,6 +311,25 @@
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
       crossorigin="anonymous"></script>
     <script>
+      
+      $("#userlevel").change( function () {
+        var kumkum1 = document.getElementById("userlevel").value;
+        if (kumkum1 == "pyongsin") {
+          levelx = 1;
+        }
+        if (kumkum1 == "grandmaster") {
+          levelx = 5;
+        }
+        if (kumkum1 == "hasu") {
+          levelx = 2;
+        }
+        if (kumkum1 == "middle") {
+          levelx = 3;
+        }
+        if (kumkum1 == "advance") {
+          levelx = 4;
+        }
+      });
       function darkmode99(event) {
         var btag = document.getElementById("body734");
         var dtag1 = document.getElementById("MartySay");
@@ -337,21 +356,7 @@
           }
         }
       }
-      function movecommandmove1(event) {
-        var keyevent1 = event.key;
-        var movecommands12 = document.getElementById("inputmovecommand1");
-        if (keyevent1 == "Enter") {
-          game.move(movecommands12.value);
-          window.setTimeout(makeMove, 250);
-          updateStatus();
-          board.position(game.fen());
-          var $colsolehmove1 = $("#movecommand2");
-          $colsolehmove1.html("이번 게임의 pgn입니다. <br> 아래 입력창에 당신의 move를 입력하세요" + game.pgn());
-        }
-      }
-
       var board;
-      var $movecommands1 = $("#inputmovecommand1");
       var game = new Chess();
       var $start = $('#start');
       var $fen = $('#fen');
@@ -362,13 +367,9 @@
       var piecethemes = "wikipedia";
       var $piecethemes2 = $("#piecethemes1");
       var $colourchangebtn = $("#colourchange1");
+      var $movecommands1 = $("#inputmovecommand1");
       document.getElementById("chesspiecesxxx").value = "wikipedia";
 
-      $piecethemes2.change( function () {
-        document.getElementById("chesspiecesxxx").value = $piecethemes2.val();
-        board = Chessboard('myBoard', config);
-      })
-      
 
       $colourchangebtn.click(function (piece) {
         var selectmenu = document.getElementById("boardthemeselect").value;
@@ -377,11 +378,11 @@
         var whtsquare1 = document.querySelectorAll(".white-1e1d7");
         if (selectpiece == "default") {
           piecethemes = "wikipedia";
-          config.pieceTheme = '/aass/docs/chess/img/chesspieces/wikipedia/' + piece + '.png';
+          config.pieceTheme = 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/wikipedia/' + piece + '.png';
         }
         if (selectpiece == "custom") {
           piecethemes = "colourgrey-style-pieces"
-          config.pieceTheme = '/aass/docs/chess/img/chesspieces/colourgrey-style-pieces/' + piece + '.png';
+          config.pieceTheme = 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/colourgrey-style-pieces/' + piece + '.png';
         }
         for (i = 0; i < whtsquare1.length; i++) {
           var whtsquare = whtsquare1[i];
@@ -423,7 +424,7 @@
           }
           if (selectmenu == "marble") {
             whtsquare.style.background = "";
-            whtsquare.style.backgroundImage = "url(/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_whitesq.png)";
+            whtsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_whitesq.png)";
           }
           if (selectmenu == "goldsilver") {
             whtsquare.style.background = "var(--silver)";
@@ -434,7 +435,7 @@
           }
           if (selectmenu == "walnut") {
             whtsquare.style.background = "";
-            whtsquare.style.backgroundImage = "url(/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_whtsq.png)"
+            whtsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_whtsq.png)"
           }
         }
         for (i = 0; i < blcsquare1.length; i++) {
@@ -479,7 +480,7 @@
           }
           if (selectmenu == "marble") {
             blcsquare.style.background = "";
-            blcsquare.style.backgroundImage = "url(/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_blacksq.png)"
+            blcsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_blacksq.png)"
           }
           if (selectmenu == "goldsilver") {
             blcsquare.style.background = "var(--gold)";
@@ -490,7 +491,7 @@
           }
           if (selectmenu == "walnut") {
             blcsquare.style.background = "";
-            blcsquare.style.backgroundImage = "url(/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_blsq.png)";
+            blcsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_blsq.png)";
           }
         }
         if (selectmenu == "default") {
@@ -819,10 +820,7 @@
         updateStatus();
       });
 
-      function onDragStart(source, piece, position, orientation) {
-        if (game.game_over()) return false;
-        if (piece.search(/^{martycolor}/) !== -1) return false;
-      }
+      
 
       function Martylog(log) {
         console.log(log);
@@ -1020,10 +1018,30 @@
         return piece.color === 'w' ? absoluteValue : -absoluteValue;
       }
 
+      
       var positionCount;
       function getBestMove(game) {
+        var levelx;
+
+        var kumkum1 = document.getElementById("userlevel").value;
+        if (kumkum1 == "pyongsin") {
+          levelx = 1;
+        }
+        if (kumkum1 == "grandmaster") {
+          levelx = 5;
+        }
+        if (kumkum1 == "hasu") {
+          levelx = 2;
+        }
+        if (kumkum1 == "middle") {
+          levelx = 3;
+        }
+        if (kumkum1 == "advance") {
+          levelx = 4;
+        }
+        
         positionCount = 0;
-        var depth = parseInt(3);
+        var depth = parseInt(levelx);
         var bestMove = minimaxCote(depth, game, true);
         return bestMove;
       }
@@ -1087,6 +1105,47 @@
         $pgn.html(game.pgn());
       }
 
+      function movecommandmove1(event) {
+        var keyevent1 = event.key;
+        var movecommands12 = document.getElementById("inputmovecommand1");
+        if (keyevent1 == "Enter") {
+          game.move(movecommands12.value);
+          window.setTimeout(makeMove, 250);
+          updateStatus();
+          board.position(game.fen());
+          var $colsolehmove1 = $("#movecommand2");
+          $colsolehmove1.html("이번 게임의 pgn입니다. <br> 아래 입력창에 당신의 move를 입력하세요" + game.pgn());
+        }
+      }
+
+      function puzzlefunction1() {
+        var cgf1 = document.getElementById("inputgamefen1").innerHTML;
+        var spacechar = ' ';
+        var fullstopchar = '.';
+        for (var i = 0; i < cgf1.length; i++) {
+          if (cgf1[i] === (spacechar)) {
+            var sijak123 = i;
+            for (var n =0;n < cgf1.length;n++) {
+              if (cgf1[n] === spacechar) {
+                var kkut123 = n;
+              }
+              var kakkakmoves1 = cgf1.slice((sijak123 + 1), (kkut123));
+              setTimeout(puzzleupdatest(kakkakmoves1), 2000);
+              updateStatus();
+              board.position(game.fen());
+            }
+          }
+          
+        }
+
+      }
+
+      function puzzleupdatest(mub) {
+
+        game.move(mub);
+
+      }
+
       function onDrop(source, target) {
         var move = game.move({
           from: source,
@@ -1094,17 +1153,20 @@
           promotion: 'q'
         });
 
+        
+
         if (move === null) return 'snapback';
         window.setTimeout(makeMove, 250);
       }
 
 
       function onSnapEnd() {
+        board.clearCircles();
         board.position(game.fen());
       }
 
       function pieceTheme(piece) {
-        return '/aass/docs/chess/img/chesspieces/' + document.getElementById("chesspiecesxxx").value +'/' + piece + '.png';
+        return 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/' + document.getElementById("chesspiecesxxx").value +'/' + piece + '.png';
       }
 
       var config = {
@@ -1116,6 +1178,92 @@
         onSnapEnd: onSnapEnd
       };
       board = Chessboard('myBoard', config);
+      board.addCircle = function(to) {
+          var $circle = $("[data-square='" + to + "']");
+          if ($circle != undefined) {
+            var circle = $circle.html();
+            if (!circle.includes("img")) {
+              $circle.html($circle.html() + "<chess-circle></chess-circle>");
+            } else {
+              //$circle.html(circle + "<chess-eat></chess-eat>");
+              $circle.addClass('highlight-black');
+            }
+          } else {
+            return null;
+          }
+        };
+        board.clearCircles = function() {
+          var $circles = $("[data-square]");
+          if ($circles != undefined) {
+            $circles.each(function (index, element) {
+              var circle = $(element).html();
+              circle = circle.replace('<chess-circle></chess-circle>', '');
+              circle = circle.replace('<chess-eat></chess-eat>', '');
+              $(element).html(circle);
+              $(element).removeClass('highlight-black');
+            });
+          } else {
+            return null;
+          }
+        };
+        function onDragStart(source, piece, position, orientation) {
+          board.addCircle = function (to) {
+            var $circle = $("[data-square='" + to + "']");
+            if ($circle != undefined) {
+              var circle = $circle.html();
+              if (!circle.includes("img")) {
+                $circle.html($circle.html() + "<chess-circle></chess-circle>");
+              } else {
+                //$circle.html(circle + "<chess-eat></chess-eat>");
+                $circle.addClass('highlight-black');
+              }
+            } else {
+              return null;
+            }
+          };
+          board.clearCircles = function () {
+            var $circles = $("[data-square]");
+            if ($circles != undefined) {
+              $circles.each(function (index, element) {
+                var circle = $(element).html();
+                circle = circle.replace('<chess-circle></chess-circle>', '');
+                circle = circle.replace('<chess-eat></chess-eat>', '');
+                $(element).html(circle);
+                $(element).removeClass('highlight-black');
+              });
+            } else {
+              return null;
+            }
+          };
+            if (game.game_over()) return false;
+            if (piece.search(/^${martycolor}/) !== -1) return false;
+            board.clearCircles();
+            game.moves({ source, verbose: true }).forEach(function (element) {
+              if (element.from == source) {
+                board.addCircle(element.to);
+                var $source = $("[data-square='" + element.to + "']");
+                $source.click(function () {
+                  onDrop(source, element.to);
+                  onSnapEnd();
+                });
+                $source = $source.find("[data-piece]");
+                if ($source != undefined) {
+                  $source.click(function () {
+                    onDrop(source, element.to);
+                    onSnapEnd();
+                  });
+                }
+              }
+            });
+          }
+        
+        
+        document.getElementById("piecethemes1").onchange =  function () {
+            document.getElementById("chesspiecesxxx").value = document.getElementById("piecethemes1").value;
+            board = Chessboard('myBoard', config);
+        }
+
+
     </script>
     <div>
       <div style="position: fixed;right: 120px;bottom: 40px;border-radius: 81%;height: 50px;">
