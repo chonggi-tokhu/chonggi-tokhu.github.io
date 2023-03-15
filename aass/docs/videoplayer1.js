@@ -9,7 +9,7 @@ function videopausef1() {
   document.getElementById("kkk").pause();
 }
 
-var videotagsss = document.getElementsByTagName('videoplayer2');
+var videotagsss = document.getElementsByTagName("videoplayer2");
 
 videotagsss.videotagmandulgi1 = function (kkk) {
   var videosrc1 = kkk.getAttribute("src");
