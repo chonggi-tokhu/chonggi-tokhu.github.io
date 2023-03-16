@@ -13,7 +13,7 @@
   var mycollection1 = document.getElementsByTagName("videoplayer3");
   for (var i = 0; i < mycollection1.length; i++) {
     var a1a = mycollection1[i].getAttribute("src");
-    mycollection1[i].innerHTML = `<video width="400" height="300" src=" ${a1a} "></video><span role="button" id="videoplayf1"><svg height="200" width="200"><path d="M0 0 L50 50 L0 100 Z" fill="blue" /></svg></span><span role="button" id="videopausef1"><svg height="200" width="200"><path d="M0 0 L10 0 L10 30 L0 30 Z" fill="orange" /></svg></span>`;
+    mycollection1[i].innerHTML = `<video width="400" height="300" src=" ${a1a} "></video><span role="button" onclick="document.getElementsByTagName('videoplayer3')[ ${i} ].play()"><svg height="200" width="200"><path d="M0 0 L50 50 L0 100 Z" fill="blue" /></svg></span><span role="button" onclick="document.getElementsByTagName('videoplayer3')[ ${i} ].pause()"><svg height="200" width="200"><path d="M0 0 L10 0 L10 30 L0 30 Z" fill="orange" /></svg></span>`;
   }
 }
 
