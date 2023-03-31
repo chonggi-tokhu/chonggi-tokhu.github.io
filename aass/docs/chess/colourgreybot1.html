@@ -773,6 +773,9 @@
       var chassvals = [1, 4, 2, 3, 8, 5];
       //  chassvals = [p, r, n, b, q, k];
 
+      function openingrandom1(element) {
+          return Math.floor(Math.random() * element.length) + 1;
+      }
       var openingData = [
         ["rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "e4", "e4", "e4", "d4", "d4", "e4", "g3", "b3"],
         ["rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", "d5", "e5", "d5" "d5", "Nf6"],
@@ -794,8 +797,8 @@
         var opening;
         function checkOpeningData_some(element) {
           if (element[0] == fen) {
-            var openingrandom1 = Math.floor(Math.random() * element.length) + 1;
-            opening = element[openingrandom1];
+            var openingrandom123 = openingrandom1(element);
+            opening = element[openingrandom123];
             return true;
           }
         }
