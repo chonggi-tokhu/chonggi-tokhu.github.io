@@ -799,7 +799,7 @@
             return true;
           }
         }
-        if (checkOpeningData_some(openingData.some)) {
+        if (openingData.some(checkOpeningData_some(this))) {
           return opening;
         }
         return false;
