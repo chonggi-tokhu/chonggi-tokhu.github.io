@@ -262,13 +262,7 @@
         </div>
       </div>
       <div>
-        <div id="movecommand1">
-          <div id="movecommand2">
-            your new move...
-          </div>
-          <input type="text" id="inputmovecommand1" placeholder="당신이 둘 수를 기보표기법대로 입력하세요" onkeydown="movecommandmove1(event)">
-        </div>
-      </div>
+
       
     </div>
 
@@ -277,6 +271,13 @@
         <div id="MartySay1"></div>
         <small class="license">license:developer:colourgrey-urubot2011chess공동개발,<br>오픈 소스(출처 명시 필수)<br>(디자인-colourgrey,봇
           인공지능-urobot2011chess)</small>
+      </div>
+      <div id="movecommand1">
+          <div id="movecommand2">
+            your new move...
+          </div>
+          <input type="text" id="inputmovecommand1" placeholder="당신이 둘 수를 기보표기법대로 입력하세요" onkeydown="movecommandmove1(event)">
+        </div>
       </div>
     </div>
     <div class="mb-3">
@@ -823,7 +824,7 @@
         $MartySay.html(say);
       }
 
-      MartySay('Hello? I am ColourGrey-Bot.<br>i am from chess.com. my codes are from urobot2011chess.');
+      MartySay("Hello? I am ColourGrey-Bot.<br>i am from chess.com. my codes are from urobot2011chess. <a href='https://www.bbq.co.kr/menu/menuView.asp?midx=2247'>치킨먹고싶다 아 맞다 난 인공지능이지?</a>");
 
       $start.click(function () {
         start_bool = 1;
