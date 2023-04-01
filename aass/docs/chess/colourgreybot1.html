@@ -778,6 +778,12 @@
       function openingrandom1(element) {
           return Math.floor(Math.random() * element.length) + 1;
       }
+      var humourData = {
+          seohavampire: "<a href='https://www.chess.com/clubs/forum/view/gaeinjeogeuro-cedase-cugareul-weonhaneun-bos'>응 서하님 뱀파이어임</a>",
+          chickendrip: "치킨맥주... 배고파...",
+          pororo: "<iframe src='https://www.youtube.com/embed/DBMZ_rk3EzA'></iframe>",
+          loopy: "<img src='/poronglpy1.png'>"
+      }
       var openingData = [
         ["rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "e4", "e4", "e4", "d4", "d4", "e4", "g3", "b3"],
         ["rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", "d5", "e5", "d5", "d5", "Nf6"],
@@ -794,7 +800,7 @@
         ["rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2", "c4"], //퀸스갬빗
         ["rnbqkb1r/pppp1ppp/8/4p3/2B1N3/8/PPPP1PPP/R1BQK1NR b KQkq - 0 4", "d5"], //비엔나게임 프랑켄슈타인드라큘라 흑포크
         ["rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2", "e6", "c6"], //QGD
-        ["r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3", "Bc5","Bc5","Bc5","Nf6", "Nf6"], //이탈리안게임 지우코피아노게임
+        ["r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3", "Bc5","Bc5","Bc5","Nf6", "Nf6", "Nd4","Bc5"], //이탈리안게임 지우코피아노게임
         ["r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4", "d3"], //이탈리안게임 지우코피아니시모게임
         ["r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", "Bxc6", "Ba4"], //루이로페즈 익스체인지바리에이션
         ["r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4", "dxc6"], //루이로페즈 익스체인지바리에이션 흑
@@ -1076,7 +1082,8 @@
 
       function makeMove() {
         updateStatus();
-        //MartySay('Hmm....');
+        var randomhumour = Math.floor(Math.random() * humourData.length);
+        MartySay('Hmm....' + humourData[randomhumour]);
         var possibleMoves = game.moves();
 
         if (possibleMoves.length === 0) return;
