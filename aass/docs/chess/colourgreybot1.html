@@ -902,10 +902,17 @@
           Martylog("Marty:      승률: " + String(value));
           if (value >= bestMove) {
             bestMove = value;
+            var firstsecondthird = Math.floor(Math.random() * 8);
             bestMoveFound = newGameMove;
+            /*Martylog("Marty:      이걸로 결정");
             Martylog("Marty:      이걸로 결정");
             Martylog("Marty:      "+String(Date.now() - t2)+"ms 걸림");
             Martylog("Marty:  총 "+String(Date.now() - t1)+"ms 걸림");
+            return bestMoveFound;*/
+            if (firstsecondthird == 4) {
+                firstsecondthird = Math.floor(Math.random() * 3);
+                bestMoveFound = newGamemoves[firstsecondthird];
+            }
             return bestMoveFound;
           }
           Martylog("Marty:      " + String(Date.now() - t2) + "ms 걸림");
