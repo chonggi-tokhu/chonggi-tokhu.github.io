@@ -797,6 +797,12 @@
       }
       var humourdata2 = `<img src="./pokpal1.gif" style="width:300px;height:200px;">`;
 
+      for(let i = 0; i < 30; i++){
+    ECO.adds([
+        {name: "A00 King pawn opening", pgn: "1. e4"},
+        {name: "A00 Queen pawn opening", pgn: "1. d4"}
+    ])
+}
 function checkOpeningData(fen) {
   /*var opening;
   function checkOpeningData_some(element) {
@@ -811,7 +817,6 @@ function checkOpeningData(fen) {
   return false;*/
   var openings = ECO.engineOnly.currentlyAvailableOpening(game);
   return openings[Math.floor(Math.random() * openings.length)].move;
-  return false;
 }
 
       
