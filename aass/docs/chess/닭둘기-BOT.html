@@ -772,11 +772,13 @@
 
       var chassvals = [1, 4, 2, 3, 8, 5];
       //  chassvals = [p, r, n, b, q, k];
-
+      function openingrandom1(element) {
+          return Math.floor(Math.random() * element.length) + 1;
+      }
       var openingData = [
         
         ["rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "h3"],//닭둘기
-        ["rnbqkbnr/pppp1ppp/8/4p3/8/7P/PPPPPPP1/RNBQKBNR w KQkq e6 0 2", "a3"],//닭둘기
+        ["rnbqkbnr/pppppppp/8/8/8/7P/PPPPPPP1/RNBQKBNR b KQkq - 0 1", "a3"],//닭둘기
         ["rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "d4"],
         ["rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", "d5"],
         ["rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", "e5"],
@@ -788,7 +790,8 @@
         var opening;
         function checkOpeningData_some(element) {
           if (element[0] == fen) {
-            opening = element[1];
+            var openingrandom123 = openingrandom1(element);
+            opening = element[openingrandom123];
             return true;
           }
         }
@@ -797,6 +800,7 @@
         }
         return false;
       }
+
 
       $martycolor.change(function () {
         martycolor = $(this).val();
