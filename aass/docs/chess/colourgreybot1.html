@@ -894,26 +894,22 @@
         Martylog("Marty:   오프닝이 없습니다. 지금부터 포지션을 분석합니다.");
 
         
-        for (var i = 0; i < newGameMoves.length; i++) {
-          var t2 = Date.now();
-          Martylog("Marty:    " + String(i) + "번째 포지션을 분석합니다.");
-          var newGameMove = newGameMoves[i]
-          game.move(newGameMove);
-          var value = minimax(depth - 1, game, -10000, 10000, !isMaximisingPlayer);
-          game.undo();
-          Martylog("Marty:      승률: " + String(value));
-          if (value >= bestMove) {
-            bestMove = value;
-            bestMoveFound = newGameMove;
-            /*Martylog("Marty:      이걸로 결정");
-            Martylog("Marty:      "+String(Date.now() - t2)+"ms 걸림");
-            Martylog("Marty:  총 "+String(Date.now() - t1)+"ms 걸림");
-            return bestMoveFound;*/
-          }
-          Martylog("Marty:      " + String(Date.now() - t2) + "ms 걸림");
-        }
-          Martylog("Marty:      " + String(Date.now() - t2) + "ms 걸림");
-        }
+        for(var i = 0; i < newGameMoves.length; i++) {
+    var t2 = Date.now();
+    Martylog("Marty:    "+String(i)+"번째 포지션을 분석합니다.");
+    var newGameMove = newGameMoves[i];
+    Martylog("Marty:    "+newGameMove+"=> 분석중.....");
+    game.move(newGameMove);
+    var value = minimax(depth - 1, game, -10000, 10000, !isMaximisingPlayer);
+    game.undo();
+    Martylog("Marty:      승률: "+String(value));
+    if(value >= bestMove) {
+      bestMove = value;
+      bestMoveFound = newGameMove;
+      bestMoveValue = i;
+    }
+    Martylog("Marty:      "+String(Date.now() - t2)+"ms 걸림");
+  }
         Martylog("Marty:  총 " + String(Date.now() - t1) + "ms 걸림");
         if (Date.now() - t1 > 5000) {
           Martylog("Marty:  이러면 안되는데... colourgrey님에게 혼날 텐데....");
