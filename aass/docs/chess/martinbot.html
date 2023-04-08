@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style type="text/css" id="board-styles-vs-personalities">
+      #board-vs-personalities, .fade-in-overlay {
+        background-image: url('https://www.chess.com/boards/blue/150.png');
+      }
+      .coordinate-light {
+        fill: #4D6D92;
+      }
+      .coordinate-dark {
+        fill: #ECECD7;
+      }
+      .highlight {
+        background-color: #00a5ff;
+      }
+    #board-vs-personalities .piece.wp, #board-vs-personalities .promotion-piece.wp {
+            background-image: url('https://www.chess.com/chess-themes/pieces/newspaper/150/wp.png');
+          }#board-vs-personalities .piece.wn, #board-vs-personalities .promotion-piece.wn {
+            background-image: url('https://www.chess.com/chess-themes/pieces/newspaper/150/wn.png');
+          }#board-vs-personalities .piece.wb, #board-vs-personalities .promotion-piece.wb {
+            background-image: url('https://www.chess.com/chess-themes/pieces/newspaper/150/wb.png');
+          }#board-vs-personalities .piece.wr, #board-vs-personalities .promotion-piece.wr {
+            background-image: url('https://www.chess.com/chess-themes/pieces/newspaper/150/wr.png');
+          }#board-vs-personalities .piece.wq, #board-vs-personalities .promotion-piece.wq {
+            background-image: url('https://www.chess.com/chess-themes/pieces/newspaper/150/wq.png');
+          }#board-vs-personalities .piece.wk, #board-vs-personalities .promotion-piece.wk {
+            background-image: url('https://www.chess.com/chess-themes/pieces/newspaper/150/wk.png');
+          }#board-vs-personalities .piece.bp, #board-vs-personalities .promotion-piece.bp {
+            background-image: url('https://www.chess.com/chess-themes/pieces/newspaper/150/bp.png');
+          }#board-vs-personalities .piece.bn, #board-vs-personalities .promotion-piece.bn {
+            background-image: url('https://www.chess.com/chess-themes/pieces/newspaper/150/bn.png');
+          }#board-vs-personalities .piece.bb, #board-vs-personalities .promotion-piece.bb {
+            background-image: url('https://www.chess.com/chess-themes/pieces/newspaper/150/bb.png');
+          }#board-vs-personalities .piece.br, #board-vs-personalities .promotion-piece.br {
+            background-image: url('https://www.chess.com/chess-themes/pieces/newspaper/150/br.png');
+          }#board-vs-personalities .piece.bq, #board-vs-personalities .promotion-piece.bq {
+            background-image: url('https://www.chess.com/chess-themes/pieces/newspaper/150/bq.png');
+          }#board-vs-personalities .piece.bk, #board-vs-personalities .promotion-piece.bk {
+            background-image: url('https://www.chess.com/chess-themes/pieces/newspaper/150/bk.png');
+          }</style>
+  <link rel="stylesheet" type="text/css" href="https://www.chess.com/bundles/app/css/web.chunk.client.f8011be4.css">
+  <link rel="stylesheet" type="text/css" href="https://www.chess.com/bundles/app/css/web.chunk.client.4a797565.css">
+  <link rel="stylesheet" type="text/css" href="https://www.chess.com/bundles/app/css/chat-mount.chunk.client.b4e13de6.css">
+  <link rel="stylesheet" type="text/css" href="https://www.chess.com/bundles/app/css/vs-personalities-mode-selection-screen.chunk.client.f51040c1.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://images.chesscomfiles.com/uploads/v1/group/459847.a25844d2.160x160o.85394546eb75.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>colourgrey-marty bot L4</title>
+  <link href="/aass/docs/colourgrey-styles-1.0/css/colourgrey-styles-1.0.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="/aass/docs/chess/chessboardxxx/css/chessboard-1.0.0.css">
+  <link rel="stylesheet" href="/aass/docs/chess/chessboardxxx/css/chessboard-1.0.0.min.css">
+  <script src="/aass/docs/chess/chessboardxxx/js/chess.js"></script>
+  <script src="/aass/docs/chess/chessboardxxx/js/chess1.js"></script>
+  <script src="/aass/docs/chess/chessboardxxx/js/jquery-3.4.1.min.js"></script>
+  <script src="/aass/docs/chess/chessboardxxx/js/chessboard-1.0.0.min.js"></script>
+  <script src="/aass/docs/chess/martycopy1_files/chess.js"></script>
+  <script src="/aass/docs/chess/martycopy1_files/chessboard-1.0.0.min.js"></script>
+  <script src="/aass/docs/chess/martycopy1_files/jquery-3.4.1.min.js"></script>
+  <script src="/aass/docs/chess/martycopy1_files/bootstrap.min.js"></script>
+  <script src="/aass/docs/chess/martycopy1_files/popper.min.js"></script>
+  <link rel="stylesheet" href="/aass/docs/chess/martycopy1_files/bootstrap.min.css">
+  <link rel="stylesheet" href="/aass/docs/chess/martycopy1_files/chessboard-1.0.0.min.css">
+  <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5499297/skin/style.css">
+  <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5925927/skin/style.css">
+  <meta property="og:description" content="컬러그레이봇과 재밌는 수준별 눈높이 체스를 두어 보세요">
+  <meta property="og:title" content="Colourgrey-Marty-BOT L4">
+  <meta name="description" content="컬러그레이봇과 재밌는 수준별 눈높이 체스를 두어 보세요">
+  <link rel="apple-touch-icon-precomposed"
+    href="https://images.chesscomfiles.com/uploads/v1/group/459847.a25844d2.160x160o.85394546eb75.png">
+  <meta property="og:image"
+    content="https://images.chesscomfiles.com/uploads/v1/group/459847.a25844d2.160x160o.85394546eb75.png">
+  <style>
+    cgreyico1 {
+        height:20px;
+        width:20px;
+        position:relative;
+        display:block;
+    }
+    #pokpal1 {
+          background-image: var(--merong11);
+    border-radius: 66%;
+    width: 60px;
+    height: 60px;
+    }
+    chess-circle {
+      display: inline-block;
+      width: 50%;
+      height: 50%;
+      background-color: rgba(100,160,100,0.6);
+      border-radius: 100%;
+      margin: 25%;
+    }
+    .footer {
+      background: var(--lightgrey);
+    }
+
+    .footer p.license {
+      text-align: center;
+      width: 100%;
+    }
+
+    #MartySay.dark {
+      background: #204739;
+    }
+
+    .switch {
+      height: 83px;
+      width: 234px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -51px;
+      margin-left: -117px;
+      -moz-border-radius: 40px;
+      -webkit-border-radius: 40px;
+      border-radius: 40px;
+      background-color: #d1d1d1;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFD1D1D1', endColorstr='#FFFEFBF7');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2QxZDFkMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZlZmJmNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+      background-size: 100%;
+      background-image: -moz-linear-gradient(top, #d1d1d1 0%, #fefbf7 100%);
+      background-image: -webkit-linear-gradient(top, #d1d1d1 0%, #fefbf7 100%);
+      background-image: linear-gradient(to bottom, #d1d1d1 0%, #fefbf7 100%);
+    }
+
+    .switch:after {
+      height: 70px;
+      width: 220px;
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      content: '';
+      z-index: 2;
+      -moz-border-radius: 40px;
+      -webkit-border-radius: 40px;
+      border-radius: 40px;
+      background-color: #a5a5a5;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFA5A5A5', endColorstr='#FFE8D7BE');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2E1YTVhNSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U4ZDdiZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+      background-size: 100%;
+      background-image: -moz-linear-gradient(top, #a5a5a5 0%, #e8d7be 100%);
+      background-image: -webkit-linear-gradient(top, #a5a5a5 0%, #e8d7be 100%);
+      background-image: linear-gradient(to bottom, #a5a5a5 0%, #e8d7be 100%);
+    }
+
+    .checkbox {
+      height: 60px;
+      width: 210px;
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 10000;
+      -moz-border-radius: 35px;
+      -webkit-border-radius: 35px;
+      border-radius: 35px;
+      -moz-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+      -webkit-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+      box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+      background-color: #e7f4a0;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF28A00', endColorstr='#FFD86517');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyOGEwMCIvPjxzdG9wIG9mZnNldD0iNjclIiBzdG9wLWNvbG9yPSIjZTY1MzAwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZDg2NTE3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+      background-size: 100%;
+      background-image: linear-gradient(#f2fa90, #f8ff6b, #d8ff07);
+      background-image: linear-gradient(to top, #f2fa90, #f8ff6b, #d8ff07 100%);
+      background-image: linear-gradient(to bottom, #f2fa90, #f8ff6b, #d8ff07 100%);
+
+    }
+
+    .checkbox:after {
+      transition: background 0.4s ease;
+      height: 60px;
+      width: 117px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      z-index: 9999;
+      -moz-border-radius: 35px 0 0 35px;
+      -webkit-border-radius: 35px;
+      border-radius: 35px 0 0 35px;
+      -moz-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+      -webkit-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+      box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+      background-color: #718d99;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFB1DD00', endColorstr='#FF84AD00');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2IxZGQwMCIvPjxzdG9wIG9mZnNldD0iNjclIiBzdG9wLWNvbG9yPSIjN2VhZjAwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjODRhZDAwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+      background-size: 100%;
+      background: linear-gradient(to top, #718d99 0%, #718d83 67%, #848890 100%);
+      background-image: -webkit-linear-gradient(to top, #718d99 0%, #718d83 67%, #848890 100%);
+      background: linear-gradient(to bottom, #718d99 0%, #718d83 67%, #848890 100%);
+      animation: switchan6 1s infinite;
+    }
+
+    .control {
+      height: 73px;
+      width: 138px;
+      outline: 0;
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      z-index: 10001;
+      appearance: none;
+      -moz-border-radius: 36.5px;
+      -webkit-border-radius: 36.5px;
+      border-radius: 36.5px;
+      -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+      -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+      background-color: #efefef;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEFEFEF', endColorstr='#FFBCB9B8');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIzMiUiIHN0b3AtY29sb3I9IiNlZmVmZWYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiY2I5YjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+      background-size: 100%;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(32%, #efefef), color-stop(100%, #bcb9b8));
+      background-image: -moz-linear-gradient(top, #efefef 32%, #bcb9b8 100%);
+      background-image: -webkit-linear-gradient(top, #efefef 32%, #bcb9b8 100%);
+      background-image: linear-gradient(to bottom, #efefef 32%, #bcb9b8 100%);
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .control:checked {
+      left: 91px;
+    }
+
+    .control:after {
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      content: '';
+      z-index: 10001;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      background-color: #c2c0be;
+      *zoom: 1;
+      filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFC2C0BE', endColorstr='#FFD7D7D7');
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2MyYzBiZSIvPjxzdG9wIG9mZnNldD0iNzIlIiBzdG9wLWNvbG9yPSIjZDdkN2Q3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+      background-size: 100%;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c2c0be), color-stop(72%, #d7d7d7));
+      background-image: -moz-linear-gradient(top, #c2c0be 0%, #d7d7d7 72%);
+      background-image: -webkit-linear-gradient(top, #c2c0be 0%, #d7d7d7 72%);
+      background-image: linear-gradient(to bottom, #c2c0be 0%, #d7d7d7 72%);
+    }
+        #movecommand1 {
+      background: var(--dark);
+      color: #ecf;
+    }
+    #movecommand1 input {
+      background: var(--dark);
+      color: #ecf;
+    }
+    @media only screen and (max-width: 600px) {
+      .hehehe1 {
+        height: 385px;
+        width: 400px;
+        overflow: scroll;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="body734" style="width: 100%;height: 2000px;">
+    <a href="/aass/docs/pages/films.html">올해 신작 영화들</a>
+    <h1>colou<span onclick="this.style.color='blue';">rgrey-b</span>ot L4</h1>
+    <h2 onclick="this.classList.add('merong8989')" role="button">눌러보시면 무지개가 빤짝빤짝!!!<br>April Fools' Day!!!오늘은 만우절입니다. <br>만우절 장난을 견디지 못해 지친 컬그봇이 고장났다고 합니다.<br> 낚시인거 아시죠???</h2>
+    <div class="mb-3">
+      <select id="boardthemeselect">
+        <option value="default" selected>default board theme</option>
+        <option value="classic">board theme:classic</option>
+        <option value="chocolate">board theme:chocolate</option>
+        <option value="bnw">board theme:black and white</option>
+        <option value="green">board theme in colour:green</option>
+        <option value="purple">board theme in colour:purple</option>
+        <option value="blue">board theme in colour:blue</option>
+        <option value="brown">board theme in colour:brown</option>
+        <option value="orange">board theme in colour:orange</option>
+        <option value="marble">board theme in texture:marble</option>
+        <option value="goldsilver">board theme in texture:gold and silver</option>
+        <option value="walnut">board theme in texture:walnut</option>
+        <option value="wood">board theme in texture:wood</option>
+        <option value="neowood">board theme in texture:neo-wood</option>
+        <option value="ivory">board theme in texture:ivory and ebony wood</option>
+      </select>
+      <button type="button" class="btn btn-primary" onclick="colourchangeff1()" id="colourchange1">change board
+        theme</button>
+    </div>
+    <div class="mb-3">
+      <select id="piecethemes1">
+        <option value="wikipedia" selected>default chess pieces(wikipedia)</option>
+        <option value="fromchesscom/alpha">alpha(from chess.com)</option>
+        <option value="fromchesscom/marble">marble(from chess.com)</option>
+        <option value="fromchesscom/wood">wood(from chess.com)</option>
+        <option value="fromchesscom/neo">neo(from chess.com)</option>
+        <option value="fromchesscom/neo-wood">neo-wood(from chess.com)</option>
+        <option value="colourgrey-style-pieces">custom(colourgrey)</option>
+      </select>
+      <h5><b style="color: #ff0060;text-decoration: underline wavy;">주의:컬러그레이봇과 경기 중에는 <br> 기물테마(piece theme)를 바꾸지 마세요.<br>지금까지 뒀던 포지션이 초기화됩니다.</b><br><b>그리고 레벨을 '고수' 이상으로 설정하시면 매우 느려집니다.</b></h5>
+    <div class="boardinner123">
+      
+      <div>
+        <div class="hehehe1">
+          <div id="myBoard" style="width: 400px"></div>
+        </div>
+      </div>
+      <div>
+
+      
+    </div>
+
+    <div class="card">
+      <div class="card-body" id="MartySay">
+        <div id="board-layout-sidebar" class="board-layout-sidebar">
+    
+        <div class="play-controller-component sidebar-controller-component"><div class="play-controller-message"><img alt="User Avatar" src="https://images.chesscomfiles.com/uploads/v1/user/66746160.794c1e49.200x200o.dbe7eab8b66c.png" data-cy="chat-message-avatar" width="75" height="75" class="chat-message-avatar chat-message-avatar--with-animation"> <div data-v-70692aaf="" class="messages-container-messages-container"><span><div data-cy="chat-message-text" class="chat-bubble-component chat-bubble-withTail chat-bubble-component--with-font-updates"><span id ="MartySay1">Здравейте! My 4 year old son just beat me - ouch!</span> <div></div></div></span></div></div> <div class="play-controller-moves-container"><div class=""><!----> <!----></div> <div class="play-controller-scrollable"><eco-opening board-id="board-vs-personalities" link-to-explorer="" explorer-is-clickable="" opening-is-clickable="" class="eco-opening-panel">
+      <span class="eco-opening-name">Starting Position</span>
+      <div class="eco-opening-links">
+        <a class="eco-opening-opening"><span class="icon-font-chess chess-book eco-opening-icon"></span></a>
+        <a class="eco-opening-explorer" href="https://www.chess.com/explorer" target="_blank"><span class="icon-font-chess circle-compass eco-opening-icon"></span></a>
+      </div>
+    </eco-opening> <vertical-move-list board-id="board-vs-personalities" class="play-controller-moveList vertical-move-list"></vertical-move-list></div></div> <div><!----> <div class="game-controls-controller-component"><div class="primary-controls-topControls"><button type="button" class="ui_v5-button-component ui_v5-button-basic primary-controls-button" data-cy="New Game" aria-label="New Game" data-listener-index="4"><span class="icon-font-chess ui_v5-button-icon plus"></span></button><button type="button" class="ui_v5-button-component ui_v5-button-basic primary-controls-button" data-cy="Move Back" aria-label="Move Back" data-listener-index="5"><span class="icon-font-chess ui_v5-button-icon chevron-left"></span></button><button type="button" class="ui_v5-button-component ui_v5-button-basic primary-controls-button" data-cy="Move Forward" aria-label="Move Forward" data-listener-index="6"><span class="icon-font-chess ui_v5-button-icon chevron-right"></span></button><button type="button" class="ui_v5-button-component ui_v5-button-basic primary-controls-button" data-cy="Analysis" aria-label="Analysis" data-listener-index="7"><span class="icon-font-chess ui_v5-button-icon chess-board-search"></span></button></div> <div class="small-controls-smallControls"><div class="small-controls-leftIcons"><button type="button" aria-label="Share" data-cy="Share" class="small-controls-btn"><span class="small-controls-icon icon-font-chess share"></span></button><button type="button" aria-label="Download" data-cy="Download" class="small-controls-btn"><span class="small-controls-icon icon-font-chess download"></span></button><button type="button" aria-label="Settings" data-cy="Settings" class="small-controls-btn"><span class="small-controls-icon icon-font-chess circle-gearwheel"></span></button> <!----></div> <div class="small-controls-rightIcons"><button type="button" aria-label="Resign" data-cy="Resign" class="small-controls-btn"><span class="small-controls-icon icon-font-chess flag"></span> <span>Resign</span></button></div></div></div></div></div>
+    </div>
+        <small class="license">license:developer:colourgrey-urobot2011chess공동개발,<br>오픈 소스(출처 명시 필수)<br>(디자인-colourgrey,봇
+          인공지능-urobot2011chess)</small>
+      </div>
+      <div id="movecommand1">
+          <div id="movecommand2">
+            your new move...
+          </div>
+          <input type="text" id="inputmovecommand1" placeholder="당신이 둘 수를 기보표기법대로 입력하세요" onkeydown="movecommandmove1(event)">
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="wn" class="form-label">백 이름</label>
+      <input type="text" class="form-control" id="wn" placeholder="사용할 별명">
+    </div>
+    <div class="mb-3">
+      <select class="form-select" aria-label="봇의 색" id="martycolor">
+        <option selected value="b">봇의 색상(기본 흑)</option>
+        <option value="w">백</option>
+        <option value="b">흑</option>
+        <input type="hidden" id="chesspiecesxxx">
+      </select>
+    </div>
+    <div class="mb-3">
+      <h3>your chess skill level</h3>
+      <select id="userlevel">
+        <option value="grandmaster">그랜드마스터</option>
+        <option value="advance">고수</option>
+        <option value="middle" selected>중수</option>
+        <option value="hasu">하수</option>
+        <option value="pyongsin">체스 병신</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <button type="button" class="btn btn-primary" id="start">start<cgreyico1 type="lol.gif"></cgreyico1></button>
+      
+    </div>
+
+    <label>FEN:</label>
+    <div id="fen"></div>
+    <label>PGN:</label>
+    <div id="pgn"></div>
+    <div class="nukebomb" onclick="alert('hello!');
+      for (n=0;n<190;n++) {
+        alert((190-n)+'hello!')
+      }
+      alert('0hello!')">
+      <p><button type="button">_</button></p>
+    </div>
+    <script src="/aass/docs/chess/martycopy1_files/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"></script>
+    <script>
+      
+      $("#userlevel").change( function () {
+        var kumkum1 = document.getElementById("userlevel").value;
+        if (kumkum1 == "pyongsin") {
+          levelx = 1;
+        }
+        if (kumkum1 == "grandmaster") {
+          levelx = 5;
+        }
+        if (kumkum1 == "hasu") {
+          levelx = 2;
+        }
+        if (kumkum1 == "middle") {
+          levelx = 3;
+        }
+        if (kumkum1 == "advance") {
+          levelx = 4;
+        }
+      });
+      function darkmode99(event) {
+        var btag = document.getElementById("body734");
+        var dtag1 = document.getElementById("MartySay");
+        btag.classList.toggle("dark");
+        dtag1.classList.toggle("dark");
+      }
+      window.onclick = function (event) {
+        var btag = document.getElementById("body734");
+        var dtag1 = document.getElementById("MartySay");
+        if (!target.matches(".checkbox")) {
+          var darktheme = document.getElementById("body734");
+          var i;
+          for (i = 0; i < darktheme.length; i++) {
+            var darkthemexxx = darktheme[i];
+            if (darkthemexxx.classList.contains("dark")) {
+              darkthemexxx.classList.remove("dark");
+            }
+          }
+          for (i = 0; i < dtag1.length; i++) {
+            var darkthemexxx2 = dtag1[i];
+            if (darkthemexxx2.classList.contains("dark")) {
+              darkthemexxx2.classList.remove("dark");
+            }
+          }
+        }
+      }
+      var board;
+      var game = new Chess();
+      var $start = $('#start');
+      var $fen = $('#fen');
+      var $pgn = $('#pgn');
+      var $wn = $('#wn');
+      var $martycolor = $('#martycolor');
+      var martycolor = "b";
+      var piecethemes = "wikipedia";
+      var $piecethemes2 = $("#piecethemes1");
+      var $colourchangebtn = $("#colourchange1");
+      var $movecommands1 = $("#inputmovecommand1");
+      document.getElementById("chesspiecesxxx").value = "wikipedia";
+
+
+      $colourchangebtn.click(function (piece) {
+        var selectmenu = document.getElementById("boardthemeselect").value;
+        var selectpiece = document.getElementById("piecethemes1").value;
+        var blcsquare1 = document.querySelectorAll(".black-3c85d");
+        var whtsquare1 = document.querySelectorAll(".white-1e1d7");
+        if (selectpiece == "default") {
+          piecethemes = "wikipedia";
+          config.pieceTheme = 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/wikipedia/' + piece + '.png';
+        }
+        if (selectpiece == "custom") {
+          piecethemes = "colourgrey-style-pieces"
+          config.pieceTheme = 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/colourgrey-style-pieces/' + piece + '.png';
+        }
+        for (i = 0; i < whtsquare1.length; i++) {
+          var whtsquare = whtsquare1[i];
+          if (selectmenu == "default") {
+            whtsquare.style.background = "#f0d9b5";
+            whtsquare.style.color = "#b58863";
+          }
+          if (selectmenu == "classic") {
+            whtsquare.style.background = "#e9e0ef";
+            whtsquare.style.color = "#060510";
+          }
+          if (selectmenu == "chocolate") {
+            whtsquare.style.background = "#f0d9b5";
+            whtsquare.style.color = "chocolate";
+          }
+          if (selectmenu == "bnw") {
+            whtsquare.style.background = "#f8f8f8";
+            whtsquare.style.color = "#000";
+          }
+          if (selectmenu == "green") {
+            whtsquare.style.background = "#f0d9f5";
+            whtsquare.style.color = "indigo";
+          }
+          if (selectmenu == "purple") {
+            whtsquare.style.background = "#f0d9f5";
+            whtsquare.style.color = "purple";
+          }
+          if (selectmenu == "blue") {
+            whtsquare.style.background = "#f0d9b5";
+            whtsquare.style.color = "blue";
+          }
+          if (selectmenu == "brown") {
+            whtsquare.style.background = "#f0d9ff";
+            whtsquare.style.color = "brown";
+          }
+          if (selectmenu == "orange") {
+            whtsquare.style.background = "#d0d9ff";
+            whtsquare.style.color = "orange";
+          }
+          if (selectmenu == "marble") {
+            whtsquare.style.background = "";
+            whtsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_whitesq.png)";
+          }
+          if (selectmenu == "goldsilver") {
+            whtsquare.style.background = "var(--silver)";
+          }
+          if (selectmenu == "ivory") {
+            whtsquare.style.background = "";
+            whtsquare.style.backgroundImage = "url(https://media.istockphoto.com/id/1412328901/photo/old-concrete-wall-texture-background-close-up-retro-plain-beige-color-cement-material-surface.jpg?b=1&s=170667a&w=0&k=20&c=_Yd94mVWR9O6JN1PKX41Zr9Fgm2cU3L0GtmKXXs2sFI=)";
+          }
+          if (selectmenu == "walnut") {
+            whtsquare.style.background = "";
+            whtsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_whtsq.png)"
+          }
+        }
+        for (i = 0; i < blcsquare1.length; i++) {
+          var blcsquare = blcsquare1[i];
+          if (selectmenu == "default") {
+            blcsquare.style.background = "#b58863";
+            blcsquare.style.color = "#f0d9b5";
+          }
+          if (selectmenu == "classic") {
+            blcsquare.style.background = "radial-gradient(#888,#101527)";
+            blcsquare.style.color = "#e9e0ef";
+          }
+          if (selectmenu == "chocolate") {
+            blcsquare.style.background = "chocolate";
+            blcsquare.style.color = "#f0d9b5";
+          }
+          if (selectmenu == "bnw") {
+            blcsquare.style.background = "radial-gradient(#eee,#020202,#020202)";
+            blcsquare.style.color = "#fff";
+          }
+          if (selectmenu == "green") {
+            blcsquare.style.background = "green";
+            blcsquare.style.color = "#f0d9f5";
+          }
+          if (selectmenu == "purple") {
+            whtsquare.style.background = "#f0d9f5";
+            whtsquare.style.color = "purple";
+            blcsquare.style.background = "purple";
+            blcsquare.style.color = "#f0d9f5";
+          }
+          if (selectmenu == "blue") {
+            blcsquare.style.background = "blue";
+            blcsquare.style.color = "#f0d9b5";
+          }
+          if (selectmenu == "brown") {
+            blcsquare.style.background = "brown";
+            blcsquare.style.color = "#f0d9ff";
+          }
+          if (selectmenu == "orange") {
+            blcsquare.style.background = "orange";
+            blcsquare.style.color = "#d0d9ff";
+          }
+          if (selectmenu == "marble") {
+            blcsquare.style.background = "";
+            blcsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_blacksq.png)"
+          }
+          if (selectmenu == "goldsilver") {
+            blcsquare.style.background = "var(--gold)";
+          }
+          if (selectmenu == "ivory") {
+            blcsquare.style.background = "";
+            blcsquare.style.backgroundImage = "url(https://media.istockphoto.com/id/1355204884/photo/rustic-plywood-texture-background.jpg?b=1&s=170667a&w=0&k=20&c=YT3HKmr1sSpRwFhnJCUN-AlMFU5GmGQDIlwuHOqAbKc=)";
+          }
+          if (selectmenu == "walnut") {
+            blcsquare.style.background = "";
+            blcsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_blsq.png)";
+          }
+        }
+        if (selectmenu == "default") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "#b58863";
+          blcsquare.style.background = "#b58863";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "classic") {
+          whtsquare.style.background = "#e9e0ef";
+          whtsquare.style.color = "#060510";
+          blcsquare.style.background = "#060510";
+          blcsquare.style.color = "#e9e0ef";
+        }
+        if (selectmenu == "chocolate") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "chocolate";
+          blcsquare.style.background = "chocolate";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "bnw") {
+          whtsquare.style.background = "#f8f8f8";
+          whtsquare.style.color = "#000";
+          blcsquare.style.background = "#020202";
+          blcsquare.style.color = "#fff";
+        }
+        if (selectmenu == "green") {
+          whtsquare.style.background = "#f0d9f5";
+          whtsquare.style.color = "indigo";
+          blcsquare.style.background = "green";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "purple") {
+          whtsquare.style.background = "#f0d9f5";
+          whtsquare.style.color = "purple";
+          blcsquare.style.background = "purple";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "blue") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "blue";
+          blcsquare.style.background = "blue";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "brown") {
+          whtsquare.style.background = "#f0d9ff";
+          whtsquare.style.color = "brown";
+          blcsquare.style.background = "brown";
+          blcsquare.style.color = "#f0d9ff";
+        }
+        if (selectmenu == "orange") {
+          whtsquare.style.background = "#d0d9ff";
+          whtsquare.style.color = "orange";
+          blcsquare.style.background = "orange";
+          blcsquare.style.color = "#d0d9ff";
+        }
+      })
+      window.onload = function () {
+        mythemefunction();
+      }
+      function mythemefunction() {
+        var selectmenu = document.getElementById("boardthemeselect").value;
+        var blcsquare1 = document.querySelectorAll(".black-3c85d");
+        var whtsquare1 = document.querySelectorAll(".white-1e1d7");
+        for (i = 0; i < whtsquare1.length; i++) {
+          var whtsquare = whtsquare1[i];
+          if (selectmenu == "default") {
+            whtsquare.style.background = "#f0d9b5";
+            whtsquare.style.color = "#b58863";
+          }
+          if (selectmenu == "classic") {
+            whtsquare.style.background = "#e9e0ef";
+            whtsquare.style.color = "#161520";
+          }
+          if (selectmenu == "chocolate") {
+            whtsquare.style.background = "#f0d9b5";
+            whtsquare.style.color = "chocolate";
+          }
+          if (selectmenu == "bnw") {
+            whtsquare.style.background = "#f8f8f8";
+            whtsquare.style.color = "#000";
+          }
+          if (selectmenu == "green") {
+            whtsquare.style.background = "#f0d9f5";
+            whtsquare.style.color = "indigo";
+          }
+          if (selectmenu == "purple") {
+            whtsquare.style.background = "#f0d9f5";
+            whtsquare.style.color = "purple";
+          }
+          if (selectmenu == "blue") {
+            whtsquare.style.background = "#f0d9b5";
+            whtsquare.style.color = "blue";
+          }
+          if (selectmenu == "brown") {
+            whtsquare.style.background = "#f0d9ff";
+            whtsquare.style.color = "brown";
+          }
+          if (selectmenu == "orange") {
+            whtsquare.style.background = "#d0d9ff";
+            whtsquare.style.color = "orange";
+          }
+        }
+        for (i = 0; i < blcsquare1.length; i++) {
+          var blcsquare = blcsquare1[i];
+          if (selectmenu == "default") {
+            blcsquare.style.background = "#b58863";
+            blcsquare.style.color = "#f0d9b5";
+          }
+          if (selectmenu == "classic") {
+            blcsquare.style.background = "#060510";
+            blcsquare.style.color = "#e9e0ef";
+          }
+          if (selectmenu == "chocolate") {
+            blcsquare.style.background = "chocolate";
+            blcsquare.style.color = "#f0d9b5";
+          }
+          if (selectmenu == "bnw") {
+            blcsquare.style.background = "#020202";
+            blcsquare.style.color = "#fff";
+          }
+          if (selectmenu == "green") {
+            blcsquare.style.background = "green";
+            blcsquare.style.color = "#f0d9f5";
+          }
+          if (selectmenu == "purple") {
+            whtsquare.style.background = "#f0d9f5";
+            whtsquare.style.color = "purple";
+            blcsquare.style.background = "purple";
+            blcsquare.style.color = "#f0d9f5";
+          }
+          if (selectmenu == "blue") {
+            blcsquare.style.background = "blue";
+            blcsquare.style.color = "#f0d9b5";
+          }
+          if (selectmenu == "brown") {
+            blcsquare.style.background = "brown";
+            blcsquare.style.color = "#f0d9ff";
+          }
+          if (selectmenu == "orange") {
+            blcsquare.style.background = "orange";
+            blcsquare.style.color = "#d0d9ff";
+          }
+        }
+        if (selectmenu == "default") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "#b58863";
+          blcsquare.style.background = "#b58863";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "classic") {
+          whtsquare.style.background = "#e9e0ef";
+          whtsquare.style.color = "#060510";
+          blcsquare.style.background = "#060510";
+          blcsquare.style.color = "#e9e0ef";
+        }
+        if (selectmenu == "chocolate") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "chocolate";
+          blcsquare.style.background = "chocolate";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "bnw") {
+          whtsquare.style.background = "#f8f8f8";
+          whtsquare.style.color = "#000";
+          blcsquare.style.background = "#020202";
+          blcsquare.style.color = "#fff";
+        }
+        if (selectmenu == "green") {
+          whtsquare.style.background = "#f0d9f5";
+          whtsquare.style.color = "indigo";
+          blcsquare.style.background = "green";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "purple") {
+          whtsquare.style.background = "#f0d9f5";
+          whtsquare.style.color = "purple";
+          blcsquare.style.background = "purple";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "blue") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "blue";
+          blcsquare.style.background = "blue";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "brown") {
+          whtsquare.style.background = "#f0d9ff";
+          whtsquare.style.color = "brown";
+          blcsquare.style.background = "brown";
+          blcsquare.style.color = "#f0d9ff";
+        }
+        if (selectmenu == "orange") {
+          whtsquare.style.background = "#d0d9ff";
+          whtsquare.style.color = "orange";
+          blcsquare.style.background = "orange";
+          blcsquare.style.color = "#d0d9ff";
+        }
+      }
+
+      function colourchangeff1() {
+        var selectmenu = document.getElementById("boardthemeselect").value;
+        var blcsquare1 = document.querySelectorAll(".black-3c85d");
+        var whtsquare1 = document.querySelectorAll(".white-1e1d7");
+        for (var i; i < whtsquare1.length; i++) {
+          var whtsquare = whtsquare1[i];
+        }
+        for (var i; i < blcsquare1.length; i++) {
+          var blcsquare = blcsquare1[i]
+        }
+        if (selectmenu == "default") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "#b58863";
+          blcsquare.style.background = "#b58863";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "classic") {
+          whtsquare.style.background = "#e9e0ef";
+          whtsquare.style.color = "#101527";
+          blcsquare.style.background = "radial-gradient(#888,#888,#101527)";
+          blcsquare.style.color = "#e9e0ef";
+        }
+        if (selectmenu == "chocolate") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "chocolate";
+          blcsquare.style.background = "chocolate";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "bnw") {
+          whtsquare.style.background = "#f8f8f8";
+          whtsquare.style.color = "#000";
+          blcsquare.style.background = "#020202";
+          blcsquare.style.color = "#fff";
+        }
+        if (selectmenu == "green") {
+          whtsquare.style.background = "#f0d9f5";
+          whtsquare.style.color = "indigo";
+          blcsquare.style.background = "green";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "purple") {
+          whtsquare.style.background = "#f0d9f5";
+          whtsquare.style.color = "purple";
+          blcsquare.style.background = "purple";
+          blcsquare.style.color = "#f0d9f5";
+        }
+        if (selectmenu == "blue") {
+          whtsquare.style.background = "#f0d9b5";
+          whtsquare.style.color = "blue";
+          blcsquare.style.background = "blue";
+          blcsquare.style.color = "#f0d9b5";
+        }
+        if (selectmenu == "brown") {
+          whtsquare.style.background = "#f0d9ff";
+          whtsquare.style.color = "brown";
+          blcsquare.style.background = "brown";
+          blcsquare.style.color = "#f0d9ff";
+        }
+        if (selectmenu == "orange") {
+          whtsquare.style.background = "#d0d9ff";
+          whtsquare.style.color = "orange";
+          blcsquare.style.background = "orange";
+          blcsquare.style.color = "#d0d9ff";
+        }
+
+      }
+
+
+      var start_bool = 0;
+
+      var chassvals = [1, 4, 2, 3, 8, 5];
+      //  chassvals = [p, r, n, b, q, k];
+
+      function openingrandom1(element) {
+          return Math.floor(Math.random() * element.length) + 1;
+      }
+      var humourData = [
+          "<a href='https://www.chess.com/clubs/forum/view/gaeinjeogeuro-cedase-cugareul-weonhaneun-bos'>응 서하님 뱀파이어임</a>",
+          "치킨맥주... 배고파...",
+          "<iframe src='https://www.youtube.com/embed/DBMZ_rk3EzA' width='400px' height='300px'></iframe>",
+          "<img src='/poronglpy1.png' width='200px'>",
+          "병☆신아 (바른말) 제발 그 x같은 체스실력좀 올려라 ...<span style='text-decoration:line-through;color:#aaa;'>죄송합니다 욕쟁이 컬그봇</span>",
+          `<a href="javascript:this.style.color = 'green';">이링크눌러보삼</a>`,
+          `<span class="nukebomb" id="pokpal1" onclick="pokpalf1()">_</span>`
+      ]
+      function pokpalf1() {
+          $("#pokpal1").html(humourdata2);
+      }
+      var humourdata2 = `<img src="./pokpal1.gif" style="width:300px;height:200px;">`;
+      var openingData = [
+        ["rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "e4", "e4", "e4", "d4", "d4", "e4", "g3", "b3", "e4"],
+        ["rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2", "Nf3", "Nf3","Nf3","Nf3", "Nc3", "Nf3", "c4", "Bc4", "Nf3"],//오픈시실리안 시실리안클로즈드 보우들러어택 그외 기타등등등등
+        ["rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2", "d6", "Nc6"], //오픈시실리안d6과 오픈시실리안올드시실리안
+        ["rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", "d4"],//오픈시실리안
+        ["rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3", "cxd4"],//오픈시실리안메인라인흑3수
+        ["rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4", "Nxd4"],//오픈시실리안메인라인
+        ["rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4", "Nf6"],//오픈시실리안메인라인
+        ["rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 1 5", "Nc3"],//오픈시실리안메인라인
+        ["rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 2 5", "g6","a6","Nc6","a6","a6","a6","g6","Nc6"],//시실리안드래곤과 시실리안나이도프와 클래시컬
+        ["rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", "d5", "e5", "d5", "d5", "Nf6"],
+        ["rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", "e5", "e5", "e5","e5","e5", "d5", "Nc6", "c5", "c5", "e6", "e6", "c6", "c6"],
+        ["rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", "Nf3", "Nc3", "f4", "d4", "f4","Nf3","Nf3"], //킹스나이트
+        ["rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2","Nc6", "d6", "Nc6", "Nc6", "Nc6", "Nf6"], //킹스나이트 메인라인
+        ["rnbqkbnr/pppppppp/8/8/8/5P2/PPPPP1PP/RNBQKBNR b KQkq - 0 1", "e6"],//바보 메이트
+        ["rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2", "d4", "e5", "d4","d4"], //프렌치디펜스 노멀바리에이션과 슈타이니츠어택
+        ["rnbqkbnr/pppp1ppp/4p3/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2", "d5","d5"],
+        ["rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6 0 3", "exd5", "e5", "exd5"],//프렌치디펜스 익스체인지바리에이션과 프렌치디펜스 어드밴스바리에이션
+        ["rnbqkbnr/ppp2ppp/4p3/3P4/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3", "exd5"], //프렌치디펜스 익스체인지 흑
+        ["rnbqkbnr/pppp1ppp/4p3/8/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq g3 0 2", "Qh4#"],//바보 메이트
+        ["r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3", "Bb5", "Bc4", "d4","d4","Bb5","Bb5","Bb5","Bc4","Bc4","Bc4","Bb5"],//루이로페즈
+        ["r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3", "a6", "Nf6", "a6"], //루이로페즈 모피디펜스
+        ["rnbqkbnr/pppp1ppp/8/4p3/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq - 1 2", "Bb4","Nf6", "Nf6", "Nc6"], //비엔나게임 안데르센
+        ["rnbqkb1r/pppp1ppp/5n2/4p3/4P3/2N5/PPPP1PPP/R1BQKBNR w KQkq - 2 3", "Bc4"], //비엔나게임 팔크비어스탄리
+        ["rnbqkb1r/pppp1ppp/5n2/4p3/2B1P3/2N5/PPPP1PPP/R1BQK1NR b KQkq - 3 3", "Nxe4"], //비엔나 게임 팔크비어스탄리 프랑켄슈타인드라큘라바리에이션
+        ["rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2", "c4"], //퀸스갬빗
+        ["rnbqkb1r/pppp1ppp/8/4p3/2B1N3/8/PPPP1PPP/R1BQK1NR b KQkq - 0 4", "d5"], //비엔나게임 프랑켄슈타인드라큘라 흑포크
+        ["rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2", "e6", "c6"], //QGD
+        ["r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3", "Bc5","Bc5","Bc5","Nf6", "Nf6", "Nd4","Bc5"], //이탈리안게임 지우코피아노게임
+        ["r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4", "d3"], //이탈리안게임 지우코피아니시모게임
+        ["r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", "Bxc6", "Ba4", "O-O"], //루이로페즈 익스체인지바리에이션
+        ["r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4", "dxc6"], //루이로페즈 익스체인지바리에이션 흑
+      ];
+
+      function checkOpeningData(fen) {
+        var opening;
+        function checkOpeningData_some(element) {
+          if (element[0] == fen) {
+            var openingrandom123 = openingrandom1(element);
+            opening = element[openingrandom123];
+            return true;
+          }
+        }
+        if (openingData.some(checkOpeningData_some)) {
+          return opening;
+        }
+        return false;
+      }
+
+      $martycolor.change(function () {
+        martycolor = $(this).val();
+      });
+
+      function MartySay(say) {
+        var $MartySay = $('#MartySay1');
+        $MartySay.html(say);
+      }
+
+      MartySay("Hello? I am ColourGrey-Bot.<br>i am from chess.com. my codes are from urobot2011chess. <a href='https://www.bbq.co.kr/menu/menuView.asp?midx=2247'>치킨먹고싶다 아 맞다 난 인공지능이지?</a>");
+
+      $start.click(function () {
+        start_bool = 1;
+        game.load("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+        board.position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+        board.orientation('white');
+        $fen.html("");
+        $pgn.html("");
+        if (martycolor == "b") {
+          game.header('White', $wn.val());
+          game.header('Black', 'ColourgreyBot L1');
+        } else if (martycolor == "w") {
+          game.header('Black', $wn.val());
+          game.header('White', 'ColourgreyBot L1');
+        }
+        if (martycolor == "w") {
+          board.position("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+          board.orientation('black');
+          window.setTimeout(makeMove, 250);
+        }
+        updateStatus();
+      });
+
+      
+
+      function Martylog(log) {
+        console.log(log);
+        $("#Martylog").html($("#Martylog").html() + "\n" + log)
+      }
+      function minimaxCote(depth, game, isMaximisingPlayer) {
+        var newGameMoves = game.moves();
+        var bestMove = -9999;
+        var bestMoveFound;
+
+        var t1 = Date.now();
+        Martylog("Marty: 오프닝 확인:");
+        var opening = checkOpeningData(game.fen());
+        if (opening != false) {
+          for (var i = 0; i < newGameMoves.length; i++) {
+            if (newGameMoves[i] == opening) {
+              Martylog("Marty:  오프닝 찾음.")
+              return opening;
+            }
+          }
+        }
+        Martylog("Marty:   오프닝이 없습니다. 지금부터 포지션을 분석합니다.");
+
+        for (var i = 0; i < newGameMoves.length; i++) {
+          var t2 = Date.now();
+          Martylog("Marty:    " + String(i) + "번째 포지션을 분석합니다.");
+          var newGameMove = newGameMoves[i]
+          game.move(newGameMove);
+          var value = minimax(depth - 1, game, -10000, 10000, !isMaximisingPlayer);
+          game.undo();
+          Martylog("Marty:      승률: " + String(value));
+          if (value >= bestMove) {
+            bestMove = value;
+            bestMoveFound = newGameMove;
+            /*Martylog("Marty:      이걸로 결정");
+            Martylog("Marty:      이걸로 결정");
+            Martylog("Marty:      "+String(Date.now() - t2)+"ms 걸림");
+            Martylog("Marty:  총 "+String(Date.now() - t1)+"ms 걸림");
+            return bestMoveFound;*/
+          }
+          Martylog("Marty:      " + String(Date.now() - t2) + "ms 걸림");
+        }
+        Martylog("Marty:  총 " + String(Date.now() - t1) + "ms 걸림");
+        if (Date.now() - t1 > 5000) {
+          Martylog("Marty:  이러면 안되는데... colourgrey님에게 혼날 텐데....");
+          Martylog("urobot2011chess:  잡았다 요놈! 5초 넘으지 말라고했지! 그럼 안된다고 말....(대충 3시간동안 강의 ㅋㅋ)");
+        } else {
+          Martylog("urobot2011chess:  잘하고 있군, 컬그봇씨.");
+        }
+        return bestMoveFound;
+      }
+
+      function minimax(depth, game, alpha, beta, isMaximisingPlayer) {
+        positionCount++;
+        if (depth === 0) {
+          return -evaluateBoard(game.board());
+        }
+
+        var newGameMoves = game.moves();
+
+        if (isMaximisingPlayer) {
+          var bestMove = -9999;
+          for (var i = 0; i < newGameMoves.length; i++) {
+            game.move(newGameMoves[i]);
+            bestMove = Math.max(bestMove, minimax(depth - 1, game, alpha, beta, !isMaximisingPlayer));
+            game.undo();
+            alpha = Math.max(alpha, bestMove);
+            if (beta <= alpha) {
+              return bestMove;
+            }
+          }
+          return bestMove;
+        } else {
+          var bestMove = 9999;
+          for (var i = 0; i < newGameMoves.length; i++) {
+            game.move(newGameMoves[i]);
+            bestMove = Math.min(bestMove, minimax(depth - 1, game, alpha, beta, !isMaximisingPlayer));
+            game.undo();
+            beta = Math.min(beta, bestMove);
+            if (beta <= alpha) {
+              return bestMove;
+            }
+          }
+          return bestMove;
+        }
+      }
+
+      function evaluateBoard(board) {
+        var totalEvaluation = 0;
+        for (var i = 0; i < 8; i++) {
+          for (var j = 0; j < 8; j++) {
+            totalEvaluation = totalEvaluation + getPieceValue(board[i][j], i, j);
+          }
+        }
+        return totalEvaluation;
+      }
+
+      var pawnEvalWhite =
+        [
+          [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+          [5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0],
+          [1.0, 1.0, 2.0, 3.0, 3.0, 2.0, 1.0, 1.0],
+          [0.5, 0.5, 1.0, 2.5, 2.5, 1.0, 0.5, 0.5],
+          [0.0, 0.0, 0.0, 2.0, 2.0, 0.0, 0.0, 0.0],
+          [0.5, -0.5, -1.0, 0.0, 0.0, -1.0, -0.5, 0.5],
+          [0.5, 1.0, 1.0, -2.0, -2.0, 1.0, 1.0, 0.5],
+          [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        ];
+
+      var pawnEvalBlack = pawnEvalWhite.slice().reverse();
+
+      var knightEval =
+        [
+          [-5.0, -4.0, -3.0, -3.0, -3.0, -3.0, -4.0, -5.0],
+          [-4.0, -2.0, 0.0, 0.0, 0.0, 0.0, -2.0, -4.0],
+          [-3.0, 0.0, 1.0, 1.5, 1.5, 1.0, 0.0, -3.0],
+          [-3.0, 0.5, 1.5, 2.0, 2.0, 1.5, 0.5, -3.0],
+          [-3.0, 0.0, 1.5, 2.0, 2.0, 1.5, 0.0, -3.0],
+          [-3.0, 0.5, 1.0, 1.5, 1.5, 1.0, 0.5, -3.0],
+          [-4.0, -2.0, 0.0, 0.5, 0.5, 0.0, -2.0, -4.0],
+          [-5.0, -4.0, -3.0, -3.0, -3.0, -3.0, -4.0, -5.0]
+        ];
+
+      var bishopEvalWhite = [
+        [-2.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0],
+        [-1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0],
+        [-1.0, 0.0, 0.5, 1.0, 1.0, 0.5, 0.0, -1.0],
+        [-1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, -1.0],
+        [-1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, -1.0],
+        [-1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0],
+        [-1.0, 0.5, 0.0, 0.0, 0.0, 0.0, 0.5, -1.0],
+        [-2.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0]
+      ];
+
+      var bishopEvalBlack = bishopEvalWhite.slice().reverse();
+
+      var rookEvalWhite = [
+        [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        [0.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.5],
+        [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+        [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+        [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+        [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+        [-0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5],
+        [0.0, 0.0, 0.0, 0.5, 0.5, 0.0, 0.0, 0.0]
+      ];
+
+      var rookEvalBlack = rookEvalWhite.slice().reverse();
+
+      var evalQueen = [
+        [-2.0, -1.0, -1.0, -0.5, -0.5, -1.0, -1.0, -2.0],
+        [-1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0],
+        [-1.0, 0.0, 0.5, 0.5, 0.5, 0.5, 0.0, -1.0],
+        [-0.5, 0.0, 0.5, 0.5, 0.5, 0.5, 0.0, -0.5],
+        [0.0, 0.0, 0.5, 0.5, 0.5, 0.5, 0.0, -0.5],
+        [-1.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.0, -1.0],
+        [-1.0, 0.0, 0.5, 0.0, 0.0, 0.0, 0.0, -1.0],
+        [-2.0, -1.0, -1.0, -0.5, -0.5, -1.0, -1.0, -2.0]
+      ];
+
+      var kingEvalWhite = [
+
+        [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
+        [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
+        [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
+        [-3.0, -4.0, -4.0, -5.0, -5.0, -4.0, -4.0, -3.0],
+        [-2.0, -3.0, -3.0, -4.0, -4.0, -3.0, -3.0, -2.0],
+        [-1.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -1.0],
+        [2.0, 2.0, 0.0, 0.0, 0.0, 0.0, 2.0, 2.0],
+        [2.0, 3.0, 1.0, 0.0, 0.0, 1.0, 3.0, 2.0]
+      ];
+
+      var kingEvalBlack = kingEvalWhite.slice().reverse();
+
+      function getPieceValue(piece, x, y) {
+        if (piece === null) {
+          return 0;
+        }
+        function getAbsoluteValue(piece, isWhite, x, y) {
+          if (piece.type === 'p') {
+            return 10 + (isWhite ? pawnEvalWhite[y][x] : pawnEvalBlack[y][x]);
+          } else if (piece.type === 'r') {
+            return 50 + (isWhite ? rookEvalWhite[y][x] : rookEvalBlack[y][x]);
+          } else if (piece.type === 'n') {
+            return 30 + knightEval[y][x];
+          } else if (piece.type === 'b') {
+            return 30 + (isWhite ? bishopEvalWhite[y][x] : bishopEvalBlack[y][x]);
+          } else if (piece.type === 'q') {
+            return 90 + evalQueen[y][x];
+          } else if (piece.type === 'k') {
+            return 900 + (isWhite ? kingEvalWhite[y][x] : kingEvalBlack[y][x]);
+          }
+          throw "Unknown piece type: " + piece.type;
+        }
+        var absoluteValue = getAbsoluteValue(piece, piece.color === 'w', x, y);
+        return piece.color === 'w' ? absoluteValue : -absoluteValue;
+      }
+
+      
+      var positionCount;
+      function getBestMove(game) {
+        var levelx;
+
+        var kumkum1 = document.getElementById("userlevel").value;
+        if (kumkum1 == "pyongsin") {
+          levelx = 1;
+        }
+        if (kumkum1 == "grandmaster") {
+          levelx = 5;
+        }
+        if (kumkum1 == "hasu") {
+          levelx = 2;
+        }
+        if (kumkum1 == "middle") {
+          levelx = 3;
+        }
+        if (kumkum1 == "advance") {
+          levelx = 4;
+        }
+        
+        positionCount = 0;
+        var depth = parseInt(levelx);
+        var bestMove = minimaxCote(depth, game, true);
+        return bestMove;
+      }
+
+      function makeMove() {
+        updateStatus();
+        var randomhumour = Math.floor(Math.random() * humourData.length);
+        MartySay('Hmm....' + humourData[randomhumour]);
+        var possibleMoves = game.moves();
+
+        if (possibleMoves.length === 0) return;
+
+        var possibleMoves = game.moves();
+
+        if (game.game_over() === true ||
+          game.in_draw() === true ||
+          possibleMoves.length === 0) return;
+        var bestMove = getBestMove(game);
+        game.move(bestMove);
+        board.position(game.fen());
+
+        updateStatus();
+      }
+
+
+      function updateStatus() {
+        if (start_bool == 0) {
+          if (martycolor == "b") {
+            game.header('White', $wn.val());
+            game.header('Black', 'ColourgreyBot L1');
+          } else if (martycolor == "w") {
+            game.header('Black', $wn.val());
+            game.header('White', 'ColourgreyBot L1');
+          }
+        }
+        var moveColor = 'White';
+        if (game.turn() === 'b') {
+          moveColor = 'Black';
+        }
+        if (game.in_checkmate()) {
+          status = 'Game over, ' + moveColor + ' is in checkmate.';
+          if (martycolor == game.turn()) {
+            MartySay('I lost. Would you like another round?');
+          } else {
+            MartySay('oh, you lost.');
+          }
+        } else if (game.in_draw()) {
+          status = 'Game over, drawn position';
+          MartySay('Oh, it`s a draw. Would you like another round?');
+        } else {
+          status = moveColor + ' to move';
+          if (game.in_check()) {
+            status += ', ' + moveColor + ' is in check';
+            if (martycolor == game.turn()) {
+              MartySay('Hmm, I`ve been checked.');
+            } else {
+              MartySay('You`ve been checked. i like check!');
+            }
+          }
+        }
+        $fen.html(game.fen());
+        $pgn.html(game.pgn());
+      }
+
+      function movecommandmove1(event) {
+        var keyevent1 = event.key;
+        var movecommands12 = document.getElementById("inputmovecommand1");
+        if (keyevent1 == "Enter") {
+          game.move(movecommands12.value);
+          window.setTimeout(makeMove, 250);
+          updateStatus();
+          board.position(game.fen());
+          var $colsolehmove1 = $("#movecommand2");
+          $colsolehmove1.html("이번 게임의 pgn입니다. <br> 아래 입력창에 당신의 move를 입력하세요" + game.pgn());
+        }
+      }
+
+      function puzzlefunction1() {
+        var cgf1 = document.getElementById("inputgamefen1").innerHTML;
+        var spacechar = ' ';
+        var fullstopchar = '.';
+        for (var i = 0; i < cgf1.length; i++) {
+          if (cgf1[i] === (spacechar)) {
+            var sijak123 = i;
+            for (var n =0;n < cgf1.length;n++) {
+              if (cgf1[n] === spacechar) {
+                var kkut123 = n;
+              }
+              var kakkakmoves1 = cgf1.slice((sijak123 + 1), (kkut123));
+              setTimeout(puzzleupdatest(kakkakmoves1), 2000);
+              updateStatus();
+              board.position(game.fen());
+            }
+          }
+          
+        }
+
+      }
+
+      function puzzleupdatest(mub) {
+
+        game.move(mub);
+
+      }
+
+      function onDrop(source, target) {
+        var move = game.move({
+          from: source,
+          to: target,
+          promotion: 'q'
+        });
+
+        
+
+        if (move === null) return 'snapback';
+        window.setTimeout(makeMove, 250);
+      }
+
+
+      function onSnapEnd() {
+        board.clearCircles();
+        board.position(game.fen());
+      }
+
+      function pieceTheme(piece) {
+        return 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/' + document.getElementById("chesspiecesxxx").value +'/' + piece + '.png';
+      }
+
+      var config = {
+        pieceTheme: pieceTheme,
+        draggable: true,
+        position: 'start',
+        onDragStart: onDragStart,
+        onDrop: onDrop,
+        onSnapEnd: onSnapEnd
+      };
+      board = Chessboard('myBoard', config);
+      board.addCircle = function(to) {
+          var $circle = $("[data-square='" + to + "']");
+          if ($circle != undefined) {
+            var circle = $circle.html();
+            if (!circle.includes("img")) {
+              $circle.html($circle.html() + "<chess-circle></chess-circle>");
+            } else {
+              //$circle.html(circle + "<chess-eat></chess-eat>");
+              $circle.addClass('highlight-black');
+            }
+          } else {
+            return null;
+          }
+        };
+        board.clearCircles = function() {
+          var $circles = $("[data-square]");
+          if ($circles != undefined) {
+            $circles.each(function (index, element) {
+              var circle = $(element).html();
+              circle = circle.replace('<chess-circle></chess-circle>', '');
+              circle = circle.replace('<chess-eat></chess-eat>', '');
+              $(element).html(circle);
+              $(element).removeClass('highlight-black');
+            });
+          } else {
+            return null;
+          }
+        };
+        function onDragStart(source, piece, position, orientation) {
+          board.addCircle = function (to) {
+            var $circle = $("[data-square='" + to + "']");
+            if ($circle != undefined) {
+              var circle = $circle.html();
+              if (!circle.includes("img")) {
+                $circle.html($circle.html() + "<chess-circle></chess-circle>");
+              } else {
+                //$circle.html(circle + "<chess-eat></chess-eat>");
+                $circle.addClass('highlight-black');
+              }
+            } else {
+              return null;
+            }
+          };
+          board.clearCircles = function () {
+            var $circles = $("[data-square]");
+            if ($circles != undefined) {
+              $circles.each(function (index, element) {
+                var circle = $(element).html();
+                circle = circle.replace('<chess-circle></chess-circle>', '');
+                circle = circle.replace('<chess-eat></chess-eat>', '');
+                $(element).html(circle);
+                $(element).removeClass('highlight-black');
+              });
+            } else {
+              return null;
+            }
+          };
+            if (game.game_over()) return false;
+            if (piece.search(/^${martycolor}/) !== -1) return false;
+            board.clearCircles();
+            game.moves({ source, verbose: true }).forEach(function (element) {
+              if (element.from == source) {
+                board.addCircle(element.to);
+                var $source = $("[data-square='" + element.to + "']");
+                $source.click(function () {
+                  onDrop(source, element.to);
+                  onSnapEnd();
+                });
+                $source = $source.find("[data-piece]");
+                if ($source != undefined) {
+                  $source.click(function () {
+                    onDrop(source, element.to);
+                    onSnapEnd();
+                  });
+                }
+              }
+            });
+          }
+        
+        
+        document.getElementById("piecethemes1").onchange =  function () {
+            document.getElementById("chesspiecesxxx").value = document.getElementById("piecethemes1").value;
+            board = Chessboard('myBoard', config);
+        }
+
+
+    </script>
+    <div>
+      <div style="position: fixed;right: 120px;bottom: 40px;border-radius: 81%;height: 50px;">
+        <p class="yagwang9" onclick="darkmode99(event)">
+        <div class="switch" onclick="darkmode99(event)">
+          <input type="checkbox" id="control" class="control">
+          <label for="control" class="checkbox"></label>
+        </div>
+        <script>
+
+        </script>
+        </p>
+      </div>
+    </div>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/colourgrey-styles-1.0/js/icon.css-1-0.js"></script>
+    <div class="footer">
+      <p class="license">sources of images:chess.com,pixabay</p>
+      <p class="license">javascript chess board powered by <a href="http://www.chessboardjs.com/">chessboardjs</a></p>
+      
+    </div>
+    <img src="/aass/docs/chess/martycopy1_files/wP.png" id="b6a5-1ff7-4510-421c-edf5-73b9-43be-8002" alt="" class="piece-417db"
+      data-piece="wP" style="width: 49px; height: 49px; display: none;">
+
+  </div>
+  
+</body>
+
+</html>
