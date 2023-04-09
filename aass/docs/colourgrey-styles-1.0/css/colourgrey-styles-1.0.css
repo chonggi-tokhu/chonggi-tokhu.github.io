@@ -1310,14 +1310,14 @@ a {
 
 
 .card .card-body #MartySay .botprofile1 {
-    border: 1px solid var(--prussianblue);
+    border: 1.6px solid var(--prussianblue);
     border-radius: 8%;
     margin-left:20px;
     display:block;
 }
 
 .botprofile1 {
-    border: 1px solid var(--prussianblue);
+    border: 1.6px solid var(--prussianblue);
     border-radius: 8%;
     margin-left:20px;
     display:block;
