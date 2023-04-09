@@ -1315,6 +1315,9 @@ a {
     height:80%;
 }
 
+#MartySay {
+    background: var(--lightbluishgrey);
+}
 
 .card .card-body #MartySay .botprofile1 {
     border: 1.6px solid var(--prussianblue); 
