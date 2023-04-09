@@ -1308,13 +1308,6 @@ a {
     background: var(--light);
 }
 
-.boardinner123 .card {
-    position: absolute;
-    left: 430px;
-    top:100px;
-    height:80%;
-}
-
 #MartySay {
     background: var(--lightbluishgrey);
 }
