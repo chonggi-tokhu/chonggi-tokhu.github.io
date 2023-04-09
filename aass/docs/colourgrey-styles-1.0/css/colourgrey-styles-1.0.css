@@ -1308,6 +1308,13 @@ a {
     background: var(--light);
 }
 
+.boardinner123 .card {
+    position: absolute;
+    left: 430px;
+    top:100px;
+    height:80%;
+}
+
 
 .card .card-body #MartySay .botprofile1 {
     border: 1.6px solid var(--prussianblue); 
