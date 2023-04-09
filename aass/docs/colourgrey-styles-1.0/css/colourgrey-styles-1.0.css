@@ -1308,6 +1308,15 @@ a {
     background: var(--light);
 }
 
+
+.card .card-body #MartySay .botprofile1 {
+    border: 1px solid var(--prussianblue);
+    border-radius: 8%;
+    margin-left:20px;
+    display:block;
+    padding-left:20px;
+}
+
 .botprofile1 {
     border: 1px solid var(--prussianblue);
     border-radius: 8%;
