@@ -1308,6 +1308,14 @@ a {
     background: var(--light);
 }
 
+.botprofile1 {
+    border: 1px solid var(--prussianblue);
+    border-radius: 8%;
+    margin-left:20px;
+    display:block;
+    padding-left:20px;
+}
+
 .colouryellow {
     background: var(--yellow);
 }
