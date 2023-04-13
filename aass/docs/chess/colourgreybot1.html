@@ -1167,6 +1167,16 @@
         if (game.turn() === 'b') {
           moveColor = 'Black';
         }
+        if (game.in_resign()) {
+          status = 'Game over,' + moveColor + 'resigns.';
+          if (martycolor == game.turn()) {
+          } else {
+              MartySay('never give up!!!');
+              scorel = Number(localStorage.getItem("yourl")) + 1;
+              localStorage.setItem("yourl", scorel);
+              $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
+          }
+        }
         if (game.in_checkmate()) {
           status = 'Game over, ' + moveColor + ' is in checkmate.';
           if (martycolor == game.turn()) {
