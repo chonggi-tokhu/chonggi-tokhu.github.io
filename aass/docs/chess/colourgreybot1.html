@@ -1167,7 +1167,8 @@
               scorel = Number(localStorage.getItem("yourl")) + 1;
               localStorage.setItem("yourl", scorel);
               $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
-              game.game_over() = true;
+              
+          () = true;
         }
         if (game.in_checkmate()) {
           status = 'Game over, ' + moveColor + ' is in checkmate.';
@@ -1330,7 +1331,7 @@
               return null;
             }
           };
-            if (game.game_over() === true) return false;
+            if (game.game_over() == true) return false;
             if (piece.search(/^${martycolor}/) !== -1) return false;
             board.clearCircles();
             game.moves({ source, verbose: true }).forEach(function (element) {
