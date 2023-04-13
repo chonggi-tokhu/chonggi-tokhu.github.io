@@ -4,7 +4,7 @@ var math1stringf = documentstring1.match(/\[\/math1\]/g);
 var splitmath1r = documentstring1.split(`[rdecimaldot]`);
 if (splitmath1r) {
     for (var i = 0; i < splitmath1r.length; i++) {
-        var splitmath2r = splitmath1[i].split(`[/rdecimaldot]`);
+        var splitmath2r = splitmath1r[i].split(`[/rdecimaldot]`);
         documentstring1.replace(splitmath2r[0], (splitmath2r[0] + '\u02D9'));
     }
 }
