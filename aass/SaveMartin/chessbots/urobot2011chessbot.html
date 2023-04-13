@@ -276,6 +276,10 @@
       </div>
     <div class="col-sm">
     <div class="card">
+      <div id="scoreblock">
+        <h3><span style="color:var(--green);">W</span>:<span id="scorew"></span></h3>
+        <h3><span style="color:var(--nred);">L</span>:<span id="scorel"></span></h3>
+      </div>
       <div class="card-body" id="MartySay">
         <img src="https://images.chesscomfiles.com/uploads/user/162383667.8bdccd25.160x160o.477733056911.jpg" class="botprofile1" width="120px">
         <h2><a href="https://www.chess.com/member/urobot2011chess">urobot2011chess-BOT</a></h2>
@@ -334,6 +338,11 @@
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
       crossorigin="anonymous"></script>
     <script>
+      var scorew = 0;
+      var scorel = 0;
+      $("#scoreblock #scorew").html(localStorage.getItem("yourw"));
+      $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
+
       
       $("#userlevel").change( function () {
         var kumkum1 = document.getElementById("userlevel").value;
@@ -1167,8 +1176,14 @@
           status = 'Game over, ' + moveColor + ' is in checkmate.';
           if (martycolor == game.turn()) {
             MartySay('I lost. Would you like another round?');
+            scorew = Number(localStorage.getItem("yourw")) + 1;
+            localStorage.setItem("yourw", scorew);
+            $("#scoreblock #scorew").html(localStorage.getItem("yourw"));
           } else {
             MartySay('oh, you lost.');
+            scorel = Number(localStorage.getItem("yourl")) + 1;
+            localStorage.setItem("yourl", scorel);
+            $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
           }
         } else if (game.in_draw()) {
           status = 'Game over, drawn position';
