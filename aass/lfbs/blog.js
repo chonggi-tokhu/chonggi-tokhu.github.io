@@ -21,3 +21,5 @@ documentstring1.replace(`SaveMartin`, `<a href="https://www.chess.com/club/savem
 documentstring1.replace(`#savemartin`, `<a href="https://www.chess.com/club/savemartin">#savemartin</a>`);
 documentstring1.replace(`세이브마틴`, `<a href="https://www.chess.com/club/savemartin">세이브마틴</a>`);
 documentstring1.replace(`#세이브마틴`, `<a href="https://www.chess.com/club/savemartin">#세이브마틴</a>`);
+
+document.body.innerHTML = documentstring1;
