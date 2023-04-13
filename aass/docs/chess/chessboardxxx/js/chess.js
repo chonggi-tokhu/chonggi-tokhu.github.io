@@ -735,13 +735,6 @@ var Chess = function(fen) {
   function in_check() {
     return king_attacked(turn);
   }
-      function in_resign() {
-        document.getElementById("resignBtn").onclick = function() {
-            return true;
-        }
-        return false;
-    }
-
   function in_checkmate() {
     return in_check() && generate_moves().length === 0;
   }
@@ -1284,7 +1277,6 @@ var Chess = function(fen) {
       return half_moves >= 100 ||
              in_checkmate() ||
              in_stalemate() ||
-             in_resign() ||
              insufficient_material() ||
              in_threefold_repetition();
     },
