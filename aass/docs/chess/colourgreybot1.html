@@ -398,13 +398,6 @@
       var $fen = $('#fen');
       var $pgn = $('#pgn');
       var $wn = $('#wn');
-      function resign1() {
-        document.getElementById("resignBtn").onclick = function() { return true; }
-        return false;
-      }
-      game.in_resign = function() {
-      return resign1;
-      }
       var $martycolor = $('#martycolor');
       var martycolor = "b";
       var piecethemes = "wikipedia";
@@ -1172,7 +1165,7 @@
         if (game.turn() === 'b') {
           moveColor = 'Black';
         }
-        document.getElementById("resignBtn").onclick = function() {
+        document.getElementById("resignBtn1").onclick = function() {
           status = 'Game over,' + moveColor + 'resigns.';
           if (martycolor == game.turn()) {
           } else {
