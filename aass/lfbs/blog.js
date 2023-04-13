@@ -1,18 +1,6 @@
 var documentstring1 = document.body.innerHTML;
-var math1strings = documentstring1.match(/\[math1\]/g);
-var math1stringf = documentstring1.match(/\[\/math1\]/g);
-var splitmath1r = documentstring1.split(`[rdecimaldot]`);
-if (splitmath1r) {
-    for (var i = 0; i < splitmath1r.length; i++) {
-        var splitmath2r = splitmath1r[i].split(`[/rdecimaldot]`);
-        documentstring1.replace(splitmath2r[0], (splitmath2r[0] + '\u02D9'));
-    }
-}
-documentstring1.replace(
-  `:lol`,
-  `<span style="background-image:url(https://chonggi-tokhu.github.io/aass/docs/colourgrey-styles-1.0/lol.gif);height:20px;width:20px;display:block;"></span>`
-);
-documentstring1.replace(':heart', '\u2764');
+documentstring1.replace(`:lol`,`<span style="background-image:url(https://chonggi-tokhu.github.io/aass/docs/colourgrey-styles-1.0/lol.gif);height:20px;width:20px;display:block;"></span>`);
+documentstring1.replace(`:heart`, '\u2764');
 function swearfiltering(swearfiltering1) {
     if (swearfiltering1) {
         documentstring1.replace('fuck', `oh,it's f-word.`);
