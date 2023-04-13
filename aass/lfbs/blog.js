@@ -1,4 +1,4 @@
-var documentstring1 = document.body.innerText;
+var documentstring1 = document.body.innerHTML;
 var math1strings = documentstring1.match(/\[math1\]/g);
 var math1stringf = documentstring1.match(/\[\/math1\]/g);
 var splitmath1r = documentstring1.split(`[rdecimaldot]`);
