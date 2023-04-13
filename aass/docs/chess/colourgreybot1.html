@@ -282,8 +282,8 @@
 
     <div class="card">
       <div id="scoreblock">
-        <h3><span style="color:var(--green);">W</span>:<div id="scorew"></div></h3>
-        <h3><span style="color:var(--nred);">L</span>:<div id="scorel"></div></h3>
+        <h3><span style="color:var(--green);">W</span>:<span id="scorew"></span></h3>
+        <h3><span style="color:var(--nred);">L</span>:<span id="scorel"></span></h3>
       </div>
       <div class="card-body" id="MartySay">
         <div id="MartySay1"></div>
@@ -1164,10 +1164,12 @@
             MartySay('I lost. Would you like another round?');
             scorew = scorew + 1;
             localStorage.setItem("yourw", scorew);
+            $("#scoreblock #scorew").html(localStorage.getItem("yourw"));
           } else {
             MartySay('oh, you lost.');
             scorel = scorel + 1;
-            localStorage.setItem("yourl", scorel)
+            localStorage.setItem("yourl", scorel);
+            $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
           }
         } else if (game.in_draw()) {
           status = 'Game over, drawn position';
