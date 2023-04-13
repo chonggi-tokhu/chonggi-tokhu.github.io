@@ -10,8 +10,8 @@ function documentfunction1(tf) {
     var abc16 = abc15.replace('컬러그레이봇', `<a href="https://chonggi-tokhu.github.io/aass/docs/chess/colourgreybot1">colourgrey-BOT</a>`);
     var abc17 = abc16.replace('savemartin', `<a href="https://www.chess.com/club/savemartin">savemartin</a>`);
     var abc18 = abc17.replace('SaveMartin', `<a href="https://www.chess.com/club/savemartin">SaveMartin</a>`);
-    var abc19 = abc18.documentstring1.replace('#savemartin', `<a href="https://www.chess.com/club/savemartin">#savemartin</a>`);
-    var abc20 = abc18.replace('세이브마틴', `<a href="https://www.chess.com/club/savemartin">세이브마틴</a>`);
+    var abc19 = abc18.replace('#savemartin', `<a href="https://www.chess.com/club/savemartin">#savemartin</a>`);
+    var abc20 = abc19.replace('세이브마틴', `<a href="https://www.chess.com/club/savemartin">세이브마틴</a>`);
     var abc21 = abc20.replace('#세이브마틴', `<a href="https://www.chess.com/club/savemartin">#세이브마틴</a>`);
     return abc21;
     }
