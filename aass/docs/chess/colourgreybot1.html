@@ -1175,7 +1175,7 @@
         if (game.turn() === 'b') {
           moveColor = 'Black';
         }
-        if (game.in_resign()) {
+        if (document.getElementById("resignBtn").click()) {
           status = 'Game over,' + moveColor + 'resigns.';
           if (martycolor == game.turn()) {
           } else {
