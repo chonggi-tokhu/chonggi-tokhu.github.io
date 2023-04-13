@@ -740,18 +740,6 @@ var Chess = function(fen) {
     return in_check() && generate_moves().length === 0;
   }
   
-  function resign1() {
-        if ($("#resignBtn").click()) {
-            return true;
-        }
-        return false;
-    }
-    
-    function in_resign() {
-        return resign1();
-    }
-
-
   function in_stalemate() {
     return !in_check() && generate_moves().length === 0;
   }
