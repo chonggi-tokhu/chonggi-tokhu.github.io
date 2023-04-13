@@ -320,7 +320,7 @@
         <option value="pyongsin">체스 병신</option>
       </select>
     </div>
-    <div class="mb-3">
+    <div class="mb-3" id="btnblock">
       <button type="button" class="btn btn-primary" id="start">start<cgreyico1 type="lol.gif"></cgreyico1></button>
       
     </div>
@@ -340,6 +340,15 @@
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
       crossorigin="anonymous"></script>
     <script>
+
+      var resignBtn1 = function() {
+          var createresignBtn = document.createElement("button")
+          if(start_bool == 1) {
+              createresignBtn.setAttribute("id", "resignBtn");
+              document.getElementById("btnblock").appenChild(createresignBtn);
+          }
+      }
+      resignBtn1();
       
       $("#userlevel").change( function () {
         var kumkum1 = document.getElementById("userlevel").value;
