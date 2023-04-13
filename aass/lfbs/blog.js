@@ -1,5 +1,6 @@
-function documentfunction1() {
+function documentfunction1(tf) {
     var documentstring1 = document.body.innerHTML;
+    if (tf) {
     documentstring1.replace(':lol',`<span style="background-image:url(https://chonggi-tokhu.github.io/aass/docs/colourgrey-styles-1.0/lol.gif);height:20px;width:20px;display:block;"></span>`);
     documentstring1.replace(':heart', '\u2764');
     function swearfiltering(swearfiltering1) {
@@ -23,5 +24,6 @@ function documentfunction1() {
     documentstring1.replace('세이브마틴', `<a href="https://www.chess.com/club/savemartin">세이브마틴</a>`);
     documentstring1.replace('#세이브마틴', `<a href="https://www.chess.com/club/savemartin">#세이브마틴</a>`);
     return documentstring1;
+    }
 }
-document.body.innerHTML = documentfunction1();
+document.body.innerHTML = documentfunction1(true);
