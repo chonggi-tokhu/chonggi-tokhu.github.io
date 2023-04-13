@@ -1162,12 +1162,12 @@
           status = 'Game over, ' + moveColor + ' is in checkmate.';
           if (martycolor == game.turn()) {
             MartySay('I lost. Would you like another round?');
-            scorew = parseInt(localStorage.getItem("yourw")) + 1;
+            scorew = Number(localStorage.getItem("yourw")) + 1;
             localStorage.setItem("yourw", scorew);
             $("#scoreblock #scorew").html(localStorage.getItem("yourw"));
           } else {
             MartySay('oh, you lost.');
-            scorel = parseInt(localStorage.getItem("yourl")) + 1;
+            scorel = Number(localStorage.getItem("yourl")) + 1;
             localStorage.setItem("yourl", scorel);
             $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
           }
