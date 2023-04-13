@@ -340,17 +340,16 @@
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
       crossorigin="anonymous"></script>
     <script>
-
-      function resignBtn1() {
-          var createresignBtn = document.createElement("button")
+    
           if(start_bool == 1) {
-              createresignBtn.setAttribute("id", "resignBtn");
-              createresignBtn.setAttribute("class", "btn btn-primary");
-              createresignBtn.innerHTML = 'resign';
-              document.getElementById("btnblock").appenChild(createresignBtn);
+            var createresignBtn = document.createElement("button");
+            createresignBtn.setAttribute("id", "resignBtn");
+            createresignBtn.setAttribute("class", "btn btn-primary");
+            createresignBtn.innerHTML = 'resign';
+            document.getElementById("btnblock").appenChild(createresignBtn);
           }
-      }
-      resignBtn1();
+
+
       
       $("#userlevel").change( function () {
         var kumkum1 = document.getElementById("userlevel").value;
@@ -403,9 +402,7 @@
       var $pgn = $('#pgn');
       var $wn = $('#wn');
       function resign1() {
-        if ($("#resignBtn").click()) {
-            return true;
-        }
+        document.getElementById("resignBtn").onclick = function() { return true; }
         return false;
       }
       game.in_resign = function() {
