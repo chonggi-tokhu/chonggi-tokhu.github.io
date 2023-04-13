@@ -345,6 +345,8 @@
           var createresignBtn = document.createElement("button")
           if(start_bool == 1) {
               createresignBtn.setAttribute("id", "resignBtn");
+              createresignBtn.setAttribute("class", "btn btn-primary");
+              createresignBtn.innerHTML = 'resign';
               document.getElementById("btnblock").appenChild(createresignBtn);
           }
       }
