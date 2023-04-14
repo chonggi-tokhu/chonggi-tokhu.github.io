@@ -1334,6 +1334,7 @@
             }
           };
             if (game.game_over()) return false;
+            if (checkforgameover1 === true) return false;
             if (piece.search(/^${martycolor}/) !== -1) return false;
             board.clearCircles();
             game.moves({ source, verbose: true }).forEach(function (element) {
