@@ -1161,7 +1161,7 @@
         if (game.turn() === 'b') {
           moveColor = 'Black';
         }
-        document.getElementById("resignBtn").onclick = function() {
+        document.getElementById("resignBtn").onclick = function(game) {
               status = 'Game over,' + moveColor + 'resigns.';
               MartySay('never give up!!!');
               scorel = Number(localStorage.getItem("yourl")) + 1;
