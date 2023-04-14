@@ -1168,7 +1168,7 @@
               localStorage.setItem("yourl", scorel);
               $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
               
-          () = true;
+              game.game_over() = true;
         }
         if (game.in_checkmate()) {
           status = 'Game over, ' + moveColor + ' is in checkmate.';
