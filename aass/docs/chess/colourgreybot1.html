@@ -322,7 +322,7 @@
     </div>
     <div class="mb-3" id="btnblock">
       <button type="button" class="btn btn-primary" id="start">start<cgreyico1 type="lol.gif"></cgreyico1></button>
-      <button id="resignBtn" class="btn btn-primary" onclick="game.game_over()">resign</button>
+      <button id="resignBtn" class="btn btn-primary" onclick="checkforgameover1 = true;">resign</button>
       
     </div>
 
@@ -401,6 +401,8 @@
       var $colourchangebtn = $("#colourchange1");
       var $movecommands1 = $("#inputmovecommand1");
       document.getElementById("chesspiecesxxx").value = "wikipedia";
+      
+      var checkforgameover1 = false;
 
 
       $colourchangebtn.click(function (piece) {
@@ -1161,13 +1163,14 @@
         if (game.turn() === 'b') {
           moveColor = 'Black';
         }
-        document.getElementById("resignBtn").onclick = function(game) {
+        document.getElementById("resignBtn").onclick = function() {
               status = 'Game over,' + moveColor + 'resigns.';
               MartySay('never give up!!!');
               scorel = Number(localStorage.getItem("yourl")) + 1;
               localStorage.setItem("yourl", scorel);
               $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
               game.game_over();
+              checkforgameover1 = true;
         }
         if (game.in_checkmate()) {
           status = 'Game over, ' + moveColor + ' is in checkmate.';
@@ -1331,6 +1334,9 @@
             }
           };
             if (game.game_over() === true) return false;
+            if (checkforgameover1 == true) {
+              return false;
+            }
             if (piece.search(/^${martycolor}/) !== -1) return false;
             board.clearCircles();
             game.moves({ source, verbose: true }).forEach(function (element) {
