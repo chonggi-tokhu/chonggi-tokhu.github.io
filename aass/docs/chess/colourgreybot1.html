@@ -281,6 +281,10 @@
     </div>
 
     <div class="card">
+       <div id="scoreblock">
+        <h3><span style="color:var(--green);">W</span>:<span id="scorew"></span></h3>
+        <h3><span style="color:var(--nred);">L</span>:<span id="scorel"></span></h3>
+      </div>
       <div class="card-body" id="MartySay">
         <div id="MartySay1"></div>
         <small class="license">license:developer:colourgrey-urobot2011chess공동개발,<br>오픈 소스(출처 명시 필수)<br>(디자인-colourgrey,봇
@@ -358,6 +362,13 @@
           levelx = 4;
         }
       });
+      
+      var scorew = 0;
+      var scorel = 0;
+      $("#scoreblock #scorew").html(localStorage.getItem("yourw"));
+      $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
+
+
       function darkmode99(event) {
         var btag = document.getElementById("body734");
         var dtag1 = document.getElementById("MartySay");
@@ -1156,14 +1167,23 @@
         }
         document.getElementById("resignBtn").onclick = function () {
             checkforgameover1 = true;
+            scorel = Number(localStorage.getItem("yourl")) + 1;
+            localStorage.setItem("yourl", scorel);
+            $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
             MartySay("Never give up!!! GG");
         }
         if (game.in_checkmate()) {
           status = 'Game over, ' + moveColor + ' is in checkmate.';
           if (martycolor == game.turn()) {
             MartySay('I lost. Would you like another round?');
+            scorew = Number(localStorage.getItem("yourw")) + 1;
+            localStorage.setItem("yourw", scorew);
+            $("#scoreblock #scorew").html(localStorage.getItem("yourw"));
           } else {
             MartySay('oh, you lost.');
+            scorel = Number(localStorage.getItem("yourl")) + 1;
+            localStorage.setItem("yourl", scorel);
+            $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
           }
         } else if (game.in_draw()) {
           status = 'Game over, drawn position';
