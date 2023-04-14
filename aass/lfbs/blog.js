@@ -31,9 +31,8 @@ function documentfunction1(tf) {
     }
 }
 document.body.innerHTML = documentfunction1(true);
-var abcb = documentfunction1(true);
+var abcb = document.body.innerHTML;
 var abc7 = abcb.split(`[[`);
-if (abc7) {
 for (var i = 1; i < abc7.length; i++) {
     var abc8 = abc7[i].split(`]]`);
     var abc9 = abc8[0].split(`|`);
@@ -42,6 +41,5 @@ for (var i = 1; i < abc7.length; i++) {
     var abc10 = documentstring1.replace(abc8[0], `<a href=" ${abc9href} "> ${abc9text} </a>`);
     var abc11 = abc10.replace(`[[`, "");
     var abc12 = abc11.replace(`]]`, "");
-}
 }
 var abc13 = abc12;
