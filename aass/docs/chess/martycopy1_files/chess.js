@@ -735,11 +735,11 @@ var Chess = function(fen) {
     function in_check() {
         return king_attacked(turn);
     }
-    
+
     function in_checkmate() {
         return in_check() && generate_moves().length === 0;
     }
-    
+
     function in_stalemate() {
         return !in_check() && generate_moves().length === 0;
     }
@@ -820,6 +820,7 @@ var Chess = function(fen) {
 
         return repetition;
     }
+
     function push(move) {
         history.push({
             move: move,
@@ -1277,7 +1278,6 @@ var Chess = function(fen) {
         in_threefold_repetition: function() {
             return in_threefold_repetition();
         },
-        
 
         game_over: function() {
             return half_moves >= 100 ||
