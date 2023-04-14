@@ -820,11 +820,6 @@ var Chess = function(fen) {
     return repetition;
   }
   
-  function in_resignc() {
-    document.getElementById("resignBtn").onclick = function() {return true; }
-    return false;
-  }
-
   function push(move) {
     history.push({
       move: move,
@@ -1277,11 +1272,7 @@ var Chess = function(fen) {
     in_threefold_repetition: function() {
       return in_threefold_repetition();
     },
-    
-    in_resignc: function() {
-      return in_resignc();
-    },
-
+   
 
     game_over: function() {
       return half_moves >= 100 ||
