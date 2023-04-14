@@ -1169,7 +1169,6 @@
               scorel = Number(localStorage.getItem("yourl")) + 1;
               localStorage.setItem("yourl", scorel);
               $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
-              game.game_over();
               checkforgameover1 = true;
         }
         if (game.in_checkmate()) {
