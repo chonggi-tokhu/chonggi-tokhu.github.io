@@ -15,6 +15,7 @@ function documentfunction1(tf) {
     abc = abc.replace('#savemartin', `<a href="https://www.chess.com/club/savemartin">#savemartin</a>`);
     abc = abc.replace('세이브마틴', `<a href="https://www.chess.com/club/savemartin">세이브마틴</a>`);
     abc = abc.replace('#세이브마틴', `<a href="https://www.chess.com/club/savemartin">#세이브마틴</a>`);
+
     function swearfiltering(swearfiltering1) {
         if (swearfiltering1) {
             abc = abc.replace('fuck', `oh,it's f-word.`);
@@ -30,3 +31,17 @@ function documentfunction1(tf) {
     }
 }
 document.body.innerHTML = documentfunction1(true);
+var abcb = documentfunction1(true);
+var abc7 = abcb.split(`[[`);
+if (abc7) {
+for (var i = 1; i < abc7.length; i++) {
+    var abc8 = abc7[i].split(`]]`);
+    var abc9 = abc8[0].split(`|`);
+    var abc9href = abc9[0];
+    var abc9text = abc9[1];
+    var abc10 = documentstring1.replace(abc8[0], `<a href=" ${abc9href} "> ${abc9text} </a>`);
+    var abc11 = abc10.replace(`[[`, "");
+    var abc12 = abc11.replace(`]]`, "");
+}
+}
+var abc13 = abc12;
