@@ -820,7 +820,7 @@
       }
       var humourdata2 = `<img src="./pokpal1.gif" style="width:300px;height:200px;">`;
       var randommove7 = game.moves();
-      var randommove8 = Math.floor(Math.random() * randommove7().length);
+      var randommove8 = Math.floor(Math.random() * randommove7.length);
       var randommove9 = randommove7[randommove8];
       var openingData = [
         ["rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "e4", "e4", "e4", "d4", "d4", "e4", "g3", "b3", "e4", randommove9],
@@ -1336,7 +1336,7 @@
               return null;
             }
           };
-            if (game.game_over() === true) return false;
+            if (game.game_over()) return false;
             if (checkforgameover1 == true) {
               return false;
             }
