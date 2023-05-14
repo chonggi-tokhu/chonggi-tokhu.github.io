@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://images.chesscomfiles.com/uploads/v1/group/459847.a25844d2.160x160o.85394546eb75.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>colourgrey-marty bot L4</title>
+    <link href="/aass/docs/colourgrey-styles-1.0/css/colourgrey-styles-1.0.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="/aass/docs/chess/chessboardxxx/css/chessboard-1.0.0.css">
+    <link rel="stylesheet" href="/aass/docs/chess/chessboardxxx/css/chessboard-1.0.0.min.css">
+    <script src="/aass/docs/chess/chessboardxxx/js/chess.js"></script>
+    <script src="/aass/docs/chess/chessboardxxx/js/chess1.js"></script>
+    <script src="/aass/docs/chess/chessboardxxx/js/jquery-3.4.1.min.js"></script>
+    <script src="/aass/docs/chess/chessboardxxx/js/chessboard-1.0.0.min.js"></script>
+    <script src="/aass/docs/chess/martycopy1_files/chess.js"></script>
+    <script src="/aass/docs/chess/martycopy1_files/chessboard-1.0.0.min.js"></script>
+    <script src="/aass/docs/chess/martycopy1_files/jquery-3.4.1.min.js"></script>
+    <script src="/aass/docs/chess/martycopy1_files/bootstrap.min.js"></script>
+    <script src="/aass/docs/chess/martycopy1_files/popper.min.js"></script>
+    <link rel="stylesheet" href="/aass/docs/chess/martycopy1_files/bootstrap.min.css">
+    <link rel="stylesheet" href="/aass/docs/chess/martycopy1_files/chessboard-1.0.0.min.css">
+    <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5499297/skin/style.css">
+    <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5925927/skin/style.css">
+    <meta property="og:description" content="컬러그레이봇과 재밌는 수준별 눈높이 체스를 두어 보세요">
+    <meta property="og:title" content="Colourgrey-Marty-BOT L4">
+    <meta name="description" content="컬러그레이봇과 재밌는 수준별 눈높이 체스를 두어 보세요">
+    <link rel="apple-touch-icon-precomposed"
+        href="https://images.chesscomfiles.com/uploads/v1/group/459847.a25844d2.160x160o.85394546eb75.png">
+    <meta property="og:image"
+        content="https://images.chesscomfiles.com/uploads/v1/group/459847.a25844d2.160x160o.85394546eb75.png">
+    <style>
+        cgreyico1 {
+            height: 20px;
+            width: 20px;
+            position: relative;
+            display: block;
+        }
+
+        #pokpal1 {
+            background-image: var(--merong11);
+            border-radius: 66%;
+            width: 60px;
+            height: 60px;
+        }
+
+        chess-circle {
+            display: inline-block;
+            width: 50%;
+            height: 50%;
+            background-color: rgba(100, 160, 100, 0.6);
+            border-radius: 100%;
+            margin: 25%;
+        }
+
+        .footer {
+            background: var(--lightgrey);
+        }
+
+        .footer p.license {
+            text-align: center;
+            width: 100%;
+        }
+
+        #MartySay.dark {
+            background: #204739;
+        }
+
+        .switch {
+            height: 83px;
+            width: 234px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -51px;
+            margin-left: -117px;
+            -moz-border-radius: 40px;
+            -webkit-border-radius: 40px;
+            border-radius: 40px;
+            background-color: #d1d1d1;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFD1D1D1', endColorstr='#FFFEFBF7');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2QxZDFkMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZlZmJmNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+            background-size: 100%;
+            background-image: -moz-linear-gradient(top, #d1d1d1 0%, #fefbf7 100%);
+            background-image: -webkit-linear-gradient(top, #d1d1d1 0%, #fefbf7 100%);
+            background-image: linear-gradient(to bottom, #d1d1d1 0%, #fefbf7 100%);
+        }
+
+        .switch:after {
+            height: 70px;
+            width: 220px;
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            content: '';
+            z-index: 2;
+            -moz-border-radius: 40px;
+            -webkit-border-radius: 40px;
+            border-radius: 40px;
+            background-color: #a5a5a5;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFA5A5A5', endColorstr='#FFE8D7BE');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2E1YTVhNSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U4ZDdiZSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+            background-size: 100%;
+            background-image: -moz-linear-gradient(top, #a5a5a5 0%, #e8d7be 100%);
+            background-image: -webkit-linear-gradient(top, #a5a5a5 0%, #e8d7be 100%);
+            background-image: linear-gradient(to bottom, #a5a5a5 0%, #e8d7be 100%);
+        }
+
+        .checkbox {
+            height: 60px;
+            width: 210px;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 10000;
+            -moz-border-radius: 35px;
+            -webkit-border-radius: 35px;
+            border-radius: 35px;
+            -moz-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+            -webkit-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+            box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+            background-color: #e7f4a0;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF28A00', endColorstr='#FFD86517');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyOGEwMCIvPjxzdG9wIG9mZnNldD0iNjclIiBzdG9wLWNvbG9yPSIjZTY1MzAwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZDg2NTE3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+            background-size: 100%;
+            background-image: linear-gradient(#f2fa90, #f8ff6b, #d8ff07);
+            background-image: linear-gradient(to top, #f2fa90, #f8ff6b, #d8ff07 100%);
+            background-image: linear-gradient(to bottom, #f2fa90, #f8ff6b, #d8ff07 100%);
+
+        }
+
+        .checkbox:after {
+            transition: background 0.4s ease;
+            height: 60px;
+            width: 117px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            z-index: 9999;
+            -moz-border-radius: 35px 0 0 35px;
+            -webkit-border-radius: 35px;
+            border-radius: 35px 0 0 35px;
+            -moz-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+            -webkit-box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+            box-shadow: inset 0px 9px 15px rgba(0, 0, 0, 0.53), inset 0 -8px 10px rgba(0, 0, 0, 0.14);
+            background-color: #718d99;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFB1DD00', endColorstr='#FF84AD00');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2IxZGQwMCIvPjxzdG9wIG9mZnNldD0iNjclIiBzdG9wLWNvbG9yPSIjN2VhZjAwIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjODRhZDAwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+            background-size: 100%;
+            background: linear-gradient(to top, #718d99 0%, #718d83 67%, #848890 100%);
+            background-image: -webkit-linear-gradient(to top, #718d99 0%, #718d83 67%, #848890 100%);
+            background: linear-gradient(to bottom, #718d99 0%, #718d83 67%, #848890 100%);
+            animation: switchan6 1s infinite;
+        }
+
+        .control {
+            height: 73px;
+            width: 138px;
+            outline: 0;
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            z-index: 10001;
+            appearance: none;
+            -moz-border-radius: 36.5px;
+            -webkit-border-radius: 36.5px;
+            border-radius: 36.5px;
+            -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+            -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.55), inset 0 2px 0 #fafafa, inset 0 -2px 0 #ada39d;
+            background-color: #efefef;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFEFEFEF', endColorstr='#FFBCB9B8');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIzMiUiIHN0b3AtY29sb3I9IiNlZmVmZWYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiY2I5YjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+            background-size: 100%;
+            background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(32%, #efefef), color-stop(100%, #bcb9b8));
+            background-image: -moz-linear-gradient(top, #efefef 32%, #bcb9b8 100%);
+            background-image: -webkit-linear-gradient(top, #efefef 32%, #bcb9b8 100%);
+            background-image: linear-gradient(to bottom, #efefef 32%, #bcb9b8 100%);
+            -moz-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .control:checked {
+            left: 91px;
+        }
+
+        .control:after {
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            content: '';
+            z-index: 10001;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            background-color: #c2c0be;
+            *zoom: 1;
+            filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFC2C0BE', endColorstr='#FFD7D7D7');
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2MyYzBiZSIvPjxzdG9wIG9mZnNldD0iNzIlIiBzdG9wLWNvbG9yPSIjZDdkN2Q3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+            background-size: 100%;
+            background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c2c0be), color-stop(72%, #d7d7d7));
+            background-image: -moz-linear-gradient(top, #c2c0be 0%, #d7d7d7 72%);
+            background-image: -webkit-linear-gradient(top, #c2c0be 0%, #d7d7d7 72%);
+            background-image: linear-gradient(to bottom, #c2c0be 0%, #d7d7d7 72%);
+        }
+
+        #movecommand1 {
+            background: var(--dark);
+            color: #ecf;
+        }
+
+        #movecommand1 input {
+            background: var(--dark);
+            color: #ecf;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .hehehe1 {
+                height: 385px;
+                width: 400px;
+                overflow: scroll;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="body734" style="width: 100%;height: 2000px;">
+        <a href="/aass/docs/pages/films.html">올해 신작 영화들</a>
+        <h1>colou<span onclick="this.style.color='blue';">rgrey-b</span>ot L4</h1>
+        <div class="mb-3">
+            <select id="boardthemeselect">
+                <option value="default" selected>default board theme</option>
+                <option value="classic">board theme:classic</option>
+                <option value="chocolate">board theme:chocolate</option>
+                <option value="bnw">board theme:black and white</option>
+                <option value="green">board theme in colour:green</option>
+                <option value="purple">board theme in colour:purple</option>
+                <option value="blue">board theme in colour:blue</option>
+                <option value="brown">board theme in colour:brown</option>
+                <option value="orange">board theme in colour:orange</option>
+                <option value="marble">board theme in texture:marble</option>
+                <option value="goldsilver">board theme in texture:gold and silver</option>
+                <option value="walnut">board theme in texture:walnut</option>
+                <option value="wood">board theme in texture:wood</option>
+                <option value="neowood">board theme in texture:neo-wood</option>
+                <option value="ivory">board theme in texture:ivory and ebony wood</option>
+            </select>
+            <input type="hidden" id="chesspiecesxxx">
+            <button type="button" class="btn btn-primary" onclick="colourchangeff1()" id="colourchange1">change board
+                theme</button>
+        </div>
+        <div class="mb-3">
+            <select id="piecethemes1">
+                <option value="wikipedia" selected>default chess pieces(wikipedia)</option>
+                <option value="fromchesscom/alpha">alpha(from chess.com)</option>
+                <option value="fromchesscom/marble">marble(from chess.com)</option>
+                <option value="fromchesscom/wood">wood(from chess.com)</option>
+                <option value="fromchesscom/neo">neo(from chess.com)</option>
+                <option value="fromchesscom/neo-wood">neo-wood(from chess.com)</option>
+                <option value="colourgrey-style-pieces">custom(colourgrey)</option>
+            </select>
+            <h5><b style="color: #ff0060;text-decoration: underline wavy;">주의:컬러그레이봇과 경기 중에는 <br> 기물테마(piece theme)를 바꾸지
+                    마세요.<br>지금까지 뒀던 포지션이 초기화됩니다.</b><br><b>그리고 레벨을 '고수' 이상으로 설정하시면 매우 느려집니다.</b></h5>
+            <div class="boardinner123">
+
+                <div>
+                    <div class="hehehe1">
+                        <div id="myBoard" style="width: 400px"></div>
+                    </div>
+                    <div>
+                        <p id="puzzlebtn1"></p><button id="puzzlebtn2">시작하기</button>
+                    </div>
+                    
+                </div>
+
+                <div class="card">
+                    <div id="scoreblock">
+                        <h3><span style="color:var(--green);">W</span>:<span id="scorew"></span></h3>
+                        <h3><span style="color:var(--nred);">L</span>:<span id="scorel"></span></h3>
+                    </div>
+                </div>
+
+            <label>FEN:</label>
+            <div id="fen"></div>
+            <label>PGN:</label>
+            <div id="pgn"></div>
+            <div class="nukebomb" onclick="alert('hello!');
+      for (n=0;n<190;n++) {
+        alert((190-n)+'hello!')
+      }
+      alert('0hello!')">
+                <p><button type="button">_</button></p>
+            </div>
+            </div>
+            <script src="./puzzle.js"></script>
+            <script src="/aass/docs/chess/martycopy1_files/popper.min.js"
+                integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+                crossorigin="anonymous"></script>
+            <script>
+                var checkforgameover1;
+                checkforgameover1 = false;
+
+                $("#userlevel").change(function () {
+                    var kumkum1 = document.getElementById("userlevel").value;
+                    if (kumkum1 == "pyongsin") {
+                        levelx = 1;
+                    }
+                    if (kumkum1 == "grandmaster") {
+                        levelx = 5;
+                    }
+                    if (kumkum1 == "hasu") {
+                        levelx = 2;
+                    }
+                    if (kumkum1 == "middle") {
+                        levelx = 3;
+                    }
+                    if (kumkum1 == "advance") {
+                        levelx = 4;
+                    }
+                });
+
+                var scorew = 0;
+                var scorel = 0;
+                $("#scoreblock #scorew").html(localStorage.getItem("yourw"));
+                $("#scoreblock #scorel").html(localStorage.getItem("yourl"));
+
+
+                function darkmode99(event) {
+                    var btag = document.getElementById("body734");
+                    var dtag1 = document.getElementById("MartySay");
+                    btag.classList.toggle("dark");
+                    dtag1.classList.toggle("dark");
+                }
+                window.onclick = function (event) {
+                    var btag = document.getElementById("body734");
+                    var dtag1 = document.getElementById("MartySay");
+                    if (!target.matches(".checkbox")) {
+                        var darktheme = document.getElementById("body734");
+                        var i;
+                        for (i = 0; i < darktheme.length; i++) {
+                            var darkthemexxx = darktheme[i];
+                            if (darkthemexxx.classList.contains("dark")) {
+                                darkthemexxx.classList.remove("dark");
+                            }
+                        }
+                        for (i = 0; i < dtag1.length; i++) {
+                            var darkthemexxx2 = dtag1[i];
+                            if (darkthemexxx2.classList.contains("dark")) {
+                                darkthemexxx2.classList.remove("dark");
+                            }
+                        }
+                    }
+                }
+
+                var puzzletr = new mypuzzlesdata("queensacrifice");
+                var puzzletr2 = puzzletr.typepuzzle1();
+                var board;
+                var game = new Chess();
+                var $puzzlebtnbtn = $("#puzzlebtn2");
+                var $puzzlebtnp = $("#puzzlebtn1");
+                var $start = $('#start');
+                var $fen = $('#fen');
+                var $pgn = $('#pgn');
+                var $wn = $('#wn');
+                var $martycolor = $('#martycolor');
+                var martycolor = "b";
+                var piecethemes = "wikipedia";
+                var $piecethemes2 = $("#piecethemes1");
+                var $colourchangebtn = $("#colourchange1");
+                var $movecommands1 = $("#inputmovecommand1");
+                document.getElementById("chesspiecesxxx").value = "wikipedia";
+
+
+                $colourchangebtn.click(function (piece) {
+                    var selectmenu = document.getElementById("boardthemeselect").value;
+                    var selectpiece = document.getElementById("piecethemes1").value;
+                    var blcsquare1 = document.querySelectorAll(".black-3c85d");
+                    var whtsquare1 = document.querySelectorAll(".white-1e1d7");
+                    if (selectpiece == "default") {
+                        piecethemes = "wikipedia";
+                        config.pieceTheme = 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/wikipedia/' + piece + '.png';
+                    }
+                    if (selectpiece == "custom") {
+                        piecethemes = "colourgrey-style-pieces"
+                        config.pieceTheme = 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/colourgrey-style-pieces/' + piece + '.png';
+                    }
+                    for (i = 0; i < whtsquare1.length; i++) {
+                        var whtsquare = whtsquare1[i];
+                        if (selectmenu == "default") {
+                            whtsquare.style.background = "#f0d9b5";
+                            whtsquare.style.color = "#b58863";
+                        }
+                        if (selectmenu == "classic") {
+                            whtsquare.style.background = "#e9e0ef";
+                            whtsquare.style.color = "#060510";
+                        }
+                        if (selectmenu == "chocolate") {
+                            whtsquare.style.background = "#f0d9b5";
+                            whtsquare.style.color = "chocolate";
+                        }
+                        if (selectmenu == "bnw") {
+                            whtsquare.style.background = "#f8f8f8";
+                            whtsquare.style.color = "#000";
+                        }
+                        if (selectmenu == "green") {
+                            whtsquare.style.background = "#f0d9f5";
+                            whtsquare.style.color = "indigo";
+                        }
+                        if (selectmenu == "purple") {
+                            whtsquare.style.background = "#f0d9f5";
+                            whtsquare.style.color = "purple";
+                        }
+                        if (selectmenu == "blue") {
+                            whtsquare.style.background = "#f0d9b5";
+                            whtsquare.style.color = "blue";
+                        }
+                        if (selectmenu == "brown") {
+                            whtsquare.style.background = "#f0d9ff";
+                            whtsquare.style.color = "brown";
+                        }
+                        if (selectmenu == "orange") {
+                            whtsquare.style.background = "#d0d9ff";
+                            whtsquare.style.color = "orange";
+                        }
+                        if (selectmenu == "marble") {
+                            whtsquare.style.background = "";
+                            whtsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_whitesq.png)";
+                        }
+                        if (selectmenu == "goldsilver") {
+                            whtsquare.style.background = "var(--silver)";
+                        }
+                        if (selectmenu == "ivory") {
+                            whtsquare.style.background = "";
+                            whtsquare.style.backgroundImage = "url(https://media.istockphoto.com/id/1412328901/photo/old-concrete-wall-texture-background-close-up-retro-plain-beige-color-cement-material-surface.jpg?b=1&s=170667a&w=0&k=20&c=_Yd94mVWR9O6JN1PKX41Zr9Fgm2cU3L0GtmKXXs2sFI=)";
+                        }
+                        if (selectmenu == "walnut") {
+                            whtsquare.style.background = "";
+                            whtsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_whtsq.png)"
+                        }
+                    }
+                    for (i = 0; i < blcsquare1.length; i++) {
+                        var blcsquare = blcsquare1[i];
+                        if (selectmenu == "default") {
+                            blcsquare.style.background = "#b58863";
+                            blcsquare.style.color = "#f0d9b5";
+                        }
+                        if (selectmenu == "classic") {
+                            blcsquare.style.background = "radial-gradient(#888,#101527)";
+                            blcsquare.style.color = "#e9e0ef";
+                        }
+                        if (selectmenu == "chocolate") {
+                            blcsquare.style.background = "chocolate";
+                            blcsquare.style.color = "#f0d9b5";
+                        }
+                        if (selectmenu == "bnw") {
+                            blcsquare.style.background = "radial-gradient(#eee,#020202,#020202)";
+                            blcsquare.style.color = "#fff";
+                        }
+                        if (selectmenu == "green") {
+                            blcsquare.style.background = "green";
+                            blcsquare.style.color = "#f0d9f5";
+                        }
+                        if (selectmenu == "purple") {
+                            whtsquare.style.background = "#f0d9f5";
+                            whtsquare.style.color = "purple";
+                            blcsquare.style.background = "purple";
+                            blcsquare.style.color = "#f0d9f5";
+                        }
+                        if (selectmenu == "blue") {
+                            blcsquare.style.background = "blue";
+                            blcsquare.style.color = "#f0d9b5";
+                        }
+                        if (selectmenu == "brown") {
+                            blcsquare.style.background = "brown";
+                            blcsquare.style.color = "#f0d9ff";
+                        }
+                        if (selectmenu == "orange") {
+                            blcsquare.style.background = "orange";
+                            blcsquare.style.color = "#d0d9ff";
+                        }
+                        if (selectmenu == "marble") {
+                            blcsquare.style.background = "";
+                            blcsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_blacksq.png)"
+                        }
+                        if (selectmenu == "goldsilver") {
+                            blcsquare.style.background = "var(--gold)";
+                        }
+                        if (selectmenu == "ivory") {
+                            blcsquare.style.background = "";
+                            blcsquare.style.backgroundImage = "url(https://media.istockphoto.com/id/1355204884/photo/rustic-plywood-texture-background.jpg?b=1&s=170667a&w=0&k=20&c=YT3HKmr1sSpRwFhnJCUN-AlMFU5GmGQDIlwuHOqAbKc=)";
+                        }
+                        if (selectmenu == "walnut") {
+                            blcsquare.style.background = "";
+                            blcsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_blsq.png)";
+                        }
+                    }
+                    if (selectmenu == "default") {
+                        whtsquare.style.background = "#f0d9b5";
+                        whtsquare.style.color = "#b58863";
+                        blcsquare.style.background = "#b58863";
+                        blcsquare.style.color = "#f0d9b5";
+                    }
+                    if (selectmenu == "classic") {
+                        whtsquare.style.background = "#e9e0ef";
+                        whtsquare.style.color = "#060510";
+                        blcsquare.style.background = "#060510";
+                        blcsquare.style.color = "#e9e0ef";
+                    }
+                    if (selectmenu == "chocolate") {
+                        whtsquare.style.background = "#f0d9b5";
+                        whtsquare.style.color = "chocolate";
+                        blcsquare.style.background = "chocolate";
+                        blcsquare.style.color = "#f0d9b5";
+                    }
+                    if (selectmenu == "bnw") {
+                        whtsquare.style.background = "#f8f8f8";
+                        whtsquare.style.color = "#000";
+                        blcsquare.style.background = "#020202";
+                        blcsquare.style.color = "#fff";
+                    }
+                    if (selectmenu == "green") {
+                        whtsquare.style.background = "#f0d9f5";
+                        whtsquare.style.color = "indigo";
+                        blcsquare.style.background = "green";
+                        blcsquare.style.color = "#f0d9f5";
+                    }
+                    if (selectmenu == "purple") {
+                        whtsquare.style.background = "#f0d9f5";
+                        whtsquare.style.color = "purple";
+                        blcsquare.style.background = "purple";
+                        blcsquare.style.color = "#f0d9f5";
+                    }
+                    if (selectmenu == "blue") {
+                        whtsquare.style.background = "#f0d9b5";
+                        whtsquare.style.color = "blue";
+                        blcsquare.style.background = "blue";
+                        blcsquare.style.color = "#f0d9b5";
+                    }
+                    if (selectmenu == "brown") {
+                        whtsquare.style.background = "#f0d9ff";
+                        whtsquare.style.color = "brown";
+                        blcsquare.style.background = "brown";
+                        blcsquare.style.color = "#f0d9ff";
+                    }
+                    if (selectmenu == "orange") {
+                        whtsquare.style.background = "#d0d9ff";
+                        whtsquare.style.color = "orange";
+                        blcsquare.style.background = "orange";
+                        blcsquare.style.color = "#d0d9ff";
+                    }
+                })
+                window.onload = function () {
+                    mythemefunction();
+                }
+                function mythemefunction() {
+                    var selectmenu = document.getElementById("boardthemeselect").value;
+                    var blcsquare1 = document.querySelectorAll(".black-3c85d");
+                    var whtsquare1 = document.querySelectorAll(".white-1e1d7");
+                    for (i = 0; i < whtsquare1.length; i++) {
+                        var whtsquare = whtsquare1[i];
+                        if (selectmenu == "default") {
+                            whtsquare.style.background = "#f0d9b5";
+                            whtsquare.style.color = "#b58863";
+                        }
+                        if (selectmenu == "classic") {
+                            whtsquare.style.background = "#e9e0ef";
+                            whtsquare.style.color = "#161520";
+                        }
+                        if (selectmenu == "chocolate") {
+                            whtsquare.style.background = "#f0d9b5";
+                            whtsquare.style.color = "chocolate";
+                        }
+                        if (selectmenu == "bnw") {
+                            whtsquare.style.background = "#f8f8f8";
+                            whtsquare.style.color = "#000";
+                        }
+                        if (selectmenu == "green") {
+                            whtsquare.style.background = "#f0d9f5";
+                            whtsquare.style.color = "indigo";
+                        }
+                        if (selectmenu == "purple") {
+                            whtsquare.style.background = "#f0d9f5";
+                            whtsquare.style.color = "purple";
+                        }
+                        if (selectmenu == "blue") {
+                            whtsquare.style.background = "#f0d9b5";
+                            whtsquare.style.color = "blue";
+                        }
+                        if (selectmenu == "brown") {
+                            whtsquare.style.background = "#f0d9ff";
+                            whtsquare.style.color = "brown";
+                        }
+                        if (selectmenu == "orange") {
+                            whtsquare.style.background = "#d0d9ff";
+                            whtsquare.style.color = "orange";
+                        }
+                    }
+                    for (i = 0; i < blcsquare1.length; i++) {
+                        var blcsquare = blcsquare1[i];
+                        if (selectmenu == "default") {
+                            blcsquare.style.background = "#b58863";
+                            blcsquare.style.color = "#f0d9b5";
+                        }
+                        if (selectmenu == "classic") {
+                            blcsquare.style.background = "#060510";
+                            blcsquare.style.color = "#e9e0ef";
+                        }
+                        if (selectmenu == "chocolate") {
+                            blcsquare.style.background = "chocolate";
+                            blcsquare.style.color = "#f0d9b5";
+                        }
+                        if (selectmenu == "bnw") {
+                            blcsquare.style.background = "#020202";
+                            blcsquare.style.color = "#fff";
+                        }
+                        if (selectmenu == "green") {
+                            blcsquare.style.background = "green";
+                            blcsquare.style.color = "#f0d9f5";
+                        }
+                        if (selectmenu == "purple") {
+                            whtsquare.style.background = "#f0d9f5";
+                            whtsquare.style.color = "purple";
+                            blcsquare.style.background = "purple";
+                            blcsquare.style.color = "#f0d9f5";
+                        }
+                        if (selectmenu == "blue") {
+                            blcsquare.style.background = "blue";
+                            blcsquare.style.color = "#f0d9b5";
+                        }
+                        if (selectmenu == "brown") {
+                            blcsquare.style.background = "brown";
+                            blcsquare.style.color = "#f0d9ff";
+                        }
+                        if (selectmenu == "orange") {
+                            blcsquare.style.background = "orange";
+                            blcsquare.style.color = "#d0d9ff";
+                        }
+                    }
+                    if (selectmenu == "default") {
+                        whtsquare.style.background = "#f0d9b5";
+                        whtsquare.style.color = "#b58863";
+                        blcsquare.style.background = "#b58863";
+                        blcsquare.style.color = "#f0d9b5";
+                    }
+                    if (selectmenu == "classic") {
+                        whtsquare.style.background = "#e9e0ef";
+                        whtsquare.style.color = "#060510";
+                        blcsquare.style.background = "#060510";
+                        blcsquare.style.color = "#e9e0ef";
+                    }
+                    if (selectmenu == "chocolate") {
+                        whtsquare.style.background = "#f0d9b5";
+                        whtsquare.style.color = "chocolate";
+                        blcsquare.style.background = "chocolate";
+                        blcsquare.style.color = "#f0d9b5";
+                    }
+                    if (selectmenu == "bnw") {
+                        whtsquare.style.background = "#f8f8f8";
+                        whtsquare.style.color = "#000";
+                        blcsquare.style.background = "#020202";
+                        blcsquare.style.color = "#fff";
+                    }
+                    if (selectmenu == "green") {
+                        whtsquare.style.background = "#f0d9f5";
+                        whtsquare.style.color = "indigo";
+                        blcsquare.style.background = "green";
+                        blcsquare.style.color = "#f0d9f5";
+                    }
+                    if (selectmenu == "purple") {
+                        whtsquare.style.background = "#f0d9f5";
+                        whtsquare.style.color = "purple";
+                        blcsquare.style.background = "purple";
+                        blcsquare.style.color = "#f0d9f5";
+                    }
+                    if (selectmenu == "blue") {
+                        whtsquare.style.background = "#f0d9b5";
+                        whtsquare.style.color = "blue";
+                        blcsquare.style.background = "blue";
+                        blcsquare.style.color = "#f0d9b5";
+                    }
+                    if (selectmenu == "brown") {
+                        whtsquare.style.background = "#f0d9ff";
+                        whtsquare.style.color = "brown";
+                        blcsquare.style.background = "brown";
+                        blcsquare.style.color = "#f0d9ff";
+                    }
+                    if (selectmenu == "orange") {
+                        whtsquare.style.background = "#d0d9ff";
+                        whtsquare.style.color = "orange";
+                        blcsquare.style.background = "orange";
+                        blcsquare.style.color = "#d0d9ff";
+                    }
+                }
+
+                function colourchangeff1() {
+                    var selectmenu = document.getElementById("boardthemeselect").value;
+                    var blcsquare1 = document.querySelectorAll(".black-3c85d");
+                    var whtsquare1 = document.querySelectorAll(".white-1e1d7");
+                    for (var i; i < whtsquare1.length; i++) {
+                        var whtsquare = whtsquare1[i];
+                    }
+                    for (var i; i < blcsquare1.length; i++) {
+                        var blcsquare = blcsquare1[i]
+                    }
+                    if (selectmenu == "default") {
+                        whtsquare.style.background = "#f0d9b5";
+                        whtsquare.style.color = "#b58863";
+                        blcsquare.style.background = "#b58863";
+                        blcsquare.style.color = "#f0d9b5";
+                    }
+                    if (selectmenu == "classic") {
+                        whtsquare.style.background = "#e9e0ef";
+                        whtsquare.style.color = "#101527";
+                        blcsquare.style.background = "radial-gradient(#888,#888,#101527)";
+                        blcsquare.style.color = "#e9e0ef";
+                    }
+                    if (selectmenu == "chocolate") {
+                        whtsquare.style.background = "#f0d9b5";
+                        whtsquare.style.color = "chocolate";
+                        blcsquare.style.background = "chocolate";
+                        blcsquare.style.color = "#f0d9b5";
+                    }
+                    if (selectmenu == "bnw") {
+                        whtsquare.style.background = "#f8f8f8";
+                        whtsquare.style.color = "#000";
+                        blcsquare.style.background = "#020202";
+                        blcsquare.style.color = "#fff";
+                    }
+                    if (selectmenu == "green") {
+                        whtsquare.style.background = "#f0d9f5";
+                        whtsquare.style.color = "indigo";
+                        blcsquare.style.background = "green";
+                        blcsquare.style.color = "#f0d9f5";
+                    }
+                    if (selectmenu == "purple") {
+                        whtsquare.style.background = "#f0d9f5";
+                        whtsquare.style.color = "purple";
+                        blcsquare.style.background = "purple";
+                        blcsquare.style.color = "#f0d9f5";
+                    }
+                    if (selectmenu == "blue") {
+                        whtsquare.style.background = "#f0d9b5";
+                        whtsquare.style.color = "blue";
+                        blcsquare.style.background = "blue";
+                        blcsquare.style.color = "#f0d9b5";
+                    }
+                    if (selectmenu == "brown") {
+                        whtsquare.style.background = "#f0d9ff";
+                        whtsquare.style.color = "brown";
+                        blcsquare.style.background = "brown";
+                        blcsquare.style.color = "#f0d9ff";
+                    }
+                    if (selectmenu == "orange") {
+                        whtsquare.style.background = "#d0d9ff";
+                        whtsquare.style.color = "orange";
+                        blcsquare.style.background = "orange";
+                        blcsquare.style.color = "#d0d9ff";
+                    }
+
+                }
+
+
+                $puzzlebtnbtn.click(function () {
+                    game.load(puzzletr2.position);
+                    board.position(game.fen());
+                });
+                var openingData = [
+                    ["rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "e4", "e4", "e4", "d4", "d4", "e4", "g3", "b3", "e4"],
+                    ["rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2", "Nf3", "Nf3", "Nf3", "Nf3", "Nc3", "Nf3", "c4", "Bc4", "Nf3"],//오픈시실리안 시실리안클로즈드 보우들러어택 그외 기타등등등등
+                    ["rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2", "d6", "Nc6"], //오픈시실리안d6과 오픈시실리안올드시실리안
+                    ["rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", "d4"],//오픈시실리안
+                    ["rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3", "cxd4"],//오픈시실리안메인라인흑3수
+                    ["rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4", "Nxd4"],//오픈시실리안메인라인
+                    ["rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4", "Nf6"],//오픈시실리안메인라인
+                    ["rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 1 5", "Nc3"],//오픈시실리안메인라인
+                    ["rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 2 5", "g6", "a6", "Nc6", "a6", "a6", "a6", "g6", "Nc6"],//시실리안드래곤과 시실리안나이도프와 클래시컬
+                    ["rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", "d5", "e5", "d5", "d5", "Nf6"],
+                    ["rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", "e5", "e5", "e5", "e5", "e5", "d5", "Nc6", "c5", "c5", "e6", "e6", "c6", "c6"],
+                    ["rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", "Nf3", "Nc3", "f4", "d4", "f4", "Nf3", "Nf3"], //킹스나이트
+                    ["rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2", "Nc6", "d6", "Nc6", "Nc6", "Nc6", "Nf6"], //킹스나이트 메인라인
+                    ["rnbqkbnr/pppppppp/8/8/8/5P2/PPPPP1PP/RNBQKBNR b KQkq - 0 1", "e6"],//바보 메이트
+                    ["rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2", "d4", "e5", "d4", "d4"], //프렌치디펜스 노멀바리에이션과 슈타이니츠어택
+                    ["rnbqkbnr/pppp1ppp/4p3/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2", "d5", "d5"],
+                    ["rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6 0 3", "exd5", "e5", "exd5"],//프렌치디펜스 익스체인지바리에이션과 프렌치디펜스 어드밴스바리에이션
+                    ["rnbqkbnr/ppp2ppp/4p3/3P4/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3", "exd5"], //프렌치디펜스 익스체인지 흑
+                    ["rnbqkbnr/pppp1ppp/4p3/8/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq g3 0 2", "Qh4#"],//바보 메이트
+                    ["r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3", "Bb5", "Bc4", "d4", "d4", "Bb5", "Bb5", "Bb5", "Bc4", "Bc4", "Bc4", "Bb5"],//루이로페즈
+                    ["r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3", "a6", "Nf6", "a6"], //루이로페즈 모피디펜스
+                    ["rnbqkbnr/pppp1ppp/8/4p3/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq - 1 2", "Bb4", "Nf6", "Nf6", "Nc6"], //비엔나게임 안데르센
+                    ["rnbqkb1r/pppp1ppp/5n2/4p3/4P3/2N5/PPPP1PPP/R1BQKBNR w KQkq - 2 3", "Bc4"], //비엔나게임 팔크비어스탄리
+                    ["rnbqkb1r/pppp1ppp/5n2/4p3/2B1P3/2N5/PPPP1PPP/R1BQK1NR b KQkq - 3 3", "Nxe4"], //비엔나 게임 팔크비어스탄리 프랑켄슈타인드라큘라바리에이션
+                    ["rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2", "c4"], //퀸스갬빗
+                    ["rnbqkb1r/pppp1ppp/8/4p3/2B1N3/8/PPPP1PPP/R1BQK1NR b KQkq - 0 4", "d5"], //비엔나게임 프랑켄슈타인드라큘라 흑포크
+                    ["rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2", "e6", "c6"], //QGD
+                    ["r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3", "Bc5", "Bc5", "Bc5", "Nf6", "Nf6", "Nd4", "Bc5"], //이탈리안게임 지우코피아노게임
+                    ["r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4", "d3"], //이탈리안게임 지우코피아니시모게임
+                    ["r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", "Bxc6", "Ba4", "O-O"], //루이로페즈 익스체인지바리에이션
+                    ["r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4", "dxc6"], //루이로페즈 익스체인지바리에이션 흑
+                ];
+
+                function makeMove() {
+                    $puzzlebtnp.html(`<h3><b style="color:#8802f0">맞았습니다</b></h3>`);
+                }
+
+
+                function updateStatus() {
+                    $fen.html(game.fen());
+                    $pgn.html(game.pgn());
+                }
+
+
+
+var ixxxxx = 0
+                function wrongmove() {
+                    $puzzlebtnp.html(`<h3><b style="color:#f00288;">틀렸습니다</b></h3>`);
+                }
+                var chogihwa = 1;
+                function onDrop(source, target) {
+                    var move = game.move({
+                        from: source,
+                        to: target,
+                        promotion: 'q'
+                    });
+
+
+
+                    if (move === null) return 'snapback';
+                    
+                    if (ixxxxx > -1 && ixxxxx < puzzletr2.move.length) {
+                        if (move.san == puzzletr2.move[ixxxxx]) {
+                            game.move(puzzletr2.oppmove[ixxxxx]);
+                            makeMove();
+                            ixxxxx = ixxxxx + 1;
+                            if (ixxxxx == puzzletr2.move.length) {
+                                $puzzlebtnp.html(`<h3><b style="color:#8802f0">풀었습니다!!!난이도:${puzzletr2.level}</b></h3>`);
+                            }
+                        } else {
+                            wrongmove();
+                            console.log("a" + move.san + "b" + puzzletr2.move[ixxxxx])
+                        }
+                    }
+
+                    
+                }
+
+
+                function onSnapEnd() {
+                    board.clearCircles();
+                    board.position(game.fen());
+                }
+
+                function pieceTheme(piece) {
+                    return 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/' + document.getElementById("chesspiecesxxx").value + '/' + piece + '.png';
+                }
+
+                var config = {
+                    pieceTheme: pieceTheme,
+                    draggable: true,
+                    position: 'start',
+                    onDragStart: onDragStart,
+                    onDrop: onDrop,
+                    onSnapEnd: onSnapEnd
+                };
+                board = Chessboard('myBoard', config);
+                board.addCircle = function (to) {
+                    var $circle = $("[data-square='" + to + "']");
+                    if ($circle != undefined) {
+                        var circle = $circle.html();
+                        if (!circle.includes("img")) {
+                            $circle.html($circle.html() + "<chess-circle></chess-circle>");
+                        } else {
+                            //$circle.html(circle + "<chess-eat></chess-eat>");
+                            $circle.addClass('highlight-black');
+                        }
+                    } else {
+                        return null;
+                    }
+                };
+                board.clearCircles = function () {
+                    var $circles = $("[data-square]");
+                    if ($circles != undefined) {
+                        $circles.each(function (index, element) {
+                            var circle = $(element).html();
+                            circle = circle.replace('<chess-circle></chess-circle>', '');
+                            circle = circle.replace('<chess-eat></chess-eat>', '');
+                            $(element).html(circle);
+                            $(element).removeClass('highlight-black');
+                        });
+                    } else {
+                        return null;
+                    }
+                };
+                function onDragStart(source, piece, position, orientation) {
+                    board.addCircle = function (to) {
+                        var $circle = $("[data-square='" + to + "']");
+                        if ($circle != undefined) {
+                            var circle = $circle.html();
+                            if (!circle.includes("img")) {
+                                $circle.html($circle.html() + "<chess-circle></chess-circle>");
+                            } else {
+                                //$circle.html(circle + "<chess-eat></chess-eat>");
+                                $circle.addClass('highlight-black');
+                            }
+                        } else {
+                            return null;
+                        }
+                    };
+                    board.clearCircles = function () {
+                        var $circles = $("[data-square]");
+                        if ($circles != undefined) {
+                            $circles.each(function (index, element) {
+                                var circle = $(element).html();
+                                circle = circle.replace('<chess-circle></chess-circle>', '');
+                                circle = circle.replace('<chess-eat></chess-eat>', '');
+                                $(element).html(circle);
+                                $(element).removeClass('highlight-black');
+                            });
+                        } else {
+                            return null;
+                        }
+                    };
+                    if (game.game_over()) return false;
+                    if (checkforgameover1 === true) return false;
+                    if (piece.search(/^${martycolor}/) !== -1) return false;
+                    board.clearCircles();
+                    game.moves({ source, verbose: true }).forEach(function (element) {
+                        if (element.from == source) {
+                            board.addCircle(element.to);
+                            var $source = $("[data-square='" + element.to + "']");
+                            $source.click(function () {
+                                onDrop(source, element.to);
+                                onSnapEnd();
+                            });
+                            $source = $source.find("[data-piece]");
+                            if ($source != undefined) {
+                                $source.click(function () {
+                                    onDrop(source, element.to);
+                                    onSnapEnd();
+                                });
+                            }
+                        }
+                    });
+                }
+
+
+                document.getElementById("piecethemes1").onchange = function () {
+                    document.getElementById("chesspiecesxxx").value = document.getElementById("piecethemes1").value;
+                    board = Chessboard('myBoard', config);
+                }
+
+
+            </script>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="225"
+                    height="150" viewBox="-36 -24 72 48">
+                    <path fill="#fff" d="M-36-24h72v48h-72z" />
+                    <g transform="rotate(-56.31)">
+                        <g id="b">
+                            <path id="a" stroke="#000" stroke-width="2" d="M-6-25H6m-12 3H6m-12 3H6" />
+                            <use xlink:href="#a" y="44" />
+                        </g>
+                        <path stroke="#fff" d="M0 17v10" />
+                        <circle r="12">
+                            <animate attributeType="CSS" attributeName="fill" from="#cd2e3a" to="#0047a0" dur="2s"
+                                repeatCount="indefinite" />
+                        </circle>
+
+                        <path d="M0-12A6 6 0 0 0 0 0a6 6 0 0 1 0 12 12 12 0 0 1 0-24Z">
+                            <animate attributeType="CSS" attributeName="fill" from="#0047a0" to="#cd2e3a" dur="2s"
+                                repeatCount="indefinite" />
+                        </path>
+
+                    </g>
+                    <g transform="rotate(-123.69)">
+                        <use xlink:href="#b" />
+                        <path stroke="#fff" d="M0-23.5v3M0 17v3.5m0 3v3" />
+                    </g>
+                </svg>
+                <div style="position: fixed;right: 120px;bottom: 40px;border-radius: 81%;height: 50px;">
+                    <p class="yagwang9" onclick="darkmode99(event)">
+                    <div class="switch" onclick="darkmode99(event)">
+                        <input type="checkbox" id="control" class="control">
+                        <label for="control" class="checkbox"></label>
+                    </div>
+                    <script>
+
+                    </script>
+                    </p>
+                </div>
+            </div>
+            </div>
+            <script src="https://chonggi-tokhu.github.io/aass/docs/colourgrey-styles-1.0/js/icon.css-1-0.js"></script>
+            <div class="footer">
+                <p class="license">sources of images:chess.com,pixabay</p>
+                <p class="license">javascript chess board powered by <a
+                        href="http://www.chessboardjs.com/">chessboardjs</a></p>
+
+            </div>
+            <img src="/aass/docs/chess/martycopy1_files/wP.png" id="b6a5-1ff7-4510-421c-edf5-73b9-43be-8002" alt=""
+                class="piece-417db" data-piece="wP" style="width: 49px; height: 49px; display: none;">
+
+        </div>
+
+</body>
+
+</html>
