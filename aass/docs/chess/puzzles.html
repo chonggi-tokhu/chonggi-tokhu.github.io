@@ -282,7 +282,14 @@
                         <div id="myBoard" style="width: 400px"></div>
                     </div>
                     <div>
-                        <p id="puzzlebtn1"></p><button id="puzzlebtn2">시작하기</button>
+                        <select id="puzzletheme1" required>
+                            <option value="allthemes" selected>any</option>
+                            <option value="greek_gift" disabled>greek gift</option>
+                            <option value="queensacrifice">queen sacrifice</option>
+                        </select>
+                        <p id="puzzlebtn1"></p><button id="puzzlebtn2" class="btn btn-success">시작하기</button>
+                        <div id="puzzlebtn12"></div>
+                        <div id="infos1"></div>
                     </div>
                     
                 </div>
@@ -293,6 +300,7 @@
                         <h3><span style="color:var(--nred);">L</span>:<span id="scorel"></span></h3>
                     </div>
                 </div>
+                <button id="randombtn">dddd</button>
 
             <label>FEN:</label>
             <div id="fen"></div>
@@ -366,8 +374,16 @@
                     }
                 }
 
-                var puzzletr = new mypuzzlesdata("queensacrifice");
-                var puzzletr2 = puzzletr.typepuzzle1();
+                                    var puzzletr = new mypuzzlesdata($("#puzzletheme1").val());
+                $("#puzzletheme1").change(function () {
+                    
+                    puzzletr = new mypuzzlesdata($("#puzzletheme1").val());
+                    console.log(puzzletr);
+                    puzzletr2 = puzzletr.typepuzzle1();
+                    console.log("kkk");
+                });
+                                        var puzzletr2 = puzzletr.typepuzzle1();
+
                 var board;
                 var game = new Chess();
                 var $puzzlebtnbtn = $("#puzzlebtn2");
@@ -772,12 +788,77 @@
                     }
 
                 }
+                function autopuzzlemove() {
+                        var randomfen111 = {
+                            pieces: {
+                                bp: "p",
+                                wp: "P",
+                                bn: "n",
+                                wn: "N",
+                                bb: "b",
+                                wb: "B",
+                                br: "r",
+                                wr: "R",
+                                bq: "q",
+                                wq: "Q",
+                                bk: "k",
+                                wk: "K",
+                            },
+                            spaces: [1, 2, 3, 4, 5, 6, 7, 8],
+                            slash111: `/`,
+                        };
 
+                        var abc1 = game.in_checkmate();
+                        console.log(abc1)
 
+                        while (abc1 = false) {
+                            var game1moves = game.moves();
+                            console.log(game1moves);
+                            game.move(game1moves[Math.floor(Math.random() * game1moves.length)]);
+                        }
+                        return game.fen();
+                    }
+                    function makeRandomMove2() {
+                            var possibleMoves = game.moves()
+
+                            // game over
+                            if (possibleMoves.length === 0) return game.fen();
+
+                            var randomIdx = Math.floor(Math.random() * possibleMoves.length)
+                            game.move(possibleMoves[randomIdx])
+                            board.position(game.fen())
+                            return
+                        }
+                $("#randombtn").click(function () {
+                    board = Chessboard('myBoard',config);
+                    var abc1d = makeRandomMove2();
+                    console.log(abc1d);
+                });
+                var ixxxxx = 0                
+                var dddddd44;
+                var xxxxdddd;
                 $puzzlebtnbtn.click(function () {
+                    xxxxdddd = $("#puzzletheme1").val();
+                    if (xxxxdddd == dddddd44) {
+                        
+                        console.log("ddd" + xxxxdddd + "ddd" + dddddd44);
+                    } else {
+                        dddddd44 = $("#puzzletheme1").val();
+                        console.log(xxxxdddd + "ddd" + dddddd44);
+                        ixxxxx = 0;
+                        console.log(ixxxxx);
+                    };
+                    puzzletr = new mypuzzlesdata($("#puzzletheme1").val());
+                    console.log(puzzletr);
+                    puzzletr2 = puzzletr.typepuzzle1();
+                    dddddd44 = $("#puzzletheme1").val();
+                    console.log("kkk");
+                    board = Chessboard('myBoard', config);
+                    lelvelandsrc(puzzletr2);
                     game.load(puzzletr2.position);
                     board.position(game.fen());
                 });
+
                 var openingData = [
                     ["rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", "e4", "e4", "e4", "d4", "d4", "e4", "g3", "b3", "e4"],
                     ["rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2", "Nf3", "Nf3", "Nf3", "Nf3", "Nc3", "Nf3", "c4", "Bc4", "Nf3"],//오픈시실리안 시실리안클로즈드 보우들러어택 그외 기타등등등등
@@ -811,9 +892,14 @@
                     ["r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", "Bxc6", "Ba4", "O-O"], //루이로페즈 익스체인지바리에이션
                     ["r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4", "dxc6"], //루이로페즈 익스체인지바리에이션 흑
                 ];
+                
 
                 function makeMove() {
                     $puzzlebtnp.html(`<h3><b style="color:#8802f0">맞았습니다</b></h3>`);
+                }
+
+                function lelvelandsrc(puzzle) {
+                    $("#infos1").html(`from: ${puzzle.source} | level: ${puzzle.level}`);
                 }
 
 
@@ -824,12 +910,15 @@
 
 
 
-var ixxxxx = 0
+    
+                
                 function wrongmove() {
-                    $puzzlebtnp.html(`<h3><b style="color:#f00288;">틀렸습니다</b></h3>`);
+                    $puzzlebtnp.html(`<h3><b style="color:#f00288;">틀렸습니다</b></h3><button class="btn btn-primary" onclick="document.getElementById('puzzlebtn12').innerHTML = puzzletr2.move.toString();">답보기</button>`);
                 }
                 var chogihwa = 1;
                 function onDrop(source, target) {
+                    
+                    console.log(puzzletr2.move);
                     var move = game.move({
                         from: source,
                         to: target,
@@ -838,8 +927,9 @@ var ixxxxx = 0
 
 
 
+
                     if (move === null) return 'snapback';
-                    
+                    console.log(puzzletr2.move.length);
                     if (ixxxxx > -1 && ixxxxx < puzzletr2.move.length) {
                         if (move.san == puzzletr2.move[ixxxxx]) {
                             game.move(puzzletr2.oppmove[ixxxxx]);
@@ -856,6 +946,7 @@ var ixxxxx = 0
 
                     
                 }
+                    
 
 
                 function onSnapEnd() {
@@ -875,7 +966,7 @@ var ixxxxx = 0
                     onDrop: onDrop,
                     onSnapEnd: onSnapEnd
                 };
-                board = Chessboard('myBoard', config);
+                
                 board.addCircle = function (to) {
                     var $circle = $("[data-square='" + to + "']");
                     if ($circle != undefined) {
@@ -961,6 +1052,11 @@ var ixxxxx = 0
                     document.getElementById("chesspiecesxxx").value = document.getElementById("piecethemes1").value;
                     board = Chessboard('myBoard', config);
                 }
+
+
+
+
+
 
 
             </script>
