@@ -953,6 +953,11 @@
         } else {
           Martylog("urobot2011chess:  잘하고 있군, 컬그봇씨.");
         }
+        var acacac = Math.floor(Math.random() * 6);
+        var ababab = Math.floor(Math.random() * newGameMoves.length);
+        if (acacac == 4) {
+            bestMoveFound = ababab;
+        }
         return bestMoveFound;
       }
 
