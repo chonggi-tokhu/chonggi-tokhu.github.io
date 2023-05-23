@@ -22,7 +22,16 @@ class mypuzzlesdata {
       ],
       opening_ruylopez: [{}],
       opening_scotchgambit: [{}],
-      greek_gift: [],
+      greek_gift: [
+        {
+          position:
+            "r1bq1rk1/pp3ppp/2nbp3/2pp3n/3P1B2/1PPBPN2/P2N1PPP/R2QK2R w KQ - 3 9",
+          oppmove: ["Kxh7", "Kg8", "g6"],
+          move: ["Bxh7+", "Ng5+", "Qxh5", "Qh7#"],
+          level: 3,
+          source: `creation by <a href="https://www.chess.com/member/colourgrey">colourgrey</a>`,
+        },
+      ],
       allthemes: [
         {
           position: "r4rk1/1p4pp/p2p4/1b1P2q1/3NP3/1P1nR2Q/7P/7K b - - 6 28",
@@ -54,6 +63,26 @@ class mypuzzlesdata {
           colour: "w",
           level: 1,
           source: `creation by <a href="https://www.chess.com/member/colourgrey">colourgrey</a>`,
+        },
+        {
+          position:
+            "r3kb1r/ppp2ppp/8/4p1N1/3q2b1/4Q3/PPPP1PPP/R1B1K2R b KQkq - 3 10",
+          oppmove: ["dxe3", "Nxf7"],
+          move: ["Qxe3", "O-O-O", "Rd1#"],
+          colour: "b",
+          level: 5,
+          source: `from <a href="https://www.chess.com/member/colourgrey">colourgrey</a>'s <a href="https://www.chess.com/a/2cSyNsPfc2Likn?tab=review">game</a>`,
+        },
+      ],
+      rookbishop: [
+        {
+          position:
+            "r3kb1r/ppp2ppp/8/4p1N1/3q2b1/4Q3/PPPP1PPP/R1B1K2R b KQkq - 3 10",
+          oppmove: ["dxe3", "Nxf7"],
+          move: ["Qxe3", "O-O-O", "Rd1#"],
+          colour: "b",
+          level: 5,
+          source: `from <a href="https://www.chess.com/member/colourgrey">colourgrey</a>'s <a href="https://www.chess.com/a/2cSyNsPfc2Likn?tab=review">game</a>`,
         },
       ],
     };
