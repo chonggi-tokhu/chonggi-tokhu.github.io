@@ -79,7 +79,7 @@ class mypuzzlesdata {
           position:
             "r3kb1r/ppp2ppp/8/4p1N1/3q2b1/4Q3/PPPP1PPP/R1B1K2R b KQkq - 3 10",
           oppmove: ["dxe3", "Nxf7"],
-          move: ["Qxe3", "O-O-O", "Rd1#"],
+          move: ["Qxe3+", "O-O-O", "Rd1#"],
           colour: "b",
           level: 5,
           source: `from <a href="https://www.chess.com/member/colourgrey">colourgrey</a>'s <a href="https://www.chess.com/a/2cSyNsPfc2Likn?tab=review">game</a>`,
