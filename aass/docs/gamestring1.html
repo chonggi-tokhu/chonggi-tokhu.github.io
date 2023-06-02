@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="body">
+        <div class="gamearea1 gamearea" id="gamearea1">
+            <colourgrey-strgame></colourgrey-strgame>
+            <button id="answer1" style="position: fixed;background: purple;color: #eee;top: 200px;">답보기</button>
+        </div>
+    </div>
+    <script>
+        function strgame(string1,string2,string1len,string2times) {
+            var gamestrings = "";
+            var i2 = 0;
+            for (var i = 0;i<string1len;i++) {
+                var randomtimes = (Math.floor(Math.random()*string1len));
+                if (randomtimes <=string2times) {
+                    gamestrings += (string1 + `<span class="treasure" id="treasure${i2}">${string2}</span>`);
+                    i2++
+                }
+                gamestrings += string1;
+                console.log(i);
+                
+                if (i == (string1len - 1)) {
+                    if (gamestrings.includes(string2)) {
+                        return gamestrings;
+                    } else {
+                        gamestrings += string2;
+                        return gamestrings;
+                    }
+                }
+            }
+            
+        }
+        var abc = strgame(`와작!와작!쩝!냠!와사삭!와삭!바사삭!바삭!냠!츄릅!쩝!`,"보물",3000,4);
+        console.log(abc);
+        var dddtag123452 = document.getElementsByTagName("colourgrey-strgame");
+        for (var i1 = 0;i1<dddtag123452.length;i1++) {
+            dddtag123452[i1].innerHTML = abc;
+        }
+        var i3 = 0;
+        document.getElementById("answer1").onclick = function() {
+            
+            answerf1();
+            var abc3 = document.getElementById("treasure"+i3);
+            var abc45 = abc3.offsetTop;
+            window.scrollTo(0, abc45);
+            console.log(abc45);
+            i3++
+        }
+        function answerf1() {
+            var abcd43 = document.getElementsByClassName("treasure");
+            for(var i8 = 0;i8<abcd43.length;i8++) {
+                abcd43[i8].style.background = "lightgreen";
+                abcd43[i8].style.color = "#eee";
+                console.log(i8+"333");
+            }
+        }
+    </script>
+</body>
+</html>
