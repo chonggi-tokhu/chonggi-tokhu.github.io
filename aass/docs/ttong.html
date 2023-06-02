@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+    <div class="body">
         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
             <symbol id="check" viewBox="0 0 16 16">
                 <title>똥내놔</title>
@@ -17,14 +18,16 @@
                 </path>
             </symbol>
         </svg>
+        
         <div class="container py-3" id="main444">
+            <div id="liveAlertPlaceholder" style="position: fixed;top:50px;z-index:100;"></div>
             <header>
                 <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
                     <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
                         <span class="fs-4">똥내놔</span>
                     </a>
                     <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                        <a class="me-3 py-2 text-dark text-decoration-none" href="http://www.fake.r-e.kr/">도망가는 길 여기임</a>
+                        <a class="me-3 py-2 text-dark text-decoration-none" href="http://www.fake.r-e.kr/"  target="_blank">도망가는 길 여기임</a>
                     </nav>
                 </div>
                 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
@@ -47,7 +50,8 @@
                                     <li>2. 몸통 냠냠</li>
                                     <li>3. 몸통 한번 더 냠냠</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-outline-primary">똥 줘</button>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-primary"
+                                    onclick=" appendAlert('축하합니다.우드 멤버십에 가입되었습니다.', 'success')">똥 줘</button>
                             </div>
                         </div>
                     </div>
@@ -64,7 +68,8 @@
                                     <li>2. 몸통 냠냠</li>
                                     <li>3. 몸통 한번 더 냠냠</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-outline-primary">똥 줘</button>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-primary"
+                                    onclick=" appendAlert('축하합니다.스톤 멤버십에 가입되었습니다.', 'success')">똥 줘</button>
                             </div>
                         </div>
                     </div>
@@ -81,7 +86,8 @@
                                     <li>2. 몸통 냠냠</li>
                                     <li>3. 몸통 한번 더 냠냠</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-outline-primary">똥 줘</button>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-primary"
+                                    onclick=" appendAlert('축하합니다.브론즈 멤버십에 가입되었습니다.', 'success')">똥 줘</button>
                             </div>
                         </div>
                     </div>
@@ -98,7 +104,8 @@
                                     <li>2. 손 냠냠</li>
                                     <li>3. 손목 냠냠</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-primary">똥 줘</button>
+                                <button type="button" class="w-100 btn btn-lg btn-primary"
+                                    onclick=" appendAlert('축하합니다.실버 멤버십에 가입되었습니다.', 'success')">똥 줘</button>
                             </div>
                         </div>
                     </div>
@@ -116,7 +123,7 @@
                                     <li>3. 아무데도 안(또또) 냠냠</li>
                                 </ul>
                                 <button type="button" class="w-100 btn btn-lg btn-primary" id="ttong2"
-                                    onclick="document.getElementById('main444').style.backgroundImage = 'url(https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA0MTNfMjQ0%2FMDAxNjgxMzE0OTAxODAz.pcrOViiiYOJp_6OT-YEgRToVz8F7EYqBWTV_z07p9hAg.3UXFi55r0GGOJonNm4FdtjnWQg7gb3g1e2GbIYLLgW4g.JPEG.nkholic1%2F1681314900791.jpg&type=sc960_832)'">똥
+                                    onclick="document.getElementById('main444').style.backgroundImage = 'url(https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA0MTNfMjQ0%2FMDAxNjgxMzE0OTAxODAz.pcrOViiiYOJp_6OT-YEgRToVz8F7EYqBWTV_z07p9hAg.3UXFi55r0GGOJonNm4FdtjnWQg7gb3g1e2GbIYLLgW4g.JPEG.nkholic1%2F1681314900791.jpg&type=sc960_832)';appendAlert('축하합니다.골드 멤버십에 가입되었습니다.', 'success');">똥
                                     줘</button>
                             </div>
                         </div>
@@ -134,7 +141,8 @@
                                     <li>2. 돈 냠냠</li>
                                     <li>3. 돈 더이상 안냠냠</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-outline-success">똥 줘</button>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-success"
+                                    onclick=" appendAlert('축하합니다.플래티넘 멤버십에 가입되었습니다.', 'success')">똥 줘</button>
                             </div>
                         </div>
                     </div>
@@ -151,7 +159,8 @@
                                     <li>2. 멤버십 한달시,5원 지급</li>
                                     <li>3. 멤버십 두달 지속시,10원 지급</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-success">똥 줘</button>
+                                <button type="button" class="w-100 btn btn-lg btn-success"
+                                    onclick=" appendAlert('축하합니다.사파이어 멤버십에 가입되었습니다.', 'success')">똥 줘</button>
                             </div>
                         </div>
                     </div>
@@ -168,7 +177,8 @@
                                     <li>2. 멤버십 한달시,10원 지급</li>
                                     <li>3. 멤버십 두달 지속시,50원 지급</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-success">똥 줘</button>
+                                <button type="button" class="w-100 btn btn-lg btn-success"
+                                    onclick=" appendAlert('축하합니다.루비 멤버십에 가입되었습니다.', 'success')">똥 줘</button>
                             </div>
                         </div>
                     </div>
@@ -185,7 +195,8 @@
                                     <li>2. 멤버십 한달시,50원 지급</li>
                                     <li>3. 멤버십 두달 지속시,100원 지급</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-success">똥 줘</button>
+                                <button type="button" class="w-100 btn btn-lg btn-success"
+                                    onclick=" appendAlert('축하합니다.에메랄드 멤버십에 가입되었습니다.', 'success')">똥 줘</button>
                             </div>
                         </div>
                     </div>
@@ -202,7 +213,8 @@
                                     <li>2. 멤버십 한달시,50만원 지급</li>
                                     <li>3. 멤버십 두달 지속시,100만원 지급</li>
                                 </ul>
-                                <button type="button" class="w-100 btn btn-lg btn-outline-primary">똥 줘</button>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-primary"
+                                    onclick=" appendAlert('축하합니다.다이아몬드 초특급 전설 멤버십에 가입되었습니다.', 'success')">똥 줘</button>
                             </div>
                         </div>
                     </div>
@@ -210,6 +222,21 @@
         
             </main>
         </div>
+        <script>
+            var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+            var appendAlert = (message, type) => {
+                var wrapper = document.createElement('div')
+                wrapper.innerHTML = [
+                    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                    `   <div>${message}</div>`,
+                    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                    '</div>'
+                ].join('')
+
+                alertPlaceholder.append(wrapper)
+            }
+        </script>
+    </div>
         ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
 </body>
 </html>
