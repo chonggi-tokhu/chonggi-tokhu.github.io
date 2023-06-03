@@ -428,7 +428,7 @@
                 <header>
                     <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
                         <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-                            <span class="fs-4">똥!!!체스다!!!내 저녁아 게 섯거라!!!</span>
+                            <span class="fs-4">똥을 사고파는 곳입니다.</span>
                         </a>
                         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
                             <a class="me-3 py-2 text-dark text-decoration-none" href="http://www.fake.r-e.kr/"
@@ -441,6 +441,77 @@
                     </div>
                 </header>
                 <main>
+                    <div class="col" id="buyandsell1">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h2>이제 본격적으로 대변/똥 거래를 시작해봅시다.</h2>
+                                <h3-button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">판매</h3-button>
+                                <h3-button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">구매</h3-button>
+                            </div>
+                    
+                            <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">똥 판매</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="" name="" id="" method="">
+                                                <fieldset>
+                                                    <legend>대변 판매</legend>
+                                                    누구의 대변인가요?: <select name="" id="">
+                                                        <option value="mine">제것입니다</option>
+                                                        <option value="others">타인의 것을 취한것입니다<input type="text" name="" id=""
+                                                                placeholder="누구의 것인가요?"></option>
+                                                    </select>
+                                                    <br>
+                                                    색깔은 어떤가요?: <input type="text" name="" id="" placeholder="똥의 색깔">
+                                                    <br>
+                                                    냄새는 어떤가요?: <input type="text" placeholder="똥의 냄새">
+                                                    <br>
+                                                    얼마나 딱딱한가요?: <input type="text" name="" id="" placeholder="똥의 경도">
+                                                    <br>
+                                                    <input type="text" name="" id="" placeholder="팔고 싶은 희망 가격">
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary"
+                                                onclick="confirm('이 대변거래의 책임은 판매자에게 있으며,올린 판매글은 미리 쓴 약속을 지킬것을 다시 한번 약속합니다.')">판매하겠습니다.</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">똥 구매</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="" name="" id="" method="">
+                                                <fieldset>
+                                                    <legend>대변 구매</legend>
+                                                    <textarea name="" id="" placeholder="사고 싶은 대변의 희망사항을 쓰세요"></textarea>
+                                                    <label>원하는 가격대<input type="range" name="" id="" min="0" max="100000000"></label>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" onclick="alert('성공적으로 구매글이 게시되었습니다.')">이로서 나는 구매글을
+                                                올립니다</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
                         <div class="col">
                             <div class="card mb-4 rounded-3 shadow-sm">
@@ -632,6 +703,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
         
                 </main>
