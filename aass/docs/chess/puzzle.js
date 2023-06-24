@@ -73,6 +73,15 @@ class mypuzzlesdata {
           level: 5,
           source: `from <a href="https://www.chess.com/member/colourgrey">colourgrey</a>'s <a href="https://www.chess.com/a/2cSyNsPfc2Likn?tab=review">game</a>`,
         },
+        {
+          position:
+            "2kr3r/p4ppp/bp2p3/2bp4/8/1PQ5/P3NPPP/RN3K1R b - - 6 19",
+          oppmove: ["Qg3", "b4", "Ke1"],
+          move: ["d4", "d3", "dxe2+","Rd1#"],
+          colour: "b",
+          level: 6,
+          source: `from <a href="https://www.chess.com/member/colourgrey">colourgrey</a>'s <a href="https://www.chess.com/a/SNXjAFTL2Likn?tab=review">game</a>`,
+        },
       ],
       rookbishop: [
         {
@@ -83,6 +92,17 @@ class mypuzzlesdata {
           colour: "b",
           level: 5,
           source: `from <a href="https://www.chess.com/member/colourgrey">colourgrey</a>'s <a href="https://www.chess.com/a/2cSyNsPfc2Likn?tab=review">game</a>`,
+        },
+      ],
+      backrank: [
+                {
+          position:
+            "2kr3r/p4ppp/bp2p3/2bp4/8/1PQ5/P3NPPP/RN3K1R b - - 6 19",
+          oppmove: ["Qg3", "b4", "Ke1"],
+          move: ["d4", "d3", "dxe2+","Rd1#"],
+          colour: "b",
+          level: 6,
+          source: `from <a href="https://www.chess.com/member/colourgrey">colourgrey</a>'s <a href="https://www.chess.com/a/SNXjAFTL2Likn?tab=review">game</a>`,
         },
       ],
     };
