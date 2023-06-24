@@ -376,15 +376,14 @@
                     }
                 }
 
-                                    var puzzletr = new mypuzzlesdata($("#puzzletheme1").val());
+                                    var puzzletr = new mypuzzlesdata();
                 $("#puzzletheme1").change(function () {
                     
-                    puzzletr = new mypuzzlesdata($("#puzzletheme1").val());
                     console.log(puzzletr);
-                    puzzletr2 = puzzletr.typepuzzle1();
+                    puzzletr2 = puzzletr.typepuzzle1($("#puzzletheme1").val());
                     console.log("kkk");
                 });
-                                        var puzzletr2 = puzzletr.typepuzzle1();
+                                        var puzzletr2 = puzzletr.typepuzzle1($("#puzzletheme1").val());
 
                 var board;
                 var game = new Chess();
@@ -850,9 +849,9 @@
                         ixxxxx = 0;
                         console.log(ixxxxx);
                     };
-                    puzzletr = new mypuzzlesdata($("#puzzletheme1").val());
+                    puzzletr = new mypuzzlesdata();
                     console.log(puzzletr);
-                    puzzletr2 = puzzletr.typepuzzle1();
+                    puzzletr2 = puzzletr.typepuzzle1($("#puzzletheme1").val());
                     dddddd44 = $("#puzzletheme1").val();
                     console.log("kkk");
                     board = Chessboard('myBoard', config);
