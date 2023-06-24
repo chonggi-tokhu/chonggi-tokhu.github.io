@@ -95,7 +95,7 @@ class mypuzzlesdata {
         },
       ],
       backrank: [
-                {
+        {
           position:
             "2kr3r/p4ppp/bp2p3/2bp4/8/1PQ5/P3NPPP/RN3K1R b - - 6 19",
           oppmove: ["Qg3", "b4", "Ke1"],
@@ -107,10 +107,10 @@ class mypuzzlesdata {
       ],
     };
   }
-  typepuzzle1() {
+  typepuzzle1(type111sd) {
     var randompuzzle1 = Math.floor(
-      Math.random() * this.puzzlesintypes[this.type].length
+      Math.random() * this.puzzlesintypes[type111sd].length
     );
-    return this.puzzlesintypes[this.type][randompuzzle1];
+    return this.puzzlesintypes[type111sd][randompuzzle1];
   }
 }
