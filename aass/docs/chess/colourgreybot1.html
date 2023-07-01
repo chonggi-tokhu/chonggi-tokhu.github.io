@@ -1228,14 +1228,6 @@
           $colsolehmove1.html("이번 게임의 pgn입니다. <br> 아래 입력창에 당신의 move를 입력하세요" + game.pgn());
         }
       }
-      function puzzleupdatest(mub) {
-        game.move(mub);
-        updateStatus();
-        board.position(game.fen());
-
-        
-
-      }
 
       function puzzlefunction1() {
         var cgf1 = document.getElementById("inputgamefen1").innerHTML + " 1";
@@ -1245,13 +1237,11 @@
           if (cgf1[i] === (spacechar)) {
             var sijak123 = i;
             for (var n =0;n < cgf1.length;n++) {
-              var kkut123;
               if (cgf1[n] === spacechar) {
-                kkut123 = n;
+                var kkut123 = n;
               }
               var kakkakmoves1 = cgf1.slice((sijak123 + 1), (kkut123));
-              window.setTimeout(function () {puzzleupdatest(kakkakmoves1)}, 4000);
-              return kakkakmoves1;
+              setTimeout(function () {puzzleupdatest(kakkakmoves1)}, 3000);
               
             }
           }
@@ -1260,7 +1250,13 @@
 
       }
 
+      function puzzleupdatest(mub) {
+        board.position(game.fen());
+        game.move(mub);
+        updateStatus();
+        board.position(game.fen());
 
+      }
 
       function onDrop(source, target) {
         var move = game.move({
