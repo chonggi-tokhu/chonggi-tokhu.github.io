@@ -1244,9 +1244,6 @@
               setTimeout(puzzleupdatest(kakkakmoves1), 3000);
               updateStatus();
               board.position(game.fen());
-              console.log(kakkakmoves1);
-              return kakkakmoves1;
-
             }
           }
           
@@ -1256,8 +1253,6 @@
 
       function puzzleupdatest(mub) {
         game.move(mub);
-        updateStatus();
-        board.position(game.fen());
 
       }
 
