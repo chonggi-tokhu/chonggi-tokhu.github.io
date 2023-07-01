@@ -1245,11 +1245,13 @@
           if (cgf1[i] === (spacechar)) {
             var sijak123 = i;
             for (var n =0;n < cgf1.length;n++) {
+              var kkut123;
               if (cgf1[n] === spacechar) {
-                var kkut123 = n;
+                kkut123 = n;
               }
               var kakkakmoves1 = cgf1.slice((sijak123 + 1), (kkut123));
               window.setTimeout(function () {puzzleupdatest(kakkakmoves1)}, 4000);
+              return kakkakmoves1;
               
             }
           }
