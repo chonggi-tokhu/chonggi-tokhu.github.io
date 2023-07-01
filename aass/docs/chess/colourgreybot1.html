@@ -1241,9 +1241,11 @@
                 var kkut123 = n;
               }
               var kakkakmoves1 = cgf1.slice((sijak123 + 1), (kkut123));
-              setTimeout(function () {puzzleupdatest(kakkakmoves1);
-                                      updateStatus();
-                                      board.position(game.fen());}, 3000);
+              window.setTimeout(function () {
+                puzzleupdatest(kakkakmoves1);
+                updateStatus();
+                board.position(game.fen());
+              }, 3000);
               
             }
           }
