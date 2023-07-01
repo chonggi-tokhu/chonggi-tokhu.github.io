@@ -1251,10 +1251,13 @@
       }
 
       function puzzleupdatest(mub) {
-        
         game.move(mub);
-        updateStatus();
-        board.position(game.fen());
+        function ssibal1 () {
+          updateStatus();
+          board.position(game.fen());
+        }
+        window.setTimeout(ssibal1(),5000);
+        
 
       }
 
