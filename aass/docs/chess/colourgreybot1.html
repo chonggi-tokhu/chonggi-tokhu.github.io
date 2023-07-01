@@ -1228,6 +1228,14 @@
           $colsolehmove1.html("이번 게임의 pgn입니다. <br> 아래 입력창에 당신의 move를 입력하세요" + game.pgn());
         }
       }
+      function puzzleupdatest(mub) {
+        game.move(mub);
+        updateStatus();
+        board.position(game.fen());
+
+        
+
+      }
 
       function puzzlefunction1() {
         var cgf1 = document.getElementById("inputgamefen1").innerHTML + " 1";
@@ -1250,15 +1258,7 @@
 
       }
 
-      function puzzleupdatest(mub) {
-        game.move(mub);
-        window.setTimeout(function () {
-          updateStatus();
-          board.position(game.fen());
-        },2000);
-        
 
-      }
 
       function onDrop(source, target) {
         var move = game.move({
