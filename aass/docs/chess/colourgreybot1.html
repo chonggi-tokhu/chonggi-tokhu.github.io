@@ -1230,7 +1230,7 @@
       }
 
       function puzzlefunction1() {
-        var cgf1 = document.getElementById("inputgamefen1").innerHTML + " 1";
+        var cgf1 = document.getElementById("inputgamefen1").innerHTML + ' 1';
         var spacechar = ' ';
         var fullstopchar = '.';
         for (var i = 0; i < cgf1.length; i++) {
@@ -1241,9 +1241,10 @@
                 var kkut123 = n;
               }
               var kakkakmoves1 = cgf1.slice((sijak123 + 1), (kkut123));
-              setTimeout(puzzleupdatest(kakkakmoves1), 3000);
-              updateStatus();
-              board.position(game.fen());
+              setTimeout(function () {puzzleupdatest(kakkakmoves1);
+                                      updateStatus();
+                                      board.position(game.fen());}, 3000);
+              
             }
           }
           
