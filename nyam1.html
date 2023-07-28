@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://chonggi-tokhu.github.io/aass/docs/chess/martycopy1_files/chessboard-1.0.0.min.css">
+    <link rel="stylesheet" href="https://chonggi-tokhu.github.io/aass/docs/chess/chessboardxxx/css/chessboard-1.0.0.css">
+    <link href="https://chonggi-tokhu.github.io/aass/docs/colourgrey-styles-1.0/css/colourgrey-styles-1.0.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+    <p data-ke-size="size16">&nbsp;</p>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/chessboardxxx/js/chess.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/chessboardxxx/js/chess1.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/chessboardxxx/js/jquery-3.4.1.min.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/chessboardxxx/js/chessboard-1.0.0.min.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/martycopy1_files/chess.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/martycopy1_files/chessboard-1.0.0.min.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/martycopy1_files/jquery-3.4.1.min.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/martycopy1_files/popper.min.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/martycopy1_files/popper.min.js"></script>
+    <script src="./pgnreader.js"></script>
+    <div id="myBoard" style="width: 400px;">&nbsp;</div>
+    <p><button id="startgame5" class="btn btn-primary" style="width: auto;">무승부가 되어버린 컬러그레이의 게임 보기</button></p>
+    <div>pgn:[Event "Live Chess"] [Site "Chess.com"] [Date "2023.07.20"] [Round "?"] [White "colourgrey"] [Black
+        "Eats_Children"] [Result "1/2-1/2"] [ECO "B27"] [WhiteElo "850"] [BlackElo "860"] [TimeControl "900+10"] [EndTime
+        "19:26:58 PDT"] [Termination "Game drawn by insufficient material"] 1. e4 c5 2. Nf3 g6 3. d4 d6 4. dxc5 Qa5+ 5. Bd2
+        Qxc5 6. Nc3 Bg7 7. Qe2 Qc7 8. O-O-O e6 9. Nb5 Qd7 10. Bc3 Bxc3 11. Nxc3 Ne7 12. Qb5 O-O 13. Qxd7 Bxd7 14. Bb5 Nbc6
+        15. e5 a6 16. exd6 axb5 17. dxe7 Nxe7 18. Rxd7 Rfe8 19. Nxb5 Rxa2 20. Kd2 Rxb2 21. Nd6 Ra8 22. Rxe7 Raa2 23. Re8+
+        Kg7 24. Ke3 Ra3+ 25. Kd2 Raa2 26. Nd4 Ra4 27. Kc3 Rba2 28. Rd8 e5 29. Ne8+ Kh6 30. Nb3 R2a3 31. Nd6 Rg4 32. Nxf7+
+        Kg7 33. Nxe5 Rxg2 34. Rd7+ Kh6 35. Nf7+ Kh5 36. Rd5+ Kh4 37. Re1 Rxf2 38. Re4+ Kh3 39. Ne5 Kxh2 40. Ng4+ Kg2 41.
+        Nxf2 Kxf2 42. Rd2+ Kf3 43. Kb2 Rxb3+ 44. cxb3 Kxe4 45. Rd7 h5 46. Rxb7 h4 47. Rb4+ Kf5 48. Rxh4 g5 49. Rh5 Kg4 50.
+        Rxg5+ Kxg5 51. b4 Kf6 52. b5 Ke7 53. Kc3 Kd8 54. Kc4 Kc7 55. Kc5 Kb7 56. b6 Kb8 57. Kc6 Ka8 58. b7+ Kb8 59. Kd7 Kxb7
+        1/2-1/2</div>
+    <script>
+        var board;
+        var game = new Chess();
+        function onDrop(source, target) {
+            var move = game.move({
+                from: source,
+                to: target,
+                promotion: 'q'
+            });
+
+
+
+            if (move === null) return 'snapback';
+        }
+
+
+
+
+
+        function onSnapEnd() {
+            board.position(game.fen());
+        }
+
+        function pieceTheme(piece) {
+            return 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/wikipedia/' + piece + '.png';
+        }
+
+        var config = {
+            pieceTheme: pieceTheme,
+            draggable: true,
+            position: 'start',
+            onDragStart: onDragStart,
+            onDrop: onDrop,
+            onSnapEnd: onSnapEnd
+        };
+        board = Chessboard('myBoard', config);
+        function onDragStart(source, piece, position, orientation) {
+            if (game.game_over()) return false;
+            if (piece.search(/^${martycolor}/) !== -1) return false;
+            game.moves({ source, verbose: true }).forEach(function (element) {
+                if (element.from == source) {
+                    var $source = $("[data-square='" + element.to + "']");
+                    $source.click(function () {
+                        onDrop(source, element.to);
+                        onSnapEnd();
+                    });
+                    $source = $source.find("[data-piece]");
+                    if ($source != undefined) {
+                        $source.click(function () {
+                            onDrop(source, element.to);
+                            onSnapEnd();
+                        });
+                    }
+                }
+            });
+        }
+        var igame = 0;
+        var pgn222 = `[Event "Live Chess"] [Site "Chess.com"] [Date "2023.07.20"] [Round " ? "] [White "colourgrey"] [Black
+            "Eats_Children"][Result "1/2-1/2"][ECO "B27"][WhiteElo "850"][BlackElo "860"][TimeControl "900+10"][EndTime
+        "19:26:58 PDT"][Termination "Game drawn by insufficient material"] 1. e4 c5 2. Nf3 g6 3. d4 d6 4. dxc5 Qa5 + 5. Bd2
+        Qxc5 6. Nc3 Bg7 7. Qe2 Qc7 8. O - O - O e6 9. Nb5 Qd7 10. Bc3 Bxc3 11. Nxc3 Ne7 12. Qb5 O - O 13. Qxd7 Bxd7 14. Bb5 Nbc6
+            15. e5 a6 16. exd6 axb5 17. dxe7 Nxe7 18. Rxd7 Rfe8 19. Nxb5 Rxa2 20. Kd2 Rxb2 21. Nd6 Ra8 22. Rxe7 Raa2 23. Re8 +
+                Kg7 24. Ke3 Ra3 + 25. Kd2 Raa2 26. Nd4 Ra4 27. Kc3 Rba2 28. Rd8 e5 29. Ne8 + Kh6 30. Nb3 R2a3 31. Nd6 Rg4 32. Nxf7 +
+                    Kg7 33. Nxe5 Rxg2 34. Rd7 + Kh6 35. Nf7 + Kh5 36. Rd5 + Kh4 37. Re1 Rxf2 38. Re4 + Kh3 39. Ne5 Kxh2 40. Ng4 + Kg2 41.
+        Nxf2 Kxf2 42. Rd2 + Kf3 43. Kb2 Rxb3 + 44. cxb3 Kxe4 45. Rd7 h5 46. Rxb7 h4 47. Rb4 + Kf5 48. Rxh4 g5 49. Rh5 Kg4 50.
+            Rxg5 + Kxg5 51. b4 Kf6 52. b5 Ke7 53. Kc3 Kd8 54. Kc4 Kc7 55. Kc5 Kb7 56. b6 Kb8 57. Kc6 Ka8 58. b7 + Kb8 59. Kd7 Kxb7
+            1 / 2 - 1 / 2`
+        var gamemovelist1 = parsingpgn.gamehistory1(pgn222);
+        function gamemovefunction1() {
+            if (igame > -1 && igame < gamemovelist1.length) {
+                window.setTimeout(function () { game.move(gamemovelist1[igame]); board.position(game.fen()); console.log(gamemovelist1[igame]); console.log(igame); igame = igame + 1; }, 800);
+            }
+        }
+
+        function gamemovefunction2() {
+            if (igame < gamemovelist1.length) {
+                window.setTimeout(function () { gamemovefunction1(); }, 800);
+                window.setTimeout(function () { gamemovefunction2(); }, 800);
+            } else if (igame == gamemovelist1.length) {
+                document.getElementById("startgame5").innerHTML = `<span style="color:red;">망했다 여기서 무승부 확정</span>`;
+            }
+        }
+
+
+        document.getElementById("startgame5").onclick = function () {
+            gamemovefunction2();
+        }
+    </script>
+</body>
+</html>
