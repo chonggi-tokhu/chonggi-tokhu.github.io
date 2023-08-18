@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://chonggi-tokhu.github.io/aass/docs/chess/martycopy1_files/chessboard-1.0.0.min.css">
+    <link rel="stylesheet" href="https://chonggi-tokhu.github.io/aass/docs/chess/chessboardxxx/css/chessboard-1.0.0.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            #players table tr td:nth-child(1) {
+                width: 220px;
+            }
+            #players table tr td:nth-child(2) {
+                width: 100px;
+            }
+            #players table tr td:nth-child(2) span {
+                text-align: center;
+                font-size: 200%;
+            }
+            #players table tr td:nth-child(3) {
+                width: 220px;
+            }   
+            .chessnote.nsss-0 {
+                background: #ff0266;
+                color: #eff;
+                border-radius: 80%;
+                                height: 15px;
+                width: 15px;
+            }
+            .chessnote.nsss-1 {
+                background: #ffb300;
+                color: #eee;
+                border-radius: 80%;
+                                height: 15px;
+                width: 15px;
+            }
+            .chessnote.nsss-2 {
+                background: #fff82a;
+                color: darkslategrey;
+                border-radius: 80%;
+                                height: 15px;
+                width: 15px;
+            }
+            .chessnote.nsss-3 {
+                background: #aa0caa;
+                color: #eee;
+                border-radius: 80%;
+                                height: 15px;
+                width: 15px;
+            }
+            .chessnote.nsss-4 {
+                background: #2032aa;
+                color: #eef;
+                border-radius: 80%;
+                                height: 15px;
+                width: 15px;
+            }
+            .chessnote.nsss-5 {
+                background: #00aabb;
+                color: #fee;
+                border-radius: 80%;
+                                height: 15px;
+                width: 15px;
+            }
+            .chessnote.nsss-n {
+                z-index: 0 !important;
+                position: static !important;
+                                height: 0px !important;
+                width: 0px !important;
+            }
+            .chessnote {
+                position: absolute;
+                z-index: 5;
+                height: 20px;
+                font-size: 80%;
+                width: 20px;
+                margin-left: 20px;
+                margin-top: -5px;
+            }
+            .piece-417db {
+                position: relative;
+                top: 1px;
+                right: 1px;
+            }
+            splitel {
+            background: #222;
+            width: 1px;
+            z-index: 1;
+            height: inherit;
+        }
+        </style>
+</head>
+<body>
+    <p data-ke-size="size16">&nbsp;</p>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/chessboardxxx/js/chess.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/chessboardxxx/js/chess1.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/chessboardxxx/js/jquery-3.4.1.min.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/chessboardxxx/js/chessboard-1.0.0.min.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/martycopy1_files/chess.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/martycopy1_files/chessboard-1.0.0.min.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/martycopy1_files/jquery-3.4.1.min.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/martycopy1_files/popper.min.js"></script>
+    <script src="https://chonggi-tokhu.github.io/aass/docs/chess/martycopy1_files/popper.min.js"></script>
+    <script src="./pgnreader.js"></script>
+    <h1>Colourgrey PGN reader&parser</h1>
+    <div class="card">
+        <div class="card-body">
+            <div id="players"></div>
+            <div style="display: flex;">
+                <div id="myBoard" style="width: 400px;">&nbsp;</div> 
+    <textarea name="" id="pgninp" placeholder="pgn을 입력하세요" cols="100" rows="8"></textarea>
+            </div>
+    
+        </div>
+    </div>
+    <div class="btn-group">
+        <button id="startgame5" class="btn btn-primary" style="width: auto;">내 게임 보기</button><br><button id="stopbtn">stop/play</button>
+        
+        <splitel></splitel>
+        <button class="btn btn-success" id="prevundo">&leftarrow; prev</button>
+        <button class="btn btn-success" id="nextredo">&rightarrow; next</button>
+    </div>
+    
+    <div>warning:pgn must have no comments.</div>
+    <script>
+        var board;
+        var game = new Chess();
+        function onDrop(source, target) {
+            var move = game.move({
+                from: source,
+                to: target,
+                promotion: 'q'
+            });
+
+
+
+            if (move === null) return 'snapback';
+        }
+
+
+
+
+
+        function onSnapEnd() {
+            board.position(game.fen());
+        }
+
+        function pieceTheme(piece) {
+            return 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/wikipedia/'+ piece+ '.png';
+        }
+
+        var config = {
+            pieceTheme: pieceTheme,
+            draggable: true,
+            position: 'start',
+            onDragStart: onDragStart,
+            onDrop: onDrop,
+            onSnapEnd: onSnapEnd
+        };
+        board = Chessboard('myBoard', config);
+        function onDragStart(source, piece, position, orientation) {
+            if (game.game_over()) return false;
+            if (piece.search(/^${martycolor}/) !== -1) return false;
+            game.moves({ source, verbose: true }).forEach(function (element) {
+                if (element.from == source) {
+                    var $source = $("[data-square='"+ element.to+ "']");
+                    $source.click(function () {
+                        onDrop(source, element.to);
+                        onSnapEnd();
+                    });
+                    $source = $source.find("[data-piece]");
+                    if ($source != undefined) {
+                        $source.click(function () {
+                            onDrop(source, element.to);
+                            onSnapEnd();
+                        });
+                    }
+                }
+            });
+        }
+        var igame = 0;
+        var pgn222;
+        var gamemovelist1;
+        var headerofgame1;
+        var notes = [
+                { c: "nsss-0",t:"  ??" },
+                { c: "nsss-1",t:"  _? " },
+                { c: "nsss-2",t:" ?! " },
+                { c: "nsss-3",t:" !? " },
+                { c: "nsss-4",t:"  _! " },
+                { c: "nsss-5",t:" !! " },
+                { c: "nsss-n",t:"" },
+            ];
+            $("#prevundo").click(function(e){
+                game.undo(); igame = igame - 1;window.setTimeout(function () { board.clearNotes(); var movesss4547 = game.move(gamemovelist1[igame]); board.position(game.fen()); board.addNotes(movesss4547.to,notes[parsingpgn.rtparsedpgn(pgn222).notes[igame]]); board.position(game.fen()); console.log(gamemovelist1[igame]); console.log(igame); }, 300);
+            });
+            $("#nextredo").click(function(){
+                if (gamemovelist1 == undefined) {
+                    pgn222 = document.getElementById("pgninp").value;
+                    gamemovelist1 = parsingpgn.gamehistory1(pgn222);
+                } else {
+                    window.setTimeout(function () { board.clearNotes(); var movesss4547 = game.move(gamemovelist1[igame]); board.position(game.fen()); board.addNotes(movesss4547.to,notes[parsingpgn.rtparsedpgn(pgn222).notes[igame]]); board.position(game.fen()); console.log(gamemovelist1[igame]); console.log(igame);igame = igame+ 1; }, 300);
+                }
+                
+            })
+            board.addNotes = function (to, note333) {
+                var $Notes = $("[data-square='" + to + "']");
+                if ($Notes != undefined) {
+                    var Notes = $Notes.html();
+
+                        //$Notes.html(Notes + "<chess-eat></chess-eat>");
+                        $Notes.html($Notes.html() + `<div class="${note333.c} chessnote">${note333.t}</div>`);
+                    
+                } else {
+                    return null;
+                }
+            };
+            board.clearNotes = function () {
+                var $Notess = $(".chessnote");
+                console.log($Notess.length);
+                if ($Notess != undefined) {
+                    $Notess.each(function (index, element) {
+                        var Notes = $(element).html();
+                        console.log("deleted note");
+                        Notes = Notes.replace('<chess-Notes></chess-Notes>', '');
+                        Notes = Notes.replace('<chess-eat></chess-eat>', '');
+                        $(element).removeClass("chessnote");
+                        $(element).html("");
+                    });
+                } else {
+                    return null;
+                }
+            };
+        function gamemovefunction1() {
+            if (igame > -1 && igame < gamemovelist1.length) {
+                window.setTimeout(function () { board.clearNotes(); var movesss4547 = game.move(gamemovelist1[igame]); board.position(game.fen()); board.addNotes(movesss4547.to,notes[parsingpgn.rtparsedpgn(pgn222).notes[igame]]); board.position(game.fen()); console.log(gamemovelist1[igame]); console.log(igame); igame = igame+ 1; }, 720);
+            }
+        }
+        var xxxxx = false;
+        
+        function gamemovefunction2() {
+            console.log(parsingpgn.rtparsedpgn(pgn222).notes);
+            headerofgame1 = parsingpgn.rtparsedpgn(pgn222).headerofgame;
+            if (headerofgame1 != undefined) {
+                if (headerofgame1["White "]+headerofgame1["Black "]+headerofgame1["WhiteElo "]+headerofgame1["BlackElo "]+headerofgame1["WhiteUrl "]+headerofgame1["BlackUrl "] != undefined) {
+                    document.getElementById("players").innerHTML = `<table><tr><td>` + headerofgame1["White "] + `(${headerofgame1["WhiteElo "]})__</td><td rowspan="3"><span style="color:#227777;">vs</span></td><td>__` + headerofgame1["Black "] + `(${headerofgame1["BlackElo "]})</td>` +
+                        `</tr><tr><td></td><td></td><td></td>`
+                        + `</tr><tr> <td><img src="${headerofgame1["WhiteUrl "].replace("uploads/v1/user", "uploads/user")}" width="200"></td><td>  </td><td><img src="${headerofgame1["BlackUrl "].replace("uploads/v1/user", "uploads/user")}" width="200">` + `</td></tr></table>`;
+                }
+                
+            } else {
+                document.getElementById("players").innerHTML = `no informations about game`;
+            }
+            
+            if (igame < gamemovelist1.length && xxxxx == true) {
+                window.setTimeout(function () { gamemovefunction1(); }, 720);
+                window.setTimeout(function () { gamemovefunction2(); }, 720);
+            } else if (igame == gamemovelist1.length) {
+                if (headerofgame1 != undefined) {
+                    if (headerofgame1["Result "] != undefined) {
+                        document.getElementById("startgame5").innerHTML = `<span style="color:red;">${headerofgame1["Result "]}</span>`;
+                    } else {
+                        document.getElementById("startgame5").innerHTML = `*`;
+                    }
+                    
+                } else {
+                    document.getElementById("startgame5").innerHTML = `*`;
+                }
+                
+            }
+        }
+    document.getElementById("stopbtn").onclick = function () {
+        if (xxxxx == true) {
+            xxxxx = false;
+        } else {
+            xxxxx = true;
+            gamemovefunction2();
+        }
+        
+    }
+
+        document.getElementById("startgame5").onclick = function () {
+            xxxxx = true;
+            pgn222 = document.getElementById("pgninp").value;
+            gamemovelist1 = parsingpgn.gamehistory1(pgn222);
+            gamemovefunction2();
+        }
+    </script>
+</body>
+</html>
