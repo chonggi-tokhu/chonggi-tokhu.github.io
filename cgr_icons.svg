@@ -9,8 +9,6 @@
 <glyph xmlns="http://www.w3.org/2000/svg"  horiz-adv-x="400"/>
 <glyph xmlns="http://www.w3.org/2000/svg"  unicode="奀" d="M0 1200 L0 1200 C0 1200 1200 0 0 -1200 C0 -1200 -1200 0 0 1200 M848 -850 L1200 -1200Z" />
 <glyph xmlns="http://www.w3.org/2000/svg"  unicode="�" d="M-1200 600 L1200 600 M-1200 0 L1200 0 M-1200 -600 L1200 -600Z" />
-<glyph xmlns="http://www.w3.org/2000/svg"  unicode="&#x270003;" d="M0 1200 L0 1200 C0 1200 1200 0 0 -1200 C0 -1200 -1200 0 0 1200 M848 -850 L1200 -1200Z" />
-<glyph xmlns="http://www.w3.org/2000/svg"  unicode="&#x5940;" d="M-1200 600 L1200 600 M-1200 0 L1200 0 M-1200 -600 L1200 -600Z" />
 <glyph xmlns="http://www.w3.org/2000/svg"  unicode="a" d="M-1200 600 L1200 600 M-1200 0 L1200 0 M-1200 -600 L1200 -600Z" />
 </font>
 </defs>
