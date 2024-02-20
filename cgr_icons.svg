@@ -1,0 +1,17 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata xmlns="http://www.w3.org/2000/svg"/>
+<defs xmlns="http://www.w3.org/2000/svg">
+<font xmlns="http://www.w3.org/2000/svg" id="cgr_icons" horiz-adv-x="1200">
+<font-face xmlns="http://www.w3.org/2000/svg"  units-per-em="1200" ascent="960" descent="-240"/>
+<missing-glyph xmlns="http://www.w3.org/2000/svg"  horiz-adv-x="500"/>
+<glyph xmlns="http://www.w3.org/2000/svg"  horiz-adv-x="0"/>
+<glyph xmlns="http://www.w3.org/2000/svg"  horiz-adv-x="400"/>
+<glyph xmlns="http://www.w3.org/2000/svg"  unicode="奀" d="M0 1200 L0 1200 C0 1200 1200 0 0 -1200 C0 -1200 -1200 0 0 1200 M848 -850 L1200 -1200Z" />
+<glyph xmlns="http://www.w3.org/2000/svg"  unicode="�" d="M-1200 600 L1200 600 M-1200 0 L1200 0 M-1200 -600 L1200 -600Z" />
+<glyph xmlns="http://www.w3.org/2000/svg"  unicode="&#x270003;" d="M0 1200 L0 1200 C0 1200 1200 0 0 -1200 C0 -1200 -1200 0 0 1200 M848 -850 L1200 -1200Z" />
+<glyph xmlns="http://www.w3.org/2000/svg"  unicode="&#x5940;" d="M-1200 600 L1200 600 M-1200 0 L1200 0 M-1200 -600 L1200 -600Z" />
+<glyph xmlns="http://www.w3.org/2000/svg"  unicode="a" d="M-1200 600 L1200 600 M-1200 0 L1200 0 M-1200 -600 L1200 -600Z" />
+</font>
+</defs>
+</svg>
