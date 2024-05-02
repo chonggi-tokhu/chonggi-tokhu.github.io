@@ -1934,11 +1934,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                 replier.reply(game.turn() + '색이 체크메이트로 졌습니다.');
             }
             replier.reply(`게임 기보:`+game.pgn());
-            savetofile();
+            //savetofile();
         } else {
             replier.reply('잘못된 수입니다.');
         }
     } else if (msg.startsWith(`/새게임`)) {
         replier.reply(startServer());
-    }
+    } else if (msg.startsWith('/PGN')){
+replier.reply(game.pgn());
 }
+                }
