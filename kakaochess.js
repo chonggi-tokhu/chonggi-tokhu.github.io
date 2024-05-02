@@ -25,6 +25,8 @@
  *
  *----------------------------------------------------------------------------*/
 
+const e = require('cors');
+
 
 /* minified license below  */
 
@@ -1898,10 +1900,10 @@ var File = java.io.File;
 var FileWriter = java.io.FileWriter;
 var game = new Chess();
 
-var serverRunningNow = false;
+var isGameNow = false;
 
-function startServer() {
-    if (!serverRunningNow) {
+function startGame() {
+    if (!isGameNow) {
         return `체스게임 시작. 현재 기보를 보고싶다면 /PGN을 입력하세요.`;
     } else {
         return `체스게임이 이미 진행중`;
@@ -1926,6 +1928,67 @@ function savetofile(){
     var writer = new FileWriter(`/sdcard/kakaochess/chessgame.mydb`);
     writer.write(game.pgn());
 }
+function toaskii() {
+    var position0 = game.board();
+    var idx0 = 0;
+    var rtv = '';
+    position0.forEach(function (val, idx, arr) {
+        val.forEach(function (val1, idx1, arr1) {
+            if (val1 == null) {
+                if (idx0 % 8 == 0) {
+                    rtv+=`\n`
+                }
+                if (idx0 % 2 == 0) {
+                    rtv += `■`;
+                } else {
+                    rtv += `□`;
+                }
+            } else {
+                if (val1.colour == 'w') {
+                    if (val.type.toLowerCase() == 'k') {
+                        rtv += `♔`;
+                    }
+                    if (val.type.toLowerCase() == 'q') {
+                        rtv += `♕`;
+                    }
+                    if (val.type.toLowerCase() == 'r') {
+                        rtv += `♖`;
+                    }
+                    if (val.type.toLowerCase() == 'b') {
+                        rtv += `♗`;
+                    }
+                    if (val.type.toLowerCase() == 'n') {
+                        rtv += `♘`;
+                    }
+                    if (val.type.toLowerCase() == 'p') {
+                        rtv += `♙`;
+                    }
+                } else if (val1.colour == 'b') {
+                    if (val.type.toLowerCase() == 'k') {
+                        rtv += `♚`;
+                    }
+                    if (val.type.toLowerCase() == 'q') {
+                        rtv += `♛`;
+                    }
+                    if (val.type.toLowerCase() == 'r') {
+                        rtv += `♜`;
+                    }
+                    if (val.type.toLowerCase() == 'b') {
+                        rtv += `♝`;
+                    }
+                    if (val.type.toLowerCase() == 'n') {
+                        rtv += `♞`;
+                    }
+                    if (val.type.toLowerCase() == 'p') {
+                        rtv += `♟`;
+                    }
+                }
+            }
+            idx0++;
+        });
+    });
+    return rtv;
+}
 function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
     if (msg.startsWith(`/다음수`)) {
         var move0 = msg.split(` `)[1];
@@ -1934,13 +1997,17 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                 replier.reply(game.turn() + '색이 체크메이트로 졌습니다.');
             }
             replier.reply(`게임 기보:`+game.pgn());
-            //savetofile();
+            savetofile();
         } else {
             replier.reply('잘못된 수입니다.');
         }
     } else if (msg.startsWith(`/새게임`)) {
-        replier.reply(startServer());
-    } else if (msg.startsWith('/PGN')){
-replier.reply(game.pgn());
+        replier.reply(startGame());
+    } else if (msg.startsWith(`/포지션`)) {
+        replier.reply(toaskii());
+    } else if (msg.startsWith(`/PGN`)) {
+        replier.reply(game.pgn());
+    } else if (msg.startsWith(`/FEN`)) {
+        replier.reply(game.fen());
+    }
 }
-                }
