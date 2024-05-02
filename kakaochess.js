@@ -19,14 +19,7 @@
  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- *
- *----------------------------------------------------------------------------*/
-
-const { write } = require('fs');
-
+ * CONTRACT, STRICT LIABILITY, OR TOR
 /* minified license below  */
 
 /* @license
@@ -1973,7 +1966,8 @@ function getIPAddress() {
 }
 function startServer() {
     if (!serverRunningNow) {
-        serverThread.start();
+try{
+        serverThread.start();}catch(e){ return e; }
         return `http://${getIPAddress()}:${port}/   에서 체스게임이 시작`;
     } else {
         return `체스게임이 이미 진행중`;
@@ -2003,7 +1997,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var move0 = msg.split(` `)[1];
         if (makemove(move0)) {
             if (game.game_over()) {
-                replier.reply(game.turn + '색이 체크메이트로 졌습니다.');
+                replier.reply(game.turn() + '색이 체크메이트로 졌습니다.');
             }
             replier.reply(`게임 기보:`+game.pgn());
             savetofile();
@@ -2011,6 +2005,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             replier.reply('잘못된 수입니다.');
         }
     } else if (msg.startsWith(`/새게임`)) {
-        replier.replace(startServer());
+        replier.reply(startServer());
     }
-}
+                }
