@@ -19,7 +19,13 @@
  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TOR
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ *----------------------------------------------------------------------------*/
+
+
 /* minified license below  */
 
 /* @license
@@ -1890,85 +1896,13 @@ if (typeof define !== 'undefined') define(function () { return Chess; });
 
 var File = java.io.File;
 var FileWriter = java.io.FileWriter;
-var games = [];
 var game = new Chess();
-var gametemplate = `<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <title>@@whitename@@ vs @@blackname@@ kakaotalk Chess</title>
-    <link rel="stylesheet" href="https://chonggi-tokhu.github.io/chessboard-1.0.0.min.css">
-</head>
-
-<body>
-    <script src="https://chonggi-tokhu.github.io/chess2.js"></script>
-    <script src="https://chonggi-tokhu.github.io/chessboard-1.0.0.min.js"></script>
-    <div id="board" width="20em"></div>
-    <div style="display:flex">
-        <button onclick="game2.undo();curridx--;board.position(game2.fen());">&lt;-</button><button onclick="if (curridx==game.history().length)return false;game2.move(game.history()[curridx]);curridx++;board.position(game2.fen());">-&gt;</button>
-    </div>
-    
-    <input type="hidden" id="pgn" value="@@pgn@@">
-    <input type="hidden" id="white" value="@@whitename@@"><input type="hidden" value="@@blackname@@" id="black">
-    <script>
-        var game=new Chess();
-        var game2 = new Chess();
-        var curridx=0;
-        var board=Chessboard('board',{});
-        game.load_pgn(document.getElementById("pgn").value);
-    </script>
-</body>
-
-</html>`;
-var port = 3456;
 var serverRunningNow = false;
-var serverThread = new java.lang.Thread({
-    run: function () {
-        try {
-            var listener = new java.net.ServerSocket(port);
-            serverRunningNow = true;
-            while (serverRunningNow) {
-                var socket = listener.accept;
-                try {
-                    var out = socket.getOutputStream();
-                    var dos = new java.io.DataOutputStream(out);
-                    var body = java.lang.String(gametemplate.replaceAll(`@@pgn@@`, game.pgn())).getBytes();
-                    dos.writeBytes("HTTP/1.1 200 OK\r\n");
-                    dos.writeBytes("Content-Type:text/html;charset=utf-8\r\n");
-                    dos.writeBytes("Content-Length:" + body.length + "\r\n");
-                    dos.write(body, 0, body.length);
-                    dos.writeBytes("\r\n");
-                    dos.flush();
-                } catch (e) {
-                    
-                } finally {
-                    socket.close();
-                }
-            }
-            listener.close();
-        } catch (e) {}
-    }
-});
-function getIPAddress() {
-    var networkInterfaceList = java.net.NetworkInterface.getNetworkInterfaces();
-    while (networkInterfaceList.hasMoreElements()) {
-        var networkInterface = networkInterfaceList.nextElement();
-        var inetAddressList = networkInterface.getInetAddresses();
-        while (inetAddressList.hasMoreElements()) {
-            var inetAddress = inetAddressList.nextElement();
-            if (!inetAddress.isLoopbackAddress() && inetAddress instanceof java.net.Inet4Address) {
-                return inetAddress.getHostAddress();
-            }
-        }
-    }
-    return "";
-}
+
 function startServer() {
     if (!serverRunningNow) {
-try{
-        serverThread.start();}catch(e){ return e; }
-        return `http://${getIPAddress()}:${port}/   에서 체스게임이 시작`;
+        return `체스게임 시작. 현재 기보를 보고싶다면 /PGN을 입력하세요.`;
     } else {
         return `체스게임이 이미 진행중`;
     }
@@ -1990,7 +1924,7 @@ function savetofile(){
         file.delete();
     }
     var writer = new FileWriter(`/sdcard/kakaochess/chessgame.mydb`);
-    write.write(game.pgn());
+    writer.write(game.pgn());
 }
 function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
     if (msg.startsWith(`/다음수`)) {
@@ -2007,4 +1941,4 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     } else if (msg.startsWith(`/새게임`)) {
         replier.reply(startServer());
     }
-                }
+}
