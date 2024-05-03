@@ -1893,12 +1893,13 @@ if (typeof define !== 'undefined') define(function () { return Chess; });
 var File = java.io.File;
 var FileWriter = java.io.FileWriter;
 var game = new Chess();
-
+var votes = {};
 var isGameNow = false;
 
 function startGame() {
     if (!isGameNow) {
         return `체스게임 시작. 현재 기보를 보고싶다면 /PGN을 입력하세요.`;
+        isGameNow = true;
     } else {
         return `체스게임이 이미 진행중`;
     }
@@ -1940,41 +1941,41 @@ function toaskii() {
             } else {
                 if (val1.colour == 'w') {
                     if (val1.type.toLowerCase() == 'k') {
-                        rtv += `♔`;
+                        rtv += ` ♔`;
                     }
                     if (val1.type.toLowerCase() == 'q') {
-                        rtv += `♕`;
+                        rtv += ` ♕`;
                     }
                     if (val1.type.toLowerCase() == 'r') {
-                        rtv += `♖`;
+                        rtv += ` ♖`;
                     }
                     if (val1.type.toLowerCase() == 'b') {
-                        rtv += `♗`;
+                        rtv += ` ♗`;
                     }
                     if (val1.type.toLowerCase() == 'n') {
-                        rtv += `♘`;
+                        rtv += ` ♘`;
                     }
                     if (val1.type.toLowerCase() == 'p') {
-                        rtv += `♙`;
+                        rtv += ` ♙`;
                     }
                 } else if (val1.colour == 'b') {
                     if (val1.type.toLowerCase() == 'k') {
-                        rtv += `♚`;
+                        rtv += ` ♚`;
                     }
                     if (val1.type.toLowerCase() == 'q') {
-                        rtv += `♛`;
+                        rtv += ` ♛`;
                     }
                     if (val1.type.toLowerCase() == 'r') {
-                        rtv += `♜`;
+                        rtv += ` ♜`;
                     }
                     if (val1.type.toLowerCase() == 'b') {
-                        rtv += `♝`;
+                        rtv += ` ♝`;
                     }
                     if (val1.type.toLowerCase() == 'n') {
-                        rtv += `♞`;
+                        rtv += ` ♞`;
                     }
                     if (val1.type.toLowerCase() == 'p') {
-                        rtv += `♟`;
+                        rtv += ` ♟`;
                     }
                 }
             }
@@ -1982,6 +1983,39 @@ function toaskii() {
         });
     });
     return rtv;
+}
+function getvoteres(votename){
+    var rtvpr = votes[votename];
+    var  rtv='없는 투표';
+    if (typeof rtvpr ==='undefined' || rtvpr === null){
+        return rtv;
+    }
+    rtv = `${votename} 투표 결과 집계(참여자 ${rtvpr.members.length}명) - ${rtvpr.a.n}항목 ${rtvpr.a.member}명 vs ${rtvpr.b.n}항목 ${rtvpr.b.member}명`;
+    return rtv;
+}
+function createvote(votename,a,b){
+    if (!(typeof votenmae === 'string' && typeof a ==='string' && typeof b === 'string')){
+        return '오류';
+    }
+    if (Object.keys(votes).includes(votename)){
+        return '이미 있는 투표';
+    }
+    votes[votename]={a:{n:a,member:0},b:{n:b,member:0},members:[]};
+    return getvoteres(votename);
+}
+function vote(votename,a_b,sender){
+    if (votes[votename]===null||votes[votename]===undefined){
+        return '없는 투표';
+    }
+    if(votes[votename].members.includes(sender)){
+        return '이미 투표하심';
+    }
+    if (!(a_b === 'a' || a_b === 'b')) {
+        return '없는 항목(a나 b만 가능)';
+    }
+    votes[votename][a_b].member++;
+    votes[votename].members.push(sender);
+    return getvoteres(votename);
 }
 function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
     if (msg.startsWith(`/다음수`)) {
@@ -2003,5 +2037,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(game.pgn());
     } else if (msg.startsWith(`/FEN`)) {
         replier.reply(game.fen());
+    } else if (msg.match(/\/투표 \/(.*?) - (.*?) vs (.*?) /gmi)!==null){
+        replier.reply(createvote(msg.replace(/\/투표 \/(.*?) - (.*?) vs (.*?)/gmi,`$1`),msg.replace(/\/투표 \/(.*?) - (.*?) vs (.*?)/gmi,`$2`),/\/투표 \/(.*?) - (.*?) vs (.*?)/gmi,`$3`));
+    } else if (msg.match(/\/투표하기 \/(.*?) - [ab]/gmi)!==null) {
+        replier.reply(vote(msg.replace(/\/투표하기 \/(.*?) - [ab]/gmi),`$1`),msg.replace(/\/투표하기 \/(.*?) - (.*?)/gmi,`$2`),sender);
+    } else if (msg.match(/\/투표결과 \/(.*?)/gmi)!==null) {
+        replier.reply(getvoteres(msg.replace(/\/투표결과 \/(.*?)/gmi,`$1`)));
+    } else if (msg.startsWith(`/투표 목록`)){
+        replier.reply((function(){ var rtv=''; Object.keys(votes).forEach(function(val,idx,arr){ rtv+='투표명 ${val}, ${votes[val].members.length}명 투표 \n'; }); return rtv; })());
     }
                     }
