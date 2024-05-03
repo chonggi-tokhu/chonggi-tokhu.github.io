@@ -20,13 +20,7 @@
  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- *
- *----------------------------------------------------------------------------*/
-
-const e = require('cors');
-
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
 
 /* minified license below  */
 
@@ -1934,10 +1928,10 @@ function toaskii() {
     var rtv = '';
     position0.forEach(function (val, idx, arr) {
         val.forEach(function (val1, idx1, arr1) {
-            if (val1 == null) {
                 if (idx0 % 8 == 0) {
                     rtv+=`\n`
                 }
+            if (val1 == null) {
                 if (idx0 % 2 == 0) {
                     rtv += `■`;
                 } else {
@@ -1945,41 +1939,41 @@ function toaskii() {
                 }
             } else {
                 if (val1.colour == 'w') {
-                    if (val.type.toLowerCase() == 'k') {
+                    if (val1.type.toLowerCase() == 'k') {
                         rtv += `♔`;
                     }
-                    if (val.type.toLowerCase() == 'q') {
+                    if (val1.type.toLowerCase() == 'q') {
                         rtv += `♕`;
                     }
-                    if (val.type.toLowerCase() == 'r') {
+                    if (val1.type.toLowerCase() == 'r') {
                         rtv += `♖`;
                     }
-                    if (val.type.toLowerCase() == 'b') {
+                    if (val1.type.toLowerCase() == 'b') {
                         rtv += `♗`;
                     }
-                    if (val.type.toLowerCase() == 'n') {
+                    if (val1.type.toLowerCase() == 'n') {
                         rtv += `♘`;
                     }
-                    if (val.type.toLowerCase() == 'p') {
+                    if (val1.type.toLowerCase() == 'p') {
                         rtv += `♙`;
                     }
                 } else if (val1.colour == 'b') {
-                    if (val.type.toLowerCase() == 'k') {
+                    if (val1.type.toLowerCase() == 'k') {
                         rtv += `♚`;
                     }
-                    if (val.type.toLowerCase() == 'q') {
+                    if (val1.type.toLowerCase() == 'q') {
                         rtv += `♛`;
                     }
-                    if (val.type.toLowerCase() == 'r') {
+                    if (val1.type.toLowerCase() == 'r') {
                         rtv += `♜`;
                     }
-                    if (val.type.toLowerCase() == 'b') {
+                    if (val1.type.toLowerCase() == 'b') {
                         rtv += `♝`;
                     }
-                    if (val.type.toLowerCase() == 'n') {
+                    if (val1.type.toLowerCase() == 'n') {
                         rtv += `♞`;
                     }
-                    if (val.type.toLowerCase() == 'p') {
+                    if (val1.type.toLowerCase() == 'p') {
                         rtv += `♟`;
                     }
                 }
@@ -1997,7 +1991,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                 replier.reply(game.turn() + '색이 체크메이트로 졌습니다.');
             }
             replier.reply(`게임 기보:`+game.pgn());
-            savetofile();
+            //savetofile();
         } else {
             replier.reply('잘못된 수입니다.');
         }
@@ -2010,4 +2004,4 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     } else if (msg.startsWith(`/FEN`)) {
         replier.reply(game.fen());
     }
-}
+                    }
