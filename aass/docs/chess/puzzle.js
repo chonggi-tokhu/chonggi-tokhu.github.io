@@ -88,7 +88,7 @@ class mypuzzlesdata {
           move: ["Be5+","Rc6+","Kd3","Ra6","Bc4#"],
           colour: "w",
           level:4,
-          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>`,
+          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>.<br>Kd5 둘때 대신 Kd7을 둬도 체크메이트. Rxc7+ Ke6 Bc4#가 나옴.`,
         },
         {
           position:"3b4/2p1pp2/5kp1/1B4p1/3P2P1/p5Bp/3K4/2R5 w - - 0 7",
@@ -96,7 +96,7 @@ class mypuzzlesdata {
           move: ["Be5+","Rc6+","Kd3","Ra6","Bc4#"],
           colour: "w",
           level:4,
-          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>`,
+          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>.<br>Kd5 둘때 대신 Kd7을 둬도 체크메이트. Rxc7+ Ke6 Bc4#가 나옴.`,
         },
         {
           position:"3b4/2p1pp2/5kp1/1B4p1/3P2P1/p5Bp/3K4/2R5 w - - 0 7",
@@ -104,7 +104,23 @@ class mypuzzlesdata {
           move: ["Be5+","Rc6+","Kd3","Ra6","Bc4#"],
           colour: "w",
           level:4,
-          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>`,
+          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>.<br>Kd5 둘때 대신 Kd7을 둬도 체크메이트. Rxc7+ Ke6 Bc4#가 나옴.`,
+        },
+        {
+          position:"3b4/2p1pp2/5kp1/1B4p1/3P2P1/p5Bp/3K4/2R5 w - - 0 7",
+          oppmove: ["Ke6","Kd5","a2","a1=Q"],
+          move: ["Be5+","Rc6+","Kd3","Ra6","Bc4#"],
+          colour: "w",
+          level:4,
+          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>.<br>Kd5 둘때 대신 Kd7을 둬도 체크메이트. Rxc7+ Ke6 Bc4#가 나옴.`,
+        },
+        {
+          position:"3b4/2p1pp2/5kp1/1B4p1/3P2P1/p5Bp/3K4/2R5 w - - 0 7",
+          oppmove: ["Ke6","Kd5","a2","a1=Q"],
+          move: ["Be5+","Rc6+","Kd3","Ra6","Bc4#"],
+          colour: "w",
+          level:4,
+          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>.<br>Kd5 둘때 대신 Kd7을 둬도 체크메이트. Rxc7+ Ke6 Bc4#가 나옴.`,
         },
       ],
       rookbishop: [
