@@ -34,6 +34,12 @@
     <meta property="og:image"
         content="https://images.chesscomfiles.com/uploads/v1/group/459847.a25844d2.160x160o.85394546eb75.png">
     <style>
+        :root {
+            --darksqbg:rgb(181, 136, 99);
+            --lightsqbg:rgb(240, 217, 181);
+            --lightsqcolour:rgb(181, 136, 99);
+            --darksqcolour:rgb(240, 217, 181);
+        }
         cgreyico1 {
             height: 20px;
             width: 20px;
@@ -235,6 +241,14 @@
                 overflow: scroll;
             }
         }
+        .black-3c85d{
+            background:var(--darksqbg) !important;
+            color:var(--darksqcolour) !important;
+        }
+        .white-1e1d7{
+            background:var(--lightsqbg) !important;
+            color:var(--lightsqcolour) !important;
+        }
     </style>
 </head>
 
@@ -395,169 +409,170 @@
                         piecethemes = "colourgrey-style-pieces"
                         config.pieceTheme = 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/colourgrey-style-pieces/' + piece + '.png';
                     }
+                    if (selectmenu=='default'){
+                        document.querySelector(':root').style.setProperty('--darksqbg',);
+                    }
                     for (var i = 0; i < 32; i++) {
                         var whtsquare = whtsquare1[i];
                         if (selectmenu == "default") {
-                            whtsquare.style.background = "#f0d9b5";
-                            whtsquare.style.color = "#b58863";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"#b58863");
                         }
                         if (selectmenu == "classic") {
-                            whtsquare.style.background = "#e9e0ef";
-                            whtsquare.style.color = "#060510";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#e9e0ef");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"#060510");
                         }
                         if (selectmenu == "chocolate") {
-                            whtsquare.style.background = "#f0d9b5";
-                            whtsquare.style.color = "chocolate";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"chocolate");
                         }
                         if (selectmenu == "bnw") {
-                            whtsquare.style.background = "#f8f8f8";
-                            whtsquare.style.color = "#000";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f8f8f8");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"#000");
                         }
                         if (selectmenu == "green") {
-                            whtsquare.style.background = "#f0d9f5";
-                            whtsquare.style.color = "indigo";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"indigo");
                         }
                         if (selectmenu == "purple") {
-                            whtsquare.style.background = "#f0d9f5";
-                            whtsquare.style.color = "purple";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"purple");
                         }
                         if (selectmenu == "blue") {
-                            whtsquare.style.background = "#f0d9b5";
-                            whtsquare.style.color = "blue";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"blue");
                         }
                         if (selectmenu == "brown") {
-                            whtsquare.style.background = "#f0d9ff";
-                            whtsquare.style.color = "brown";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9ff");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"brown");
                         }
                         if (selectmenu == "orange") {
-                            whtsquare.style.background = "#d0d9ff";
-                            whtsquare.style.color = "orange";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#d0d9ff");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"orange");
                         }
                         if (selectmenu == "marble") {
-                            whtsquare.style.background = "";
-                            whtsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_whitesq.png)";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"");
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_whitesq.png)");
                         }
                         if (selectmenu == "goldsilver") {
-                            whtsquare.style.background = "var(--silver)";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"var(--silver)");
                         }
                         if (selectmenu == "ivory") {
-                            whtsquare.style.background = "";
-                            whtsquare.style.backgroundImage = "url(https://media.istockphoto.com/id/1412328901/photo/old-concrete-wall-texture-background-close-up-retro-plain-beige-color-cement-material-surface.jpg?b=1&s=170667a&w=0&k=20&c=_Yd94mVWR9O6JN1PKX41Zr9Fgm2cU3L0GtmKXXs2sFI=)";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"");
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"url(https://media.istockphoto.com/id/1412328901/photo/old-concrete-wall-texture-background-close-up-retro-plain-beige-color-cement-material-surface.jpg?b=1&s=170667a&w=0&k=20&c=_Yd94mVWR9O6JN1PKX41Zr9Fgm2cU3L0GtmKXXs2sFI=)");
                         }
                         if (selectmenu == "walnut") {
-                            whtsquare.style.background = "";
-                            whtsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_whtsq.png)"
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_whtsq.png)");
                         }
                     }
                     for (var i = 0; i < 32; i++) {
                         var blcsquare = blcsquare1[i];
                         if (selectmenu == "default") {
-                            blcsquare.style.background = "#b58863";
-                            blcsquare.style.color = "#f0d9b5";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"#b58863");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                         }
                         if (selectmenu == "classic") {
-                            blcsquare.style.background = "radial-gradient(#888,#101527)";
-                            blcsquare.style.color = "#e9e0ef";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"radial-gradient(#888,#101527)");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#e9e0ef");
                         }
                         if (selectmenu == "chocolate") {
-                            blcsquare.style.background = "chocolate";
-                            blcsquare.style.color = "#f0d9b5";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"chocolate");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                         }
                         if (selectmenu == "bnw") {
-                            blcsquare.style.background = "radial-gradient(#eee,#020202,#020202)";
-                            blcsquare.style.color = "#fff";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"radial-gradient(#eee,#020202,#020202)");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#fff");
                         }
                         if (selectmenu == "green") {
-                            blcsquare.style.background = "green";
-                            blcsquare.style.color = "#f0d9f5";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"green");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9f5");
                         }
                         if (selectmenu == "purple") {
-                            whtsquare.style.background = "#f0d9f5";
-                            whtsquare.style.color = "purple";
-                            blcsquare.style.background = "purple";
-                            blcsquare.style.color = "#f0d9f5";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"purple");
+                            document.querySelector(':root').style.setProperty('--darksqbg',"purple");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9f5");
                         }
                         if (selectmenu == "blue") {
-                            blcsquare.style.background = "blue";
-                            blcsquare.style.color = "#f0d9b5";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"blue");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                         }
                         if (selectmenu == "brown") {
-                            blcsquare.style.background = "brown";
-                            blcsquare.style.color = "#f0d9ff";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"brown");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9ff");
                         }
                         if (selectmenu == "orange") {
-                            blcsquare.style.background = "orange";
-                            blcsquare.style.color = "#d0d9ff";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"orange");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#d0d9ff");
                         }
                         if (selectmenu == "marble") {
-                            blcsquare.style.background = "";
-                            blcsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_blacksq.png)"
-                        }
+                            document.querySelector(':root').style.setProperty('--darksqbg',"");
+                            document.querySelector(':root').style.setProperty('--darksqbg',"url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_blacksq.png)");                        }
                         if (selectmenu == "goldsilver") {
-                            blcsquare.style.background = "var(--gold)";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"var(--gold)");
                         }
                         if (selectmenu == "ivory") {
-                            blcsquare.style.background = "";
-                            blcsquare.style.backgroundImage = "url(https://media.istockphoto.com/id/1355204884/photo/rustic-plywood-texture-background.jpg?b=1&s=170667a&w=0&k=20&c=YT3HKmr1sSpRwFhnJCUN-AlMFU5GmGQDIlwuHOqAbKc=)";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"");
+                            document.querySelector(':root').style.setProperty('--darksqbg',"url(https://media.istockphoto.com/id/1355204884/photo/rustic-plywood-texture-background.jpg?b=1&s=170667a&w=0&k=20&c=YT3HKmr1sSpRwFhnJCUN-AlMFU5GmGQDIlwuHOqAbKc=)");
                         }
                         if (selectmenu == "walnut") {
-                            blcsquare.style.background = "";
-                            blcsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_blsq.png)";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"");
+                            document.querySelector(':root').style.setProperty('--darksqbg',"url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_blsq.png)");
                         }
                     }
                     if (selectmenu == "default") {
-                        whtsquare.style.background = "#f0d9b5";
-                        whtsquare.style.color = "#b58863";
-                        blcsquare.style.background = "#b58863";
-                        blcsquare.style.color = "#f0d9b5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"#b58863");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"#b58863");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                     }
                     if (selectmenu == "classic") {
-                        whtsquare.style.background = "#e9e0ef";
-                        whtsquare.style.color = "#060510";
-                        blcsquare.style.background = "#060510";
-                        blcsquare.style.color = "#e9e0ef";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#e9e0ef");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"#060510");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"#060510");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#e9e0ef");
                     }
                     if (selectmenu == "chocolate") {
-                        whtsquare.style.background = "#f0d9b5";
-                        whtsquare.style.color = "chocolate";
-                        blcsquare.style.background = "chocolate";
-                        blcsquare.style.color = "#f0d9b5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"chocolate");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"chocolate");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                     }
                     if (selectmenu == "bnw") {
-                        whtsquare.style.background = "#f8f8f8";
-                        whtsquare.style.color = "#000";
-                        blcsquare.style.background = "#020202";
-                        blcsquare.style.color = "#fff";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f8f8f8");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"#000");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"#020202");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#fff");
                     }
                     if (selectmenu == "green") {
-                        whtsquare.style.background = "#f0d9f5";
-                        whtsquare.style.color = "indigo";
-                        blcsquare.style.background = "green";
-                        blcsquare.style.color = "#f0d9f5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"indigo");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"green");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9f5");
                     }
                     if (selectmenu == "purple") {
-                        whtsquare.style.background = "#f0d9f5";
-                        whtsquare.style.color = "purple";
-                        blcsquare.style.background = "purple";
-                        blcsquare.style.color = "#f0d9f5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"purple");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"purple");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9f5");
                     }
                     if (selectmenu == "blue") {
-                        whtsquare.style.background = "#f0d9b5";
-                        whtsquare.style.color = "blue";
-                        blcsquare.style.background = "blue";
-                        blcsquare.style.color = "#f0d9b5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"blue");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"blue");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                     }
                     if (selectmenu == "brown") {
-                        whtsquare.style.background = "#f0d9ff";
-                        whtsquare.style.color = "brown";
-                        blcsquare.style.background = "brown";
-                        blcsquare.style.color = "#f0d9ff";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9ff");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"brown");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"brown");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9ff");
                     }
                     if (selectmenu == "orange") {
-                        whtsquare.style.background = "#d0d9ff";
-                        whtsquare.style.color = "orange";
-                        blcsquare.style.background = "orange";
-                        blcsquare.style.color = "#d0d9ff";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#d0d9ff");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"orange");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"orange");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#d0d9ff");
                     }
                 })
                 window.onload = function () {
@@ -569,136 +584,136 @@
                     for (var i = 0; i < whtsquare1.length; i++) {
                         var whtsquare = whtsquare1[i];
                         if (selectmenu == "default") {
-                            whtsquare.style.background = "#f0d9b5";
-                            whtsquare.style.color = "#b58863";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"#b58863");
                         }
                         if (selectmenu == "classic") {
-                            whtsquare.style.background = "#e9e0ef";
-                            whtsquare.style.color = "#161520";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#e9e0ef");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"#161520");
                         }
                         if (selectmenu == "chocolate") {
-                            whtsquare.style.background = "#f0d9b5";
-                            whtsquare.style.color = "chocolate";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"chocolate");
                         }
                         if (selectmenu == "bnw") {
-                            whtsquare.style.background = "#f8f8f8";
-                            whtsquare.style.color = "#000";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f8f8f8");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"#000");
                         }
                         if (selectmenu == "green") {
-                            whtsquare.style.background = "#f0d9f5";
-                            whtsquare.style.color = "indigo";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"indigo");
                         }
                         if (selectmenu == "purple") {
-                            whtsquare.style.background = "#f0d9f5";
-                            whtsquare.style.color = "purple";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"purple");
                         }
                         if (selectmenu == "blue") {
-                            whtsquare.style.background = "#f0d9b5";
-                            whtsquare.style.color = "blue";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"blue");
                         }
                         if (selectmenu == "brown") {
-                            whtsquare.style.background = "#f0d9ff";
-                            whtsquare.style.color = "brown";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9ff");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"brown");
                         }
                         if (selectmenu == "orange") {
-                            whtsquare.style.background = "#d0d9ff";
-                            whtsquare.style.color = "orange";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#d0d9ff");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"orange");
                         }
                     }
                     for (var i = 0; i < blcsquare1.length; i++) {
                         var blcsquare = blcsquare1[i];
                         if (selectmenu == "default") {
-                            blcsquare.style.background = "#b58863";
-                            blcsquare.style.color = "#f0d9b5";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"#b58863");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                         }
                         if (selectmenu == "classic") {
-                            blcsquare.style.background = "#060510";
-                            blcsquare.style.color = "#e9e0ef";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"#060510");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#e9e0ef");
                         }
                         if (selectmenu == "chocolate") {
-                            blcsquare.style.background = "chocolate";
-                            blcsquare.style.color = "#f0d9b5";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"chocolate");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                         }
                         if (selectmenu == "bnw") {
-                            blcsquare.style.background = "#020202";
-                            blcsquare.style.color = "#fff";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"#020202");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#fff");
                         }
                         if (selectmenu == "green") {
-                            blcsquare.style.background = "green";
-                            blcsquare.style.color = "#f0d9f5";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"green");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9f5");
                         }
                         if (selectmenu == "purple") {
-                            whtsquare.style.background = "#f0d9f5";
-                            whtsquare.style.color = "purple";
-                            blcsquare.style.background = "purple";
-                            blcsquare.style.color = "#f0d9f5";
+                            document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
+                            document.querySelector(':root').style.setProperty('--lightsqcolour',"purple");
+                            document.querySelector(':root').style.setProperty('--darksqbg',"purple");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9f5");
                         }
                         if (selectmenu == "blue") {
-                            blcsquare.style.background = "blue";
-                            blcsquare.style.color = "#f0d9b5";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"blue");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                         }
                         if (selectmenu == "brown") {
-                            blcsquare.style.background = "brown";
-                            blcsquare.style.color = "#f0d9ff";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"brown");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9ff");
                         }
                         if (selectmenu == "orange") {
-                            blcsquare.style.background = "orange";
-                            blcsquare.style.color = "#d0d9ff";
+                            document.querySelector(':root').style.setProperty('--darksqbg',"orange");
+                            document.querySelector(':root').style.setProperty('--darksqcolour',"#d0d9ff");
                         }
                     }
                     if (selectmenu == "default") {
-                        whtsquare.style.background = "#f0d9b5";
-                        whtsquare.style.color = "#b58863";
-                        blcsquare.style.background = "#b58863";
-                        blcsquare.style.color = "#f0d9b5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"#b58863");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"#b58863");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                     }
                     if (selectmenu == "classic") {
-                        whtsquare.style.background = "#e9e0ef";
-                        whtsquare.style.color = "#060510";
-                        blcsquare.style.background = "#060510";
-                        blcsquare.style.color = "#e9e0ef";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#e9e0ef");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"#060510");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"#060510");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#e9e0ef");
                     }
                     if (selectmenu == "chocolate") {
-                        whtsquare.style.background = "#f0d9b5";
-                        whtsquare.style.color = "chocolate";
-                        blcsquare.style.background = "chocolate";
-                        blcsquare.style.color = "#f0d9b5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"chocolate");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"chocolate");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                     }
                     if (selectmenu == "bnw") {
-                        whtsquare.style.background = "#f8f8f8";
-                        whtsquare.style.color = "#000";
-                        blcsquare.style.background = "#020202";
-                        blcsquare.style.color = "#fff";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f8f8f8");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"#000");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"#020202");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#fff");
                     }
                     if (selectmenu == "green") {
-                        whtsquare.style.background = "#f0d9f5";
-                        whtsquare.style.color = "indigo";
-                        blcsquare.style.background = "green";
-                        blcsquare.style.color = "#f0d9f5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"indigo");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"green");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9f5");
                     }
                     if (selectmenu == "purple") {
-                        whtsquare.style.background = "#f0d9f5";
-                        whtsquare.style.color = "purple";
-                        blcsquare.style.background = "purple";
-                        blcsquare.style.color = "#f0d9f5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"purple");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"purple");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9f5");
                     }
                     if (selectmenu == "blue") {
-                        whtsquare.style.background = "#f0d9b5";
-                        whtsquare.style.color = "blue";
-                        blcsquare.style.background = "blue";
-                        blcsquare.style.color = "#f0d9b5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"blue");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"blue");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                     }
                     if (selectmenu == "brown") {
-                        whtsquare.style.background = "#f0d9ff";
-                        whtsquare.style.color = "brown";
-                        blcsquare.style.background = "brown";
-                        blcsquare.style.color = "#f0d9ff";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9ff");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"brown");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"brown");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9ff");
                     }
                     if (selectmenu == "orange") {
-                        whtsquare.style.background = "#d0d9ff";
-                        whtsquare.style.color = "orange";
-                        blcsquare.style.background = "orange";
-                        blcsquare.style.color = "#d0d9ff";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#d0d9ff");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"orange");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"orange");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#d0d9ff");
                     }
                 }
 
@@ -713,58 +728,58 @@
                         var blcsquare = blcsquare1[i]
                     }
                     if (selectmenu == "default") {
-                        whtsquare.style.background = "#f0d9b5";
-                        whtsquare.style.color = "#b58863";
-                        blcsquare.style.background = "#b58863";
-                        blcsquare.style.color = "#f0d9b5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"#b58863");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"#b58863");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                     }
                     if (selectmenu == "classic") {
-                        whtsquare.style.background = "#e9e0ef";
-                        whtsquare.style.color = "#101527";
-                        blcsquare.style.background = "radial-gradient(#888,#888,#101527)";
-                        blcsquare.style.color = "#e9e0ef";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#e9e0ef");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"#101527");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"radial-gradient(#888,#888,#101527)");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#e9e0ef");
                     }
                     if (selectmenu == "chocolate") {
-                        whtsquare.style.background = "#f0d9b5";
-                        whtsquare.style.color = "chocolate";
-                        blcsquare.style.background = "chocolate";
-                        blcsquare.style.color = "#f0d9b5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"chocolate");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"chocolate");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                     }
                     if (selectmenu == "bnw") {
-                        whtsquare.style.background = "#f8f8f8";
-                        whtsquare.style.color = "#000";
-                        blcsquare.style.background = "#020202";
-                        blcsquare.style.color = "#fff";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f8f8f8");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"#000");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"#020202");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#fff");
                     }
                     if (selectmenu == "green") {
-                        whtsquare.style.background = "#f0d9f5";
-                        whtsquare.style.color = "indigo";
-                        blcsquare.style.background = "green";
-                        blcsquare.style.color = "#f0d9f5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"indigo");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"green");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9f5");
                     }
                     if (selectmenu == "purple") {
-                        whtsquare.style.background = "#f0d9f5";
-                        whtsquare.style.color = "purple";
-                        blcsquare.style.background = "purple";
-                        blcsquare.style.color = "#f0d9f5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"purple");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"purple");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9f5");
                     }
                     if (selectmenu == "blue") {
-                        whtsquare.style.background = "#f0d9b5";
-                        whtsquare.style.color = "blue";
-                        blcsquare.style.background = "blue";
-                        blcsquare.style.color = "#f0d9b5";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"blue");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"blue");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
                     }
                     if (selectmenu == "brown") {
-                        whtsquare.style.background = "#f0d9ff";
-                        whtsquare.style.color = "brown";
-                        blcsquare.style.background = "brown";
-                        blcsquare.style.color = "#f0d9ff";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9ff");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"brown");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"brown");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9ff");
                     }
                     if (selectmenu == "orange") {
-                        whtsquare.style.background = "#d0d9ff";
-                        whtsquare.style.color = "orange";
-                        blcsquare.style.background = "orange";
-                        blcsquare.style.color = "#d0d9ff";
+                        document.querySelector(':root').style.setProperty('--lightsqbg',"#d0d9ff");
+                        document.querySelector(':root').style.setProperty('--lightsqcolour',"orange");
+                        document.querySelector(':root').style.setProperty('--darksqbg',"orange");
+                        document.querySelector(':root').style.setProperty('--darksqcolour',"#d0d9ff");
                     }
 
                 }
