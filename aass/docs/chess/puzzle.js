@@ -98,30 +98,27 @@ class mypuzzlesdata {
           level:4,
           source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>`,
         },
+        /*[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "?"]
+[Black "?"]
+[Result "1-0"]
+[SetUp "1"]
+[FEN "8/3P3k/n2K3p/2p3n1/1b4N1/2p1p1P1/8/3B4 w - - 0 1"]
+
+1. Nf6+ Kg7 2. Nh5+ Kg6 3. Bc2+ Kxh5 4. d8=Q Nf7+ 5. Ke6 Nxd8+ 6. Kf5 e2 7. Be4
+e1=N 8. Bd5 c2 9. Bc4 c1=N 10. Bb5 Nc7 11. Ba4 Ne2 12. Bd1 Nf3 13. Bxe2 Nd5 14.
+Bxf3# 1-0*/
         {
-          position:"3b4/2p1pp2/5kp1/1B4p1/3P2P1/p5Bp/3K4/2R5 w - - 0 7",
-          oppmove: ["Ke6","Kd5","a2","a1=Q"],
-          move: ["Be5+","Rc6+","Kd3","Ra6","Bc4#"],
-          colour: "w",
-          level:4,
-          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>`,
-        },
-        {
-          position:"3b4/2p1pp2/5kp1/1B4p1/3P2P1/p5Bp/3K4/2R5 w - - 0 7",
-          oppmove: ["Ke6","Kd5","a2","a1=Q"],
-          move: ["Be5+","Rc6+","Kd3","Ra6","Bc4#"],
-          colour: "w",
-          level:4,
-          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>`,
-        },
-        {
-          position:"3b4/2p1pp2/5kp1/1B4p1/3P2P1/p5Bp/3K4/2R5 w - - 0 7",
-          oppmove: ["Ke6","Kd5","a2","a1=Q"],
-          move: ["Be5+","Rc6+","Kd3","Ra6","Bc4#"],
-          colour: "w",
-          level:4,
-          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>`,
-        },
+          position:"8/3P3k/n2K3p/2p3n1/1b4N1/2p1p1P1/8/3B4 w - - 0 1",
+            oppmove:["Kg7","Kg6","Kxh5","Nf7+","Nxd8+","e2","e1=N","c2","c1=N","Nc7","Ne2","Nf3","Nd5"],
+            move:["Nf6+","Nh5+","Bc2+","d8=Q","Ke6","Kf5","Be4","Bd5","Bc4","Bb5","Ba4","Bd1","Bxe2","Bxf3#"],
+            colour:"w",
+            level:100,
+            source:`알려주면 풀기 쉬우니까 안알려줌`,
+        }
       ],
       rookbishop: [
         {
