@@ -24,9 +24,9 @@
     <link rel="stylesheet" href="/aass/docs/chess/martycopy1_files/chessboard-1.0.0.min.css">
     <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5499297/skin/style.css">
     <link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/5925927/skin/style.css">
-    <meta property="og:description" content="컬러그레이봇과 재밌는 수준별 눈높이 체스를 두어 보세요">
+    <meta property="og:description" content="컬러그레이퍼즐">
     <meta property="og:title" content="Colourgrey-Marty-BOT L4">
-    <meta name="description" content="컬러그레이봇과 재밌는 수준별 눈높이 체스를 두어 보세요">
+    <meta name="description" content="컬러그레이퍼즐">
     <link rel="apple-touch-icon-precomposed"
         href="https://images.chesscomfiles.com/uploads/v1/group/459847.a25844d2.160x160o.85394546eb75.png">
     <meta property="og:image"
@@ -579,56 +579,6 @@
                     }
                 })
                 window.onload = function () {
-                    mythemefunction();
-(function () {
-                    xxxxdddd = $("#puzzletheme1").val();
-                    if (xxxxdddd == dddddd44) {
-                        ixxxxx = 0;
-                        console.log("ddd" + xxxxdddd + "ddd" + dddddd44);
-                    } else {
-                        ixxxxx = 0;
-                        dddddd44 = $("#puzzletheme1").val();
-                        console.log(xxxxdddd + "ddd" + dddddd44);
-                        console.log(ixxxxx);
-                    };
-                    puzzletr = new mypuzzlesdata();
-                    console.log(puzzletr);
-                    puzzletr2 = puzzletr.typepuzzle1($("#puzzletheme1").val());
-                    dddddd44 = $("#puzzletheme1").val();
-                    console.log("kkk");
-                    board = Chessboard('myBoard', config);
-                board.addCircle = function (to) {
-                    var $circle = $("[data-square='" + to + "']");
-                    if ($circle != undefined) {
-                        var circle = $circle.html();
-                        if (!circle.includes("img")) {
-                            $circle.html($circle.html() + "<chess-circle></chess-circle>");
-                        } else {
-                            //$circle.html(circle + "<chess-eat></chess-eat>");
-                            $circle.addClass('highlight-black');
-                        }
-                    } else {
-                        return null;
-                    }
-                };
-                board.clearCircles = function () {
-                    var $circles = $("[data-square]");
-                    if ($circles != undefined) {
-                        $circles.each(function (index, element) {
-                            var circle = $(element).html();
-                            circle = circle.replace('<chess-circle></chess-circle>', '');
-                            circle = circle.replace('<chess-eat></chess-eat>', '');
-                            $(element).html(circle);
-                            $(element).removeClass('highlight-black');
-                        });
-                    } else {
-                        return null;
-                    }
-                };
-                    lelvelandsrc(puzzletr2);
-                    game.load(puzzletr2.position);
-                    board.position(game.fen());
-                })();
                 }
                 function mythemefunction() {
                     var selectmenu = document.getElementById("boardthemeselect").value;
@@ -1161,6 +1111,56 @@
 
 
 
+                    mythemefunction();
+(function () {
+                    xxxxdddd = $("#puzzletheme1").val();
+                    if (xxxxdddd == dddddd44) {
+                        ixxxxx = 0;
+                        console.log("ddd" + xxxxdddd + "ddd" + dddddd44);
+                    } else {
+                        ixxxxx = 0;
+                        dddddd44 = $("#puzzletheme1").val();
+                        console.log(xxxxdddd + "ddd" + dddddd44);
+                        console.log(ixxxxx);
+                    };
+                    puzzletr = new mypuzzlesdata();
+                    console.log(puzzletr);
+                    puzzletr2 = puzzletr.typepuzzle1($("#puzzletheme1").val());
+                    dddddd44 = $("#puzzletheme1").val();
+                    console.log("kkk");
+                    board = Chessboard('myBoard', config);
+                board.addCircle = function (to) {
+                    var $circle = $("[data-square='" + to + "']");
+                    if ($circle != undefined) {
+                        var circle = $circle.html();
+                        if (!circle.includes("img")) {
+                            $circle.html($circle.html() + "<chess-circle></chess-circle>");
+                        } else {
+                            //$circle.html(circle + "<chess-eat></chess-eat>");
+                            $circle.addClass('highlight-black');
+                        }
+                    } else {
+                        return null;
+                    }
+                };
+                board.clearCircles = function () {
+                    var $circles = $("[data-square]");
+                    if ($circles != undefined) {
+                        $circles.each(function (index, element) {
+                            var circle = $(element).html();
+                            circle = circle.replace('<chess-circle></chess-circle>', '');
+                            circle = circle.replace('<chess-eat></chess-eat>', '');
+                            $(element).html(circle);
+                            $(element).removeClass('highlight-black');
+                        });
+                    } else {
+                        return null;
+                    }
+                };
+                    lelvelandsrc(puzzletr2);
+                    game.load(puzzletr2.position);
+                    board.position(game.fen());
+                })();
             </script>
             <div>
                 <!--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="225"
