@@ -154,4 +154,11 @@ class mypuzzlesdata {
     );
     return this.puzzlesintypes[type111sd][randompuzzle1];
   }
+  getpuzzle(idx){
+    var puzzletoreturn = this.puzzlesintypes['allthemes'][idx];
+    if (!puzzletoreturn){
+      puzzletoreturn=this.puzzlesintypes['allthemes'][0];
+    }
+    return puzzletoreturn;
+  }
 }
