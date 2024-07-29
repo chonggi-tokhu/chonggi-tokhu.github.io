@@ -1055,8 +1055,27 @@
                 }
 
 
-
-
+(function () {
+                    xxxxdddd = $("#puzzletheme1").val();
+                    if (xxxxdddd == dddddd44) {
+                        ixxxxx = 0;
+                        console.log("ddd" + xxxxdddd + "ddd" + dddddd44);
+                    } else {
+                        ixxxxx = 0;
+                        dddddd44 = $("#puzzletheme1").val();
+                        console.log(xxxxdddd + "ddd" + dddddd44);
+                        console.log(ixxxxx);
+                    };
+                    puzzletr = new mypuzzlesdata();
+                    console.log(puzzletr);
+                    puzzletr2 = puzzletr.typepuzzle1($("#puzzletheme1").val());
+                    dddddd44 = $("#puzzletheme1").val();
+                    console.log("kkk");
+                    board = Chessboard('myBoard', config);
+                    lelvelandsrc(puzzletr2);
+                    game.load(puzzletr2.position);
+                    board.position(game.fen());
+                })();
 
 
 
