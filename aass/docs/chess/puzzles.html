@@ -880,7 +880,7 @@
                         return null;
                     }
                 };
-                    lelvelandsrc(puzzletr2);
+                    levelandsrc(puzzletr2);
                     game.load(puzzletr2.position);
                     board.position(game.fen());
                 });
@@ -924,7 +924,7 @@
                     $puzzlebtnp.html(`<h3><b style="color:#8802f0">맞았습니다</b></h3>`);
                 }
 
-                function lelvelandsrc(puzzle) {
+                function levelandsrc(puzzle) {
                     $("#infos1").html(`from: ${puzzle.source} | level: ${puzzle.level}`);
                 }
 
@@ -1097,7 +1097,10 @@
                     };
                     puzzletr = new mypuzzlesdata();
                     console.log(puzzletr);
-                    puzzletr2 = puzzletr.typepuzzle1($("#puzzletheme1").val());
+                if (!isNaN(Number(new URL(location.href).searchParams.get('pzidx')))){
+                    puzzletr2 = puzzletr.getpuzzle(Number(new URL(location.href).searchParams.get('pzidx')));
+                } else {
+                    puzzletr2 = puzzletr.typepuzzle1($("#puzzletheme1").val()); }
                     dddddd44 = $("#puzzletheme1").val();
                     console.log("kkk");
                     board = Chessboard('myBoard', config);
@@ -1130,7 +1133,7 @@
                     }
                 };
                     mythemefunction();
-                    lelvelandsrc(puzzletr2);
+                    levelandsrc(puzzletr2);
                     game.load(puzzletr2.position);
                     board.position(game.fen());
             </script>
