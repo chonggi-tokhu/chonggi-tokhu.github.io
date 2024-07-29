@@ -82,6 +82,30 @@ class mypuzzlesdata {
           level: 6,
           source: `from <a href="https://www.chess.com/member/colourgrey">colourgrey</a>'s <a href="https://www.chess.com/a/SNXjAFTL2Likn?tab=review">game</a>`,
         },
+        {
+          position:"3b4/2p1pp2/5kp1/1B4p1/3P2P1/p5Bp/3K4/2R5 w - - 0 7",
+          oppmove: ["Ke6","Kd5","a2","a1=Q"],
+          move: ["Be5+","Rc6+","Kd3","Ra6","Bc4#"],
+          colour: "w",
+          level:4,
+          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>`,
+        },
+        {
+          position:"3b4/2p1pp2/5kp1/1B4p1/3P2P1/p5Bp/3K4/2R5 w - - 0 7",
+          oppmove: ["Ke6","Kd5","a2","a1=Q"],
+          move: ["Be5+","Rc6+","Kd3","Ra6","Bc4#"],
+          colour: "w",
+          level:4,
+          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>`,
+        },
+        {
+          position:"3b4/2p1pp2/5kp1/1B4p1/3P2P1/p5Bp/3K4/2R5 w - - 0 7",
+          oppmove: ["Ke6","Kd5","a2","a1=Q"],
+          move: ["Be5+","Rc6+","Kd3","Ra6","Bc4#"],
+          colour: "w",
+          level:4,
+          source:`creation by <a href="https://www.chess.com/member/KoreaWWW2010">colourgrey</a>`,
+        },
       ],
       rookbishop: [
         {
@@ -105,6 +129,7 @@ class mypuzzlesdata {
           source: `from <a href="https://www.chess.com/member/colourgrey">colourgrey</a>'s <a href="https://www.chess.com/a/SNXjAFTL2Likn?tab=review">game</a>`,
         },
       ],
+      
     };
   }
   typepuzzle1(type111sd) {
