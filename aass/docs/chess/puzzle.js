@@ -157,7 +157,7 @@ class mypuzzlesdata {
   getpuzzle(idx){
     var puzzletoreturn = this.puzzlesintypes['allthemes'][idx];
     if (!puzzletoreturn){
-      puzzletoreturn=this.puzzlesintypes['allthemes'][0];
+      puzzletoreturn=this.typepuzzle1('allthemes');
     }
     return puzzletoreturn;
   }
