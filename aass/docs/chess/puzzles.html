@@ -409,117 +409,88 @@
                         piecethemes = "colourgrey-style-pieces"
                         config.pieceTheme = 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/colourgrey-style-pieces/' + piece + '.png';
                     }
-                    if (selectmenu=='default'){
-                        document.querySelector(':root').style.setProperty('--darksqbg',);
-                    }
-                    for (var i = 0; i < 32; i++) {
-                        var whtsquare = whtsquare1[i];
+                    
                         if (selectmenu == "default") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
                             document.querySelector(':root').style.setProperty('--lightsqcolour',"#b58863");
-                        }
-                        if (selectmenu == "classic") {
+                        } else if (selectmenu == "classic") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"#e9e0ef");
                             document.querySelector(':root').style.setProperty('--lightsqcolour',"#060510");
-                        }
-                        if (selectmenu == "chocolate") {
+                        }  else   if (selectmenu == "chocolate") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
                             document.querySelector(':root').style.setProperty('--lightsqcolour',"chocolate");
-                        }
-                        if (selectmenu == "bnw") {
+                        } else  if (selectmenu == "bnw") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"#f8f8f8");
                             document.querySelector(':root').style.setProperty('--lightsqcolour',"#000");
-                        }
-                        if (selectmenu == "green") {
+                        } else if (selectmenu == "green") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
                             document.querySelector(':root').style.setProperty('--lightsqcolour',"indigo");
-                        }
-                        if (selectmenu == "purple") {
+                        } else    if (selectmenu == "purple") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
                             document.querySelector(':root').style.setProperty('--lightsqcolour',"purple");
-                        }
-                        if (selectmenu == "blue") {
+                        } else if (selectmenu == "blue") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
                             document.querySelector(':root').style.setProperty('--lightsqcolour',"blue");
-                        }
-                        if (selectmenu == "brown") {
+                        } else if (selectmenu == "brown") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9ff");
                             document.querySelector(':root').style.setProperty('--lightsqcolour',"brown");
-                        }
-                        if (selectmenu == "orange") {
+                        } else if (selectmenu == "orange") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"#d0d9ff");
                             document.querySelector(':root').style.setProperty('--lightsqcolour',"orange");
-                        }
-                        if (selectmenu == "marble") {
+                        } else   if (selectmenu == "marble") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"");
                             document.querySelector(':root').style.setProperty('--lightsqbg',"url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_whitesq.png)");
-                        }
-                        if (selectmenu == "goldsilver") {
+                        } else if (selectmenu == "goldsilver") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"var(--silver)");
-                        }
-                        if (selectmenu == "ivory") {
+                        } else   if (selectmenu == "ivory") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"");
                             document.querySelector(':root').style.setProperty('--lightsqbg',"url(https://media.istockphoto.com/id/1412328901/photo/old-concrete-wall-texture-background-close-up-retro-plain-beige-color-cement-material-surface.jpg?b=1&s=170667a&w=0&k=20&c=_Yd94mVWR9O6JN1PKX41Zr9Fgm2cU3L0GtmKXXs2sFI=)");
-                        }
-                        if (selectmenu == "walnut") {
+                        } else if (selectmenu == "walnut") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_whtsq.png)");
-                        }
-                    }
-                    for (var i = 0; i < 32; i++) {
-                        var blcsquare = blcsquare1[i];
-                        if (selectmenu == "default") {
+                        } 
+                        
+                    if (selectmenu == "default") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"#b58863");
                             document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
-                        }
-                        if (selectmenu == "classic") {
+                        } else if (selectmenu == "classic") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"radial-gradient(#888,#101527)");
                             document.querySelector(':root').style.setProperty('--darksqcolour',"#e9e0ef");
-                        }
-                        if (selectmenu == "chocolate") {
+                        }  else if  (selectmenu == "chocolate") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"chocolate");
                             document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
-                        }
-                        if (selectmenu == "bnw") {
+                        }  else if  (selectmenu == "bnw") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"radial-gradient(#eee,#020202,#020202)");
                             document.querySelector(':root').style.setProperty('--darksqcolour',"#fff");
-                        }
-                        if (selectmenu == "green") {
+                        }  else if  (selectmenu == "green") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"green");
                             document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9f5");
-                        }
-                        if (selectmenu == "purple") {
+                        }  else if  (selectmenu == "purple") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9f5");
                             document.querySelector(':root').style.setProperty('--lightsqcolour',"purple");
                             document.querySelector(':root').style.setProperty('--darksqbg',"purple");
                             document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9f5");
-                        }
-                        if (selectmenu == "blue") {
+                        }  else if  (selectmenu == "blue") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"blue");
                             document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
-                        }
-                        if (selectmenu == "brown") {
+                        }  else if  (selectmenu == "brown") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"brown");
                             document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9ff");
-                        }
-                        if (selectmenu == "orange") {
+                        }  else if  (selectmenu == "orange") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"orange");
                             document.querySelector(':root').style.setProperty('--darksqcolour',"#d0d9ff");
-                        }
-                        if (selectmenu == "marble") {
+                        }  else if  (selectmenu == "marble") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"");
-                            document.querySelector(':root').style.setProperty('--darksqbg',"url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_blacksq.png)");                        }
-                        if (selectmenu == "goldsilver") {
+                            document.querySelector(':root').style.setProperty('--darksqbg',"url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/marble_blacksq.png)"); 
+                        }  else if  (selectmenu == "goldsilver") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"var(--gold)");
-                        }
-                        if (selectmenu == "ivory") {
+                        }  else if  (selectmenu == "ivory") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"");
                             document.querySelector(':root').style.setProperty('--darksqbg',"url(https://media.istockphoto.com/id/1355204884/photo/rustic-plywood-texture-background.jpg?b=1&s=170667a&w=0&k=20&c=YT3HKmr1sSpRwFhnJCUN-AlMFU5GmGQDIlwuHOqAbKc=)");
-                        }
-                        if (selectmenu == "walnut") {
+                        }  else if  (selectmenu == "walnut") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"");
                             document.querySelector(':root').style.setProperty('--darksqbg',"url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_blsq.png)");
                         }
-                    }
+                    
                     if (selectmenu == "default") {
                         document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
                         document.querySelector(':root').style.setProperty('--lightsqcolour',"#b58863");
@@ -574,15 +545,13 @@
                         document.querySelector(':root').style.setProperty('--darksqbg',"orange");
                         document.querySelector(':root').style.setProperty('--darksqcolour',"#d0d9ff");
                     }
-                })
+                });
                 window.onload = function () {
                 }
                 function mythemefunction() {
                     var selectmenu = document.getElementById("boardthemeselect").value;
                     var blcsquare1 = document.querySelectorAll(".black-3c85d");
                     var whtsquare1 = document.querySelectorAll(".white-1e1d7");
-                    for (var i = 0; i < whtsquare1.length; i++) {
-                        var whtsquare = whtsquare1[i];
                         if (selectmenu == "default") {
                             document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
                             document.querySelector(':root').style.setProperty('--lightsqcolour',"#b58863");
@@ -619,9 +588,7 @@
                             document.querySelector(':root').style.setProperty('--lightsqbg',"#d0d9ff");
                             document.querySelector(':root').style.setProperty('--lightsqcolour',"orange");
                         }
-                    }
-                    for (var i = 0; i < blcsquare1.length; i++) {
-                        var blcsquare = blcsquare1[i];
+                    
                         if (selectmenu == "default") {
                             document.querySelector(':root').style.setProperty('--darksqbg',"#b58863");
                             document.querySelector(':root').style.setProperty('--darksqcolour',"#f0d9b5");
@@ -660,7 +627,7 @@
                             document.querySelector(':root').style.setProperty('--darksqbg',"orange");
                             document.querySelector(':root').style.setProperty('--darksqcolour',"#d0d9ff");
                         }
-                    }
+                    
                     if (selectmenu == "default") {
                         document.querySelector(':root').style.setProperty('--lightsqbg',"#f0d9b5");
                         document.querySelector(':root').style.setProperty('--lightsqcolour',"#b58863");
@@ -1103,6 +1070,7 @@
                     }
                 };
                     board.position(game.fen());
+                    mythemefunction();
                 }
 
 
