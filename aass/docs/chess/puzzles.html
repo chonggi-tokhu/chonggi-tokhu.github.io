@@ -355,26 +355,6 @@
                     btag.classList.toggle("dark");
                     dtag1.classList.toggle("dark");
                 }
-                window.onclick = function (event) {
-                    var btag = document.getElementById("body734");
-                    var dtag1 = document.getElementById("MartySay");
-                    if (!target.matches(".checkbox")) {
-                        var darktheme = document.getElementById("body734");
-                        var i;
-                        for (i = 0; i < darktheme.length; i++) {
-                            var darkthemexxx = darktheme[i];
-                            if (darkthemexxx.classList.contains("dark")) {
-                                darkthemexxx.classList.remove("dark");
-                            }
-                        }
-                        for (i = 0; i < dtag1.length; i++) {
-                            var darkthemexxx2 = dtag1[i];
-                            if (darkthemexxx2.classList.contains("dark")) {
-                                darkthemexxx2.classList.remove("dark");
-                            }
-                        }
-                    }
-                }
 
                                     var puzzletr = new mypuzzlesdata();
                 $("#puzzletheme1").change(function () {
@@ -415,7 +395,7 @@
                         piecethemes = "colourgrey-style-pieces"
                         config.pieceTheme = 'https://chonggi-tokhu.github.io/aass/docs/chess/img/chesspieces/colourgrey-style-pieces/' + piece + '.png';
                     }
-                    for (i = 0; i < whtsquare1.length; i++) {
+                    for (var i = 0; i < 32; i++) {
                         var whtsquare = whtsquare1[i];
                         if (selectmenu == "default") {
                             whtsquare.style.background = "#f0d9b5";
@@ -469,7 +449,7 @@
                             whtsquare.style.backgroundImage = "url(https://chonggi-tokhu.github.io/aass/docs/chess/img/chessboardtheme/fromchesscom/walnut_whtsq.png)"
                         }
                     }
-                    for (i = 0; i < blcsquare1.length; i++) {
+                    for (var i = 0; i < 32; i++) {
                         var blcsquare = blcsquare1[i];
                         if (selectmenu == "default") {
                             blcsquare.style.background = "#b58863";
@@ -586,7 +566,7 @@
                     var selectmenu = document.getElementById("boardthemeselect").value;
                     var blcsquare1 = document.querySelectorAll(".black-3c85d");
                     var whtsquare1 = document.querySelectorAll(".white-1e1d7");
-                    for (i = 0; i < whtsquare1.length; i++) {
+                    for (var i = 0; i < whtsquare1.length; i++) {
                         var whtsquare = whtsquare1[i];
                         if (selectmenu == "default") {
                             whtsquare.style.background = "#f0d9b5";
@@ -625,7 +605,7 @@
                             whtsquare.style.color = "orange";
                         }
                     }
-                    for (i = 0; i < blcsquare1.length; i++) {
+                    for (var i = 0; i < blcsquare1.length; i++) {
                         var blcsquare = blcsquare1[i];
                         if (selectmenu == "default") {
                             blcsquare.style.background = "#b58863";
