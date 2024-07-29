@@ -599,6 +599,34 @@
                     dddddd44 = $("#puzzletheme1").val();
                     console.log("kkk");
                     board = Chessboard('myBoard', config);
+                board.addCircle = function (to) {
+                    var $circle = $("[data-square='" + to + "']");
+                    if ($circle != undefined) {
+                        var circle = $circle.html();
+                        if (!circle.includes("img")) {
+                            $circle.html($circle.html() + "<chess-circle></chess-circle>");
+                        } else {
+                            //$circle.html(circle + "<chess-eat></chess-eat>");
+                            $circle.addClass('highlight-black');
+                        }
+                    } else {
+                        return null;
+                    }
+                };
+                board.clearCircles = function () {
+                    var $circles = $("[data-square]");
+                    if ($circles != undefined) {
+                        $circles.each(function (index, element) {
+                            var circle = $(element).html();
+                            circle = circle.replace('<chess-circle></chess-circle>', '');
+                            circle = circle.replace('<chess-eat></chess-eat>', '');
+                            $(element).html(circle);
+                            $(element).removeClass('highlight-black');
+                        });
+                    } else {
+                        return null;
+                    }
+                };
                     lelvelandsrc(puzzletr2);
                     game.load(puzzletr2.position);
                     board.position(game.fen());
@@ -853,6 +881,34 @@
                         }
                 $("#randombtn").click(function () {
                     board = Chessboard('myBoard',config);
+                board.addCircle = function (to) {
+                    var $circle = $("[data-square='" + to + "']");
+                    if ($circle != undefined) {
+                        var circle = $circle.html();
+                        if (!circle.includes("img")) {
+                            $circle.html($circle.html() + "<chess-circle></chess-circle>");
+                        } else {
+                            //$circle.html(circle + "<chess-eat></chess-eat>");
+                            $circle.addClass('highlight-black');
+                        }
+                    } else {
+                        return null;
+                    }
+                };
+                board.clearCircles = function () {
+                    var $circles = $("[data-square]");
+                    if ($circles != undefined) {
+                        $circles.each(function (index, element) {
+                            var circle = $(element).html();
+                            circle = circle.replace('<chess-circle></chess-circle>', '');
+                            circle = circle.replace('<chess-eat></chess-eat>', '');
+                            $(element).html(circle);
+                            $(element).removeClass('highlight-black');
+                        });
+                    } else {
+                        return null;
+                    }
+                };
                     var abc1d = makeRandomMove2();
                     console.log(abc1d);
                 });
@@ -876,6 +932,34 @@
                     dddddd44 = $("#puzzletheme1").val();
                     console.log("kkk");
                     board = Chessboard('myBoard', config);
+                board.addCircle = function (to) {
+                    var $circle = $("[data-square='" + to + "']");
+                    if ($circle != undefined) {
+                        var circle = $circle.html();
+                        if (!circle.includes("img")) {
+                            $circle.html($circle.html() + "<chess-circle></chess-circle>");
+                        } else {
+                            //$circle.html(circle + "<chess-eat></chess-eat>");
+                            $circle.addClass('highlight-black');
+                        }
+                    } else {
+                        return null;
+                    }
+                };
+                board.clearCircles = function () {
+                    var $circles = $("[data-square]");
+                    if ($circles != undefined) {
+                        $circles.each(function (index, element) {
+                            var circle = $(element).html();
+                            circle = circle.replace('<chess-circle></chess-circle>', '');
+                            circle = circle.replace('<chess-eat></chess-eat>', '');
+                            $(element).html(circle);
+                            $(element).removeClass('highlight-black');
+                        });
+                    } else {
+                        return null;
+                    }
+                };
                     lelvelandsrc(puzzletr2);
                     game.load(puzzletr2.position);
                     board.position(game.fen());
@@ -989,34 +1073,6 @@
                     onSnapEnd: onSnapEnd
                 };
                 
-                board.addCircle = function (to) {
-                    var $circle = $("[data-square='" + to + "']");
-                    if ($circle != undefined) {
-                        var circle = $circle.html();
-                        if (!circle.includes("img")) {
-                            $circle.html($circle.html() + "<chess-circle></chess-circle>");
-                        } else {
-                            //$circle.html(circle + "<chess-eat></chess-eat>");
-                            $circle.addClass('highlight-black');
-                        }
-                    } else {
-                        return null;
-                    }
-                };
-                board.clearCircles = function () {
-                    var $circles = $("[data-square]");
-                    if ($circles != undefined) {
-                        $circles.each(function (index, element) {
-                            var circle = $(element).html();
-                            circle = circle.replace('<chess-circle></chess-circle>', '');
-                            circle = circle.replace('<chess-eat></chess-eat>', '');
-                            $(element).html(circle);
-                            $(element).removeClass('highlight-black');
-                        });
-                    } else {
-                        return null;
-                    }
-                };
                 function onDragStart(source, piece, position, orientation) {
                     board.addCircle = function (to) {
                         var $circle = $("[data-square='" + to + "']");
@@ -1073,6 +1129,34 @@
                 document.getElementById("piecethemes1").onchange = function () {
                     document.getElementById("chesspiecesxxx").value = document.getElementById("piecethemes1").value;
                     board = Chessboard('myBoard', config);
+                board.addCircle = function (to) {
+                    var $circle = $("[data-square='" + to + "']");
+                    if ($circle != undefined) {
+                        var circle = $circle.html();
+                        if (!circle.includes("img")) {
+                            $circle.html($circle.html() + "<chess-circle></chess-circle>");
+                        } else {
+                            //$circle.html(circle + "<chess-eat></chess-eat>");
+                            $circle.addClass('highlight-black');
+                        }
+                    } else {
+                        return null;
+                    }
+                };
+                board.clearCircles = function () {
+                    var $circles = $("[data-square]");
+                    if ($circles != undefined) {
+                        $circles.each(function (index, element) {
+                            var circle = $(element).html();
+                            circle = circle.replace('<chess-circle></chess-circle>', '');
+                            circle = circle.replace('<chess-eat></chess-eat>', '');
+                            $(element).html(circle);
+                            $(element).removeClass('highlight-black');
+                        });
+                    } else {
+                        return null;
+                    }
+                };
                 }
 
 
